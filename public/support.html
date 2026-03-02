@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support &amp; FAQ - LawnBook</title>
+  <meta name="description" content="LawnBook support and frequently asked questions. Get help with offline usage, iCloud sync, subscriptions, invoicing, route optimization, and more.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/support">
+
+  <meta property="og:title" content="Support &amp; FAQ - LawnBook">
+  <meta property="og:description" content="Get help with LawnBook. FAQ covering offline usage, iCloud sync, subscriptions, invoicing, route optimization, and more.">
+  <meta property="og:url" content="https://lawnbook.app/support">
+  <meta property="og:type" content="website">
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does LawnBook work without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LawnBook is 100% offline-first. Every feature works without any internet connection. Your data is stored locally on your device, so you can schedule jobs, create invoices, log expenses, and use AI tools even with zero cell service in the field."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does iCloud sync work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "iCloud sync is optional and syncs your LawnBook data across your Apple devices using Apple's CloudKit infrastructure. Enable it in Settings > iCloud Sync. Srisan Labs cannot see your synced data — it stays within your Apple ID."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I cancel my subscription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Subscriptions are managed through the App Store. Go to Settings app on your iPhone > your Apple ID > Subscriptions > LawnBook > Cancel Subscription. Your access continues until the end of the current billing period."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I send an invoice from LawnBook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tap Invoices > New Invoice, select a client, add line items for labor and materials, then tap Send. You can send via email as a PDF, or share the PDF directly. You can also convert a completed job to an invoice with one tap from the Jobs tab."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does route optimization work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Route optimization is available on Premium. Go to Today's Schedule > Optimize Route. LawnBook calculates the most efficient order for your day's job stops. Tap any stop to open turn-by-turn directions in Apple Maps, Google Maps, or Waze."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .blob-3 { top: 50%; left: 30%; width: 300px; height: 300px; background: #BDC581; opacity: 0.06; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .page-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 48px;
+    }
+    .page-header .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 16px;
+      color: #8B9A6B;
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .contact-banner {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 20px;
+      padding: 32px 36px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+    .contact-banner .icon-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .contact-banner .text h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .contact-banner .text p {
+      font-size: 14px;
+      color: #8B9A6B;
+      line-height: 1.5;
+    }
+    .contact-banner .text a {
+      color: #BDC581;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-banner .text a:hover { color: #EFF2E4; }
+
+    .faq-section {
+      margin-bottom: 64px;
+    }
+    .faq-category {
+      margin-bottom: 48px;
+    }
+    .faq-category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .faq-category-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(138, 158, 72, 0.1);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .faq-category-header h2 {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .faq-list { }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #EFF2E4;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: left;
+      padding: 18px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: inherit;
+      line-height: 1.4;
+    }
+    .faq-question::after {
+      content: "+";
+      font-size: 20px;
+      color: #8A9E48;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      font-size: 14px;
+      color: #8B9A6B;
+      line-height: 1.75;
+      padding: 0 0 18px;
+      display: none;
+      max-width: 640px;
+    }
+    .faq-answer a {
+      color: #BDC581;
+      text-decoration: none;
+    }
+    .faq-answer a:hover { color: #EFF2E4; }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .tips-section {
+      margin-bottom: 64px;
+    }
+    .tips-section h2 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      margin-bottom: 8px;
+    }
+    .tips-section .sub {
+      font-size: 14px;
+      color: #8B9A6B;
+      margin-bottom: 28px;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .tip-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px 22px;
+      transition: border-color 0.2s;
+    }
+    .tip-card:hover {
+      border-color: rgba(138, 158, 72, 0.25);
+    }
+    .tip-card .tip-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .tip-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .tip-card p {
+      font-size: 13px;
+      color: #8B9A6B;
+      line-height: 1.6;
+    }
+
+    .still-stuck {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .still-stuck h2 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+    .still-stuck p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .email-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.35);
+      color: #BDC581;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .email-btn:hover {
+      background: rgba(138, 158, 72, 0.2);
+      border-color: rgba(138, 158, 72, 0.5);
+      color: #EFF2E4;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #8B9A6B;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 48px 0 32px; }
+      .contact-banner { flex-direction: column; gap: 16px; padding: 24px; }
+      .tips-grid { grid-template-columns: 1fr; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .still-stuck { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      .tips-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link active">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <div class="label">Help Center</div>
+      <h1>Support &amp; FAQ</h1>
+      <p>Quick answers to the most common questions. Can't find what you need? Email us and we'll respond within one business day.</p>
+    </div>
+
+    <div class="contact-banner">
+      <div class="icon-wrap">&#9993;</div>
+      <div class="text">
+        <h2>Need personal help?</h2>
+        <p>Email us at <a href="mailto:support@lawnbook.app">support@lawnbook.app</a> — we're a small team and read every message. Include your device model and iOS version to help us troubleshoot faster.</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#128268;</div>
+          <h2>Offline &amp; Sync</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Does LawnBook work without internet?</button>
+            <div class="faq-answer">Yes. LawnBook is 100% offline-first. Every feature works without any internet connection — scheduling jobs, creating invoices, logging expenses, route planning, AI tools, everything. Your data is stored locally on your device, so you have full access even with zero cell service in the field. The app is designed for lawn care professionals who spend their days outdoors and can't always rely on connectivity.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How does iCloud sync work?</button>
+            <div class="faq-answer">iCloud sync is optional and off by default. When enabled, LawnBook uses Apple's CloudKit framework to sync your data between your Apple devices (iPhone, iPad, Mac) that share the same Apple ID. Enable it in LawnBook Settings &gt; iCloud Sync. Sync happens automatically in the background when you're online. Srisan Labs cannot see your synced data — it stays encrypted within Apple's infrastructure and your Apple ID.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">My iCloud sync isn't working. What do I do?</button>
+            <div class="faq-answer">First, ensure iCloud Drive is enabled in your device's Settings app under your Apple ID &gt; iCloud &gt; iCloud Drive. Check that LawnBook specifically has iCloud access turned on in that same list. Both devices need to be signed into the same Apple ID and have an internet connection. If sync still isn't working after a few minutes, try toggling iCloud Sync off and back on in LawnBook Settings. If the issue persists, email us at <a href="mailto:support@lawnbook.app">support@lawnbook.app</a>.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I back up my data?</button>
+            <div class="faq-answer">Enable iCloud Sync in LawnBook Settings to automatically back up your data to iCloud — this is the easiest method. Your data will be restored automatically if you reinstall LawnBook on the same Apple ID. Alternatively, you can export your data to CSV or PDF from the Reports section. Keep in mind that deleting LawnBook without iCloud Sync enabled will permanently remove your local data.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">What happens if I get a new phone?</button>
+            <div class="faq-answer">If you had iCloud Sync enabled on your old phone, your data restores automatically when you install LawnBook on your new phone and sign in with the same Apple ID. If you transferred your iPhone using the standard iPhone migration process, LawnBook and its local data should transfer along with your other apps. If you didn't have iCloud Sync enabled and didn't migrate from your old device, the data won't be recoverable.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#128176;</div>
+          <h2>Subscriptions &amp; Billing</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I cancel my subscription?</button>
+            <div class="faq-answer">Subscriptions are managed through the App Store, not through LawnBook directly. To cancel: open the Settings app on your iPhone &gt; tap your name at the top &gt; tap Subscriptions &gt; tap LawnBook &gt; tap Cancel Subscription. Your access to paid features continues until the end of the current billing period. You won't be charged again after cancellation.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can I get a refund?</button>
+            <div class="faq-answer">Refund requests are handled by Apple, not by Srisan Labs. To request a refund: visit <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, sign in with your Apple ID, find your LawnBook purchase, and select "Request a Refund." Apple reviews each request individually. We don't have the ability to issue refunds directly.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">What's the difference between Pro and Premium?</button>
+            <div class="faq-answer">Pro gives you unlimited clients, advanced invoicing and estimates, expense reports and analytics, weather-aware scheduling, supply inventory, CSV/PDF exports, tax reports, and mileage tracking. Premium includes everything in Pro plus all AI-powered features: the AI lawn assistant, route optimization, voice job and expense entry, AI receipt scanner, seasonal planner, profitability analysis, payment predictions, and team collaboration tools.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Does the free trial require a credit card?</button>
+            <div class="faq-answer">The 14-day free trial is initiated through the App Store. Apple requires a payment method on file for App Store accounts, but you won't be charged during the trial period. You can cancel before the trial ends to avoid any charge. The trial is available once per Apple ID per subscription tier.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can I switch between monthly and annual billing?</button>
+            <div class="faq-answer">Yes. You can switch billing frequency through your App Store subscriptions. Go to Settings &gt; your Apple ID &gt; Subscriptions &gt; LawnBook, then select the plan you'd like. The change takes effect at your next renewal date. Annual billing saves about 33% compared to monthly billing.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#128196;</div>
+          <h2>Invoicing &amp; Estimates</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I send an invoice?</button>
+            <div class="faq-answer">Tap the Invoices tab &gt; New Invoice, select a client, add line items for labor and materials, then tap Send. You can send via email as a PDF attachment, or share the PDF to any app. You can also convert a completed job to an invoice instantly — from the Jobs tab, open any completed job and tap "Convert to Invoice." All line items from the job are pre-filled.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can clients sign invoices digitally?</button>
+            <div class="faq-answer">Yes. When creating or editing an invoice, tap the Signature section to add a signature capture field. When you show the invoice to your client in person, they can sign directly on your phone or iPad screen with their finger. The signature is embedded in the PDF and stored with the invoice record.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I convert an estimate to an invoice?</button>
+            <div class="faq-answer">Open any estimate from the Invoices tab &gt; Estimates section. Tap "Convert to Invoice" at the bottom. The estimate details — client, line items, notes — are carried over to the new invoice. The estimate is marked as converted and linked to the invoice for your records.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can I set up recurring invoices?</button>
+            <div class="faq-answer">You can set up recurring jobs with automatic billing in mind. When creating a recurring job (weekly, bi-weekly, monthly), LawnBook can generate invoices automatically after each job is marked complete. Enable this in the job settings under "Auto-Invoice." Each generated invoice is sent to your drafts for review before sending, or can be configured to send automatically.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I track which invoices have been paid?</button>
+            <div class="faq-answer">In the Invoices tab, each invoice shows a status badge: Draft, Sent, Viewed, Paid, or Overdue. Tap any invoice and tap "Mark as Paid" when you receive payment. You can record payment method and date. The dashboard shows outstanding balance, overdue invoices, and revenue collected this month at a glance.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#128760;</div>
+          <h2>Route Optimization</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How does route optimization work?</button>
+            <div class="faq-answer">Route optimization is available on the Premium plan. Go to Today's Schedule &gt; Optimize Route. LawnBook calculates the most fuel-efficient order for your day's job stops based on their addresses. Tap any stop to open turn-by-turn directions in Apple Maps, Google Maps, or Waze — whichever you prefer. The optimized route is saved for the day so you can reference it anytime without recalculating.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Does route optimization work offline?</button>
+            <div class="faq-answer">Yes. The route optimization algorithm runs on-device and doesn't require an internet connection. The turn-by-turn navigation is handled by your map app of choice (Apple Maps, Google Maps, or Waze), which may require connectivity for live traffic data — but the address routing itself works offline with cached map data.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Can I manually reorder my stops?</button>
+            <div class="faq-answer">Yes. After optimizing, or at any time, you can drag and drop job stops in Today's Schedule to reorder them manually. This is useful if you have priority jobs that need to happen at a specific time, or if a client calls to reschedule last-minute. Manual order overrides the optimized sequence.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I add a starting location for route optimization?</button>
+            <div class="faq-answer">Go to Settings &gt; Business &gt; Home Base Address. Enter your starting location (your home, shop, or wherever you begin your day). The route optimizer uses this as the starting point to calculate the most efficient path through all your jobs. You can change this anytime.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#129504;</div>
+          <h2>AI Features</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Is AI data sent to any servers?</button>
+            <div class="faq-answer">No. All AI features in LawnBook run entirely on your device using Apple's on-device machine learning frameworks (Core ML, Vision, and Speech). Your photos, voice recordings, and data never leave your device for AI processing. No prompts or results are sent to Srisan Labs or any third-party AI service.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I use voice job entry?</button>
+            <div class="faq-answer">Tap the microphone button on the Jobs tab or the Dashboard. Say something like "Mow and edge at 123 Oak Street on Friday at 9 AM" and LawnBook transcribes and parses it into a new job — filling in the client (if the address matches an existing one), service type, date, and time. Review the prefilled job before saving. Works offline using on-device speech recognition.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How does the AI receipt scanner work?</button>
+            <div class="faq-answer">In the Expenses tab, tap New Expense &gt; Scan Receipt. Point your camera at the receipt and the AI reads the vendor name, amount, date, and category automatically using on-device computer vision. Review the extracted fields, adjust if needed, and save. Works with most printed receipts from gas stations, supply stores, home improvement stores, and restaurants.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">What is the AI lawn assistant?</button>
+            <div class="faq-answer">The AI lawn assistant provides personalized recommendations based on your clients' lawn data — grass type, region, lot size, service history, and season. It generates seasonal planting and care plans, suggests optimal fertilizer and treatment schedules, analyzes lawn photos for health issues, and produces daily briefings summarizing your workload and action items. Everything runs on-device.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-category">
+        <div class="faq-category-header">
+          <div class="faq-category-icon">&#128202;</div>
+          <h2>Expenses &amp; Taxes</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">Does LawnBook track Schedule C categories?</button>
+            <div class="faq-answer">Yes. LawnBook includes all IRS Schedule C expense categories: Advertising, Car &amp; Truck, Commissions, Insurance, Legal &amp; Professional, Office Expenses, Rent or Lease, Repairs &amp; Maintenance, Supplies, Taxes &amp; Licenses, Travel, Meals, Utilities, Wages, and Other. Each expense you log is assigned a category, and you can export a clean Schedule C report at any time to give your accountant.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How does mileage tracking work?</button>
+            <div class="faq-answer">Go to Expenses &gt; Mileage. You can log trips manually by entering start and end addresses (LawnBook calculates the distance) or enter the miles directly. Each trip is associated with a date and business purpose. LawnBook calculates your deduction using the current IRS standard mileage rate. Export mileage reports for tax purposes from the Reports tab.</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">How do I export financial reports?</button>
+            <div class="faq-answer">Go to the Reports tab. You can export Profit &amp; Loss statements, Schedule C expense reports, mileage logs, revenue summaries, and client billing history as PDF or CSV. Select your date range, choose the report type, and tap Export. Reports can be shared via email, AirDrop, or any app on your device.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="tips-section">
+      <h2>Tips to get the most out of LawnBook</h2>
+      <p class="sub">Shortcuts and workflows from our team.</p>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <span class="tip-icon">&#9889;</span>
+          <h3>Start with the Guide</h3>
+          <p>Visit <a href="/guide" style="color: #BDC581; text-decoration: none;">lawnbook.app/guide</a> for step-by-step walkthroughs of every major feature, with screenshots.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon">&#128101;</span>
+          <h3>Import from Contacts</h3>
+          <p>Add clients faster by importing directly from your phone's Contacts app. Tap New Client &gt; Import from Contacts.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon">&#128200;</span>
+          <h3>Check the Dashboard daily</h3>
+          <p>The Dashboard shows today's jobs, weather, outstanding invoices, and AI briefing. Make it your morning starting point.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon">&#128247;</span>
+          <h3>Scan receipts immediately</h3>
+          <p>Scan receipts as you get them at the gas pump or supply store — before they get lost in your truck.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon">&#128506;</span>
+          <h3>Optimize your route each morning</h3>
+          <p>Takes 3 seconds. Open Today's Schedule, tap Optimize. Save fuel and time every single day.</p>
+        </div>
+        <div class="tip-card">
+          <span class="tip-icon">&#128196;</span>
+          <h3>Enable auto-invoice</h3>
+          <p>For recurring clients, enable Auto-Invoice on the job. Invoice drafts are ready the moment you mark a job complete.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="still-stuck">
+      <h2>Still need help?</h2>
+      <p>We're a small team and we personally respond to every support email — usually within one business day. Tell us what you're working on and we'll help you sort it out.</p>
+      <a href="mailto:support@lawnbook.app" class="email-btn">
+        &#9993; Email support@lawnbook.app
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    function toggleFaq(btn) {
+      var item = btn.parentElement;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(el) {
+        el.classList.remove('open');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    }
+  </script>
+</body>
+</html>

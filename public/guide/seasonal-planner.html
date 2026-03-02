@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>Seasonal Planner - LawnBook Guide</title>
+  <meta name="description" content="Generate AI lawn care plans tailored to each client's grass type, region, and season. Fertilizer schedules, aeration timing, overseeding windows, and more.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide/seasonal-planner">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif; background: #0F1208; color: #EFF2E4; line-height: 1.6; overflow-x: hidden; }
+    .blob { position: fixed; border-radius: 50%; filter: blur(60px); z-index: 0; pointer-events: none; }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #EFF2E4; text-decoration: none; }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link { font-size: 14px; color: #8B9A6B; text-decoration: none; font-weight: 600; }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: #EFF2E4; margin: 5px 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #8B9A6B; text-decoration: none; margin: 24px 0 32px; transition: color 0.15s; }
+    .back-link:hover { color: #BDC581; }
+    .back-link::before { content: "\2190"; font-size: 15px; }
+    .article-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #8A9E48; background: rgba(138, 158, 72, 0.12); border: 1px solid rgba(138, 158, 72, 0.25); border-radius: 100px; padding: 5px 14px; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px; color: #EFF2E4; }
+    .article-meta { font-size: 13px; color: #3D4A2D; font-weight: 600; margin-bottom: 40px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .article-body h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; color: #EFF2E4; margin: 48px 0 16px; line-height: 1.3; }
+    .article-body p { font-size: 16px; color: #BDC581; line-height: 1.75; margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 0; padding-left: 0; list-style: none; }
+    .article-body ul li, .article-body ol li { font-size: 16px; color: #BDC581; line-height: 1.7; padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .article-body ul li:last-child, .article-body ol li:last-child { border-bottom: none; }
+    .article-body ul li::before { content: "\2713"; color: #8A9E48; font-weight: 700; position: absolute; left: 0; }
+    .article-body ol { counter-reset: list-counter; }
+    .article-body ol li { counter-increment: list-counter; }
+    .article-body ol li::before { content: counter(list-counter) "."; color: #8A9E48; font-weight: 700; position: absolute; left: 0; font-size: 14px; }
+    blockquote { border-left: 3px solid #8A9E48; background: rgba(138, 158, 72, 0.06); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; }
+    blockquote p { font-size: 15px; color: #BDC581; margin: 0; line-height: 1.65; }
+    blockquote strong { color: #EFF2E4; font-weight: 700; }
+    .grass-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 0 0 28px;
+    }
+    .grass-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .grass-card strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-bottom: 4px;
+    }
+    .grass-card span {
+      font-size: 13px;
+      color: #8B9A6B;
+    }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 48px 0; }
+    .cta-section { background: rgba(138, 158, 72, 0.07); border: 1px solid rgba(138, 158, 72, 0.2); border-radius: 16px; padding: 36px 32px; text-align: center; margin: 56px 0 48px; }
+    .cta-section h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 10px; color: #EFF2E4; }
+    .cta-section p { font-size: 15px; color: #8B9A6B; margin-bottom: 24px; line-height: 1.6; }
+    .appstore-btn { display: inline-block; transition: transform 0.15s; }
+    .appstore-btn:hover { transform: scale(1.03); }
+    .appstore-btn img { height: 48px; width: auto; }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 0; text-align: center; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; font-weight: 600; color: #8B9A6B; text-decoration: none; }
+    .footer-links a:hover { color: #EFF2E4; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+    footer p { font-size: 13px; color: #3D4A2D; margin-top: 12px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #0F1208; border-bottom: 1px solid rgba(255,255,255,0.08); flex-direction: column; padding: 20px 24px; gap: 16px; z-index: 100; }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-section { padding: 28px 20px; }
+      .grass-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/guide" class="back-link">Back to Guide</a>
+
+    <div class="article-tag">Step 11 &mdash; Seasonal Planner</div>
+    <h1>Give Every Client a Year-Round Care Plan That Actually Fits Their Lawn</h1>
+    <div class="article-meta">
+      <span>LawnBook Guide</span>
+      <span>&middot;</span>
+      <span>7 min read</span>
+    </div>
+
+    <div class="article-body">
+      <p>A Bermuda lawn in Georgia and a Tall Fescue lawn in Ohio need completely different care calendars. LawnBook's Seasonal Planner generates month-by-month recommendations based on each client's specific grass type, USDA hardiness zone, and local climate patterns. This guide explains how to generate, customize, and share seasonal plans.</p>
+
+      <h2>What Goes Into a Seasonal Plan</h2>
+      <p>The planner combines three inputs to generate a care calendar:</p>
+      <ul>
+        <li><strong>Grass type</strong> &mdash; Set on the client's property record (warm-season vs. cool-season, and specific cultivar)</li>
+        <li><strong>Region and climate zone</strong> &mdash; Derived from the property address, cross-referenced with USDA zone data</li>
+        <li><strong>Current date and season</strong> &mdash; The plan adjusts based on where you are in the calendar year</li>
+      </ul>
+      <p>The output is a 12-month calendar with specific actions called out for each month, including the reasoning behind the timing &mdash; not just "apply fertilizer in April" but "apply slow-release nitrogen in April as soil temperatures reach 55&deg;F and before spring growth flush."</p>
+
+      <h2>Supported Grass Types</h2>
+      <div class="grass-grid">
+        <div class="grass-card">
+          <strong>Bermudagrass</strong>
+          <span>Warm-season, Southeast &amp; Southwest US</span>
+        </div>
+        <div class="grass-card">
+          <strong>Zoysiagrass</strong>
+          <span>Warm-season, transition zone</span>
+        </div>
+        <div class="grass-card">
+          <strong>St. Augustinegrass</strong>
+          <span>Warm-season, Gulf Coast &amp; Florida</span>
+        </div>
+        <div class="grass-card">
+          <strong>Centipedegrass</strong>
+          <span>Warm-season, Southeast</span>
+        </div>
+        <div class="grass-card">
+          <strong>Tall Fescue</strong>
+          <span>Cool-season, transition zone &amp; North</span>
+        </div>
+        <div class="grass-card">
+          <strong>Kentucky Bluegrass</strong>
+          <span>Cool-season, Northern US</span>
+        </div>
+        <div class="grass-card">
+          <strong>Fine Fescue</strong>
+          <span>Cool-season, shaded &amp; low-maintenance</span>
+        </div>
+        <div class="grass-card">
+          <strong>Perennial Ryegrass</strong>
+          <span>Cool-season, overseeding &amp; Northern</span>
+        </div>
+      </div>
+
+      <h2>Generating a Plan</h2>
+      <ol>
+        <li>Open any client's profile page</li>
+        <li>Ensure the property record has a grass type and address set</li>
+        <li>Tap <strong>Seasonal Plan</strong> from the client overview</li>
+        <li>Review the generated 12-month calendar</li>
+        <li>Make any adjustments based on your local knowledge</li>
+        <li>Save to the client's record or export as PDF</li>
+      </ol>
+      <p>Plans can also be generated from the AI tab by asking the Lawn Assistant: "Create a seasonal plan for [Client Name]" or by browsing to <strong>AI &rarr; Seasonal Planner</strong> and selecting a client from the list.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Generate seasonal plans for all your clients at the start of each year. Even if you don't share them with clients, having a written plan per property keeps you from relying on memory for when each lawn needs what treatment.</p>
+      </blockquote>
+
+      <h2>Fertilizer Schedules</h2>
+      <p>The fertilizer section of each plan specifies:</p>
+      <ul>
+        <li>Number of applications per year (varies from 2 for low-maintenance types to 6+ for Bermuda)</li>
+        <li>Timing of each application relative to seasonal transitions</li>
+        <li>Recommended N-P-K ratios for each application</li>
+        <li>Whether slow-release or quick-release formulas are appropriate</li>
+        <li>Application rate guidance based on property square footage</li>
+      </ul>
+      <p>These recommendations are general guidelines based on turf science best practices. Soil test results should always take precedence when available. If a client has had a recent soil test, you can note the results in their client profile and the AI incorporates them into recommendations.</p>
+
+      <h2>Aeration and Overseeding Timing</h2>
+      <p>Aeration timing is critical &mdash; aerating a warm-season lawn in fall when it's heading into dormancy causes unnecessary stress. The Seasonal Planner flags the correct aeration window for each grass type:</p>
+      <ul>
+        <li><strong>Warm-season grasses</strong> (Bermuda, Zoysia): Core aerate in late spring to early summer, during peak growth</li>
+        <li><strong>Cool-season grasses</strong> (Fescue, Bluegrass): Core aerate in early fall, 6&ndash;8 weeks before first frost</li>
+      </ul>
+      <p>Overseeding windows are similarly specific. Overseeding cool-season lawns requires soil temperatures between 50&ndash;65&deg;F for reliable germination. The planner calculates the typical window for your client's location based on historical climate data and flags the target weeks in the calendar.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Use seasonal plans as a upsell tool. When you present a client with a written year-round care calendar, it makes the value of regular service tangible. Many operators report converting single-service clients to ongoing contracts after sharing a seasonal plan.</p>
+      </blockquote>
+
+      <h2>Pre-Emergent Application Windows</h2>
+      <p>Pre-emergent herbicide timing is one of the most time-sensitive decisions in lawn care. Applied too early and it breaks down before the weed seeds germinate; applied too late and the weeds are already up. The Seasonal Planner provides the target soil temperature threshold and typical calendar window for pre-emergent applications specific to your region.</p>
+      <p>For crabgrass prevention (the most common application), the target is soil temperatures consistently reaching 55&deg;F at 2-inch depth for several consecutive days. The planner estimates this window for your client's location and adds a reminder to your schedule timeline.</p>
+
+      <h2>Exporting and Sharing Plans</h2>
+      <p>Export any seasonal plan as a branded PDF from the client's profile page. The PDF includes:</p>
+      <ul>
+        <li>Client name and property address</li>
+        <li>Grass type and region</li>
+        <li>Month-by-month care calendar</li>
+        <li>Your business name and contact details</li>
+      </ul>
+      <p>Share the PDF via email, text, or AirDrop directly from the export screen. This is effective for commercial accounts, HOA contracts, and clients who appreciate documentation of the work being done on their property.</p>
+
+      <h2>Seasonal Plan Reminders</h2>
+      <p>When a seasonal plan is active for a client, LawnBook can generate schedule suggestions as seasonal windows approach. For example, when the pre-emergent window is two weeks out, you'll see a prompt in the Dashboard to schedule that application for affected clients. This keeps critical timing windows from slipping past in the busyness of a full season.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="cta-section">
+      <h3>Give every lawn the care it actually needs</h3>
+      <p>Download LawnBook and generate your first seasonal plan in under two minutes.</p>
+      <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://tiktok.com/@srisanlabs" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg></a></li>
+        <li><a href="https://instagram.com/srisanlabs" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+        <li><a href="https://facebook.com/srisanlabs" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

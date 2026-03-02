@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>Job Scheduling — LawnBook Guide</title>
+  <meta name="description" content="Learn how to use LawnBook's calendar view, create one-time and recurring jobs, manage job statuses, and schedule around the weather.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide/scheduling">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+
+    .sidebar { position: sticky; top: 32px; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin-bottom: 28px;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "←"; }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #3D4A2D;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 13px;
+      color: #8B9A6B;
+      text-decoration: none;
+      padding: 5px 0 5px 12px;
+      border-left: 2px solid rgba(255,255,255,0.06);
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .toc a:hover { color: #EFF2E4; border-left-color: #8A9E48; }
+
+    article { min-width: 0; }
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    article h1 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      color: #EFF2E4;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: #BDC581;
+    }
+    .article-body p {
+      font-size: 15px;
+      color: #BDC581;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .article-body ul, .article-body ol {
+      margin: 12px 0 20px 20px;
+    }
+    .article-body li {
+      font-size: 15px;
+      color: #BDC581;
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+    .article-body li strong { color: #EFF2E4; }
+
+    .article-body blockquote {
+      background: rgba(138, 158, 72, 0.08);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .article-body blockquote p { color: #BDC581; margin: 0; font-size: 14px; }
+    .article-body blockquote strong { color: #8A9E48; }
+
+    .step-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.2);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #8A9E48;
+      flex-shrink: 0;
+    }
+    .step-content p { margin: 0; font-size: 14px; color: #BDC581; line-height: 1.6; }
+    .step-content strong { color: #EFF2E4; }
+
+    /* Status flow */
+    .status-flow {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .status-node {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .status-node.scheduled { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #93C5FD; }
+    .status-node.inprogress { background: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.3); color: #FDE047; }
+    .status-node.completed { background: rgba(138, 158, 72, 0.15); border: 1px solid rgba(138, 158, 72, 0.35); color: #BDC581; }
+    .status-node.invoiced { background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.25); color: #C4B5FD; }
+    .status-arrow {
+      font-size: 14px;
+      color: #3D4A2D;
+      margin: 0 6px;
+    }
+
+    /* Status descriptions */
+    .status-list {
+      margin: 16px 0 24px;
+    }
+    .status-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .status-item:last-child { border-bottom: none; }
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .dot-scheduled { background: #93C5FD; }
+    .dot-inprogress { background: #FDE047; }
+    .dot-completed { background: #BDC581; }
+    .dot-invoiced { background: #C4B5FD; }
+    .status-item-body p { font-size: 14px; color: #8B9A6B; margin: 0; line-height: 1.55; }
+    .status-item-body strong { font-size: 14px; color: #EFF2E4; display: block; margin-bottom: 3px; }
+
+    /* Weather warning box */
+    .weather-warning {
+      background: rgba(234, 179, 8, 0.07);
+      border: 1px solid rgba(234, 179, 8, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .weather-icon { font-size: 24px; flex-shrink: 0; }
+    .weather-warning p { font-size: 14px; color: #BDC581; margin: 0; line-height: 1.6; }
+    .weather-warning strong { color: #FDE047; }
+
+    .article-cta {
+      margin-top: 56px;
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .article-cta h3 { font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.3px; }
+    .article-cta p { font-size: 14px; color: #8B9A6B; margin-bottom: 24px; }
+    .appstore-btn img { height: 48px; width: auto; transition: transform 0.15s; }
+    .appstore-btn:hover img { transform: scale(1.03); }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+
+    @media (max-width: 768px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 0; }
+      .sidebar { position: static; margin-bottom: 32px; }
+      .status-flow { gap: 4px; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link active">Guide</a>
+      </div>
+    </nav>
+
+    <div class="guide-layout">
+      <aside class="sidebar">
+        <a href="/guide" class="back-link">All Guides</a>
+        <p class="toc-label">On this page</p>
+        <nav class="toc">
+          <a href="#calendar-view">Calendar View</a>
+          <a href="#creating-jobs">Creating Jobs</a>
+          <a href="#recurring-services">Recurring Services</a>
+          <a href="#job-statuses">Job Statuses</a>
+          <a href="#weather-scheduling">Weather-Aware Scheduling</a>
+          <a href="#daily-schedule">Managing Daily Schedule</a>
+        </nav>
+      </aside>
+
+      <article>
+        <div class="article-tag">Step 3</div>
+        <h1>Job Scheduling</h1>
+        <div class="article-meta">
+          <span>&#9201; 8 min read</span>
+          <span>Updated March 2025</span>
+        </div>
+
+        <div class="article-body">
+          <p>The Schedule tab is where your workday takes shape. It combines a visual calendar, job creation, status tracking, and weather data into one view so you always know what's happening and when.</p>
+
+          <h2 id="calendar-view">Calendar View</h2>
+          <p>Tap <strong>Schedule</strong> in the tab bar to open the calendar. By default, you'll see a weekly view with jobs displayed as color-coded blocks.</p>
+
+          <h3>Calendar view modes</h3>
+          <ul>
+            <li><strong>Day view</strong> — shows all jobs for a single day in chronological order with time blocks. Best for busy days.</li>
+            <li><strong>Week view</strong> — shows the current week at a glance. Tap any day column to jump to day view.</li>
+            <li><strong>Month view</strong> — shows job counts per day with colored dots indicating statuses. Good for planning ahead.</li>
+            <li><strong>List view</strong> — shows jobs as a flat list, sorted by date. Useful for searching or bulk-editing.</li>
+          </ul>
+
+          <p>Swipe left or right to move between days, weeks, or months depending on which view mode you're in. Tap <strong>Today</strong> in the top-left corner to jump back to the current date.</p>
+
+          <blockquote>
+            <p><strong>Tip:</strong> On iPad and Mac, the calendar uses a split-pane layout. The calendar stays visible on the left while you edit job details on the right — no need to navigate back and forth.</p>
+          </blockquote>
+
+          <h2 id="creating-jobs">Creating Jobs</h2>
+          <p>You can create a job from three places: the calendar, a client profile, or the + button in the tab bar.</p>
+
+          <div class="step-box">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Tap <strong>+ New Job</strong> or tap and hold on a time slot in day view to create a job at that time.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Search for and select the <strong>client</strong>. Then choose the <strong>property</strong> from their profile (most clients have one).</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">3</div>
+            <div class="step-content"><p>Select the <strong>service type</strong> — mowing, trimming, fertilizing, cleanup, or a custom service. You can select multiple services for the same visit.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">4</div>
+            <div class="step-content"><p>Set the <strong>date and time</strong>. The duration is estimated automatically based on lot size, but you can override it.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">5</div>
+            <div class="step-content"><p>Set a <strong>price</strong> for the job. You can price each service line separately or enter a flat job total.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">6</div>
+            <div class="step-content"><p>Add <strong>internal notes</strong> (not visible to clients) and tap <strong>Save Job</strong>.</p></div>
+          </div>
+
+          <h3>Job color coding</h3>
+          <p>Jobs on the calendar are color-coded by service type so you can read your day at a glance. Mowing is green, fertilizing is yellow, cleanup is orange, and so on. Colors are customizable in Settings.</p>
+
+          <h2 id="recurring-services">Recurring Services</h2>
+          <p>When creating or editing a job, toggle <strong>Recurring</strong> to set up a repeating series. The job you're editing becomes the first occurrence.</p>
+
+          <h3>Recurrence options</h3>
+          <ul>
+            <li><strong>Weekly</strong> — same day every week. Most common for mowing clients.</li>
+            <li><strong>Every 2 weeks</strong> — alternating weeks. Good for bi-weekly mowing.</li>
+            <li><strong>Every 3 weeks</strong> — common in spring and fall when growth slows.</li>
+            <li><strong>Monthly</strong> — good for fertilizing, aeration, or seasonal services.</li>
+            <li><strong>Custom</strong> — set any interval in days.</li>
+          </ul>
+
+          <p>When you edit a recurring job, LawnBook asks whether you want to change <strong>this job only</strong>, <strong>this and all future jobs</strong>, or <strong>all jobs in the series</strong>. This prevents accidental changes from affecting your whole season.</p>
+
+          <blockquote>
+            <p><strong>Tip:</strong> For seasonal contracts (e.g., March through October), set the end date when creating the recurring series. LawnBook will stop generating jobs automatically.</p>
+          </blockquote>
+
+          <h2 id="job-statuses">Job Statuses</h2>
+          <p>Every job moves through a lifecycle as work is completed and payment is collected. LawnBook tracks this automatically as you take action.</p>
+
+          <div class="status-flow">
+            <div class="status-node scheduled">Scheduled</div>
+            <div class="status-arrow">&#8594;</div>
+            <div class="status-node inprogress">In Progress</div>
+            <div class="status-arrow">&#8594;</div>
+            <div class="status-node completed">Completed</div>
+            <div class="status-arrow">&#8594;</div>
+            <div class="status-node invoiced">Invoiced</div>
+          </div>
+
+          <div class="status-list">
+            <div class="status-item">
+              <div class="status-dot dot-scheduled"></div>
+              <div class="status-item-body">
+                <strong>Scheduled</strong>
+                <p>The job is on the calendar for a future date, or today but not yet started. Default state when you create a job.</p>
+              </div>
+            </div>
+            <div class="status-item">
+              <div class="status-dot dot-inprogress"></div>
+              <div class="status-item-body">
+                <strong>In Progress</strong>
+                <p>You've tapped <strong>Start Job</strong> or clocked in. The clock is running and the job appears at the top of your active list.</p>
+              </div>
+            </div>
+            <div class="status-item">
+              <div class="status-dot dot-completed"></div>
+              <div class="status-item-body">
+                <strong>Completed</strong>
+                <p>You've tapped <strong>Complete Job</strong>. Time is recorded, and the job is ready to be invoiced. LawnBook prompts you to create an invoice.</p>
+              </div>
+            </div>
+            <div class="status-item">
+              <div class="status-dot dot-invoiced"></div>
+              <div class="status-item-body">
+                <strong>Invoiced</strong>
+                <p>An invoice has been created and sent for this job. The job is linked to the invoice and payment tracking begins.</p>
+              </div>
+            </div>
+          </div>
+
+          <p>You can also manually set a job to <strong>Cancelled</strong> or <strong>Skipped</strong>. Cancelled jobs are removed from route calculations. Skipped jobs (client away, weather) are logged but don't count as missed.</p>
+
+          <h2 id="weather-scheduling">Weather-Aware Scheduling</h2>
+          <p>LawnBook checks the forecast for each job's location and warns you when weather could affect service delivery.</p>
+
+          <div class="weather-warning">
+            <div class="weather-icon">&#9928;</div>
+            <p><strong>Rain Warning:</strong> 2 jobs scheduled for Thursday show a rain probability above 70%. Tap to see affected jobs and reschedule options.</p>
+          </div>
+
+          <h3>How weather warnings work</h3>
+          <ul>
+            <li>LawnBook fetches a 10-day forecast for each job's property address.</li>
+            <li>Jobs scheduled on days with <strong>&gt;60% rain probability</strong> receive a yellow weather badge on the calendar.</li>
+            <li>Jobs scheduled on days with <strong>&gt;80% rain probability</strong> receive a red warning — the Daily Briefing will call these out by name.</li>
+            <li>Tap the weather badge on any job to see the full forecast for that location.</li>
+            <li>Tap <strong>Reschedule</strong> to move the job to the next available clear day.</li>
+          </ul>
+
+          <blockquote>
+            <p><strong>Tip:</strong> Weather data is fetched when your device has internet. LawnBook caches the last-known forecast for offline use, though it may not reflect updates if you've been offline for more than 12 hours.</p>
+          </blockquote>
+
+          <h2 id="daily-schedule">Managing Your Daily Schedule</h2>
+          <p>The Dashboard shows today's jobs in route-optimized order. You can also view your full day from the Schedule tab in Day view.</p>
+
+          <h3>Reordering today's jobs</h3>
+          <p>In Day view or the Dashboard job list, press and hold any job, then drag it to a new position. The route recalculates automatically to show your updated driving time and order.</p>
+
+          <h3>Marking jobs complete in the field</h3>
+          <ul>
+            <li>Open the job from the Dashboard or calendar, then tap <strong>Start Job</strong> when you arrive.</li>
+            <li>Add any completion notes, take a before/after photo, or log supply usage.</li>
+            <li>Tap <strong>Complete Job</strong> when finished. LawnBook records the actual duration.</li>
+            <li>Choose whether to <strong>Create Invoice Now</strong> or defer invoicing to the end of the day.</li>
+          </ul>
+
+          <h3>End-of-day review</h3>
+          <p>At the end of each day, you'll receive a summary notification listing completed jobs, total earnings, pending invoices, and tomorrow's schedule. Tap it to open the day summary in LawnBook.</p>
+
+          <blockquote>
+            <p><strong>Next step:</strong> Learn how to turn completed jobs into professional invoices in the <a href="/guide/invoicing" style="color:#8A9E48;">Invoicing &amp; Estimates</a> guide.</p>
+          </blockquote>
+        </div>
+
+        <div class="article-cta">
+          <h3>Build your schedule in minutes</h3>
+          <p>Download LawnBook free — available on iPhone, iPad, and Mac.</p>
+          <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2025 LawnBook &mdash; <a href="https://srisan.me">Srisan Labs</a></p>
+    </div>
+  </footer>
+</body>
+</html>

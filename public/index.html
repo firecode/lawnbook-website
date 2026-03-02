@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>LawnBook - Lawn Care Business Management App for Landscapers</title>
+  <meta name="description" content="Free lawn care business management app. Schedule jobs, manage clients, send invoices, track expenses, optimize routes — all offline, all private. iPhone, iPad & Mac.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="LawnBook - Lawn Care Business Management App">
+  <meta property="og:description" content="The all-in-one business app for lawn care pros. Jobs, clients, invoices, routes, expenses — all on your device.">
+  <meta property="og:url" content="https://lawnbook.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lawnbook.app/images/og-preview.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LawnBook - Lawn Care Business Management App">
+  <meta name="twitter:description" content="Jobs, clients, invoices, routes, expenses & AI insights — all on your device.">
+  <meta name="twitter:image" content="https://lawnbook.app/images/og-preview.png">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LawnBook",
+    "operatingSystem": "iOS, iPadOS, macOS",
+    "applicationCategory": "BusinessApplication",
+    "description": "Free lawn care business management app. Schedule jobs, manage clients, send invoices, track expenses, optimize routes — all offline, all private.",
+    "url": "https://lawnbook.app",
+    "downloadUrl": "https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Srisan Labs",
+      "url": "https://srisan.me"
+    }
+  }
+  </script>
+
+  <!-- FAQ Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does LawnBook work without internet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LawnBook is 100% offline-first. All your data is stored locally on your device, so you can use every feature even with zero cell service in the field. Optional iCloud backup keeps your devices in sync when online."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I send invoices from LawnBook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolutely. Create professional PDF invoices, add line items for labor and materials, capture signatures, and send directly via email. Convert estimates to invoices with one tap. Track payment status and send automated reminders."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does LawnBook handle Schedule C for taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. LawnBook includes all IRS Schedule C expense categories. Track expenses by category throughout the year, then export clean tax reports and P&L statements to hand straight to your accountant."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my business data private in LawnBook?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Completely. There are no cloud servers, no analytics tracking, and no ads. All AI features run locally on your device. Your client and financial data stays on your device."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Gradient blobs */
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .blob-3 { top: 50%; left: 30%; width: 300px; height: 300px; background: #BDC581; opacity: 0.06; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+    .hero-icon {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      margin: 0 auto 28px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(138, 158, 72, 0.25);
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      font-size: clamp(36px, 6vw, 52px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    h1 .highlight { color: #8A9E48; }
+    .hero p {
+      font-size: 18px;
+      color: #8B9A6B;
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .proof-line {
+      font-size: 14px;
+      color: #BDC581;
+      font-weight: 600;
+      margin: -16px auto 32px;
+      max-width: 560px;
+    }
+
+    /* App Store button */
+    .appstore-btn {
+      display: inline-block;
+      transition: transform 0.15s;
+    }
+    .appstore-btn:hover { transform: scale(1.03); }
+    .appstore-btn img {
+      height: 54px;
+      width: auto;
+    }
+
+    /* Star rating */
+    .star-rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .star-rating .stars {
+      color: #FFD700;
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+    .star-rating .rating-text {
+      color: #8B9A6B;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(15, 18, 8, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(138, 158, 72, 0.3);
+      padding: 12px 20px;
+      text-align: center;
+    }
+    .sticky-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #6B7F30;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      width: 100%;
+      justify-content: center;
+    }
+    @media (min-width: 769px) {
+      .sticky-cta { display: none !important; }
+    }
+
+    /* Platforms */
+    .platforms {
+      text-align: center;
+      padding: 16px 0 50px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 28px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 40px;
+    }
+
+    /* Feature grid with screenshots */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .feature-card:hover {
+      border-color: rgba(138, 158, 72, 0.3);
+      transform: translateY(-2px);
+    }
+    .screenshot-wrap {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+    }
+    .screenshot-wrap img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .feature-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .feature-card p {
+      font-size: 14px;
+      color: #8B9A6B;
+      line-height: 1.6;
+    }
+
+    /* Video preview section */
+    .video-section {
+      text-align: center;
+      padding: 40px 0 60px;
+    }
+    .video-wrap {
+      max-width: 380px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(138, 158, 72, 0.15), 0 0 120px rgba(138, 158, 72, 0.05);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+    }
+    .video-wrap video {
+      width: 100%;
+      display: block;
+    }
+
+    /* More features list */
+    .more-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .more-feature-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .more-feature-item h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .more-feature-item p {
+      font-size: 13px;
+      color: #8B9A6B;
+    }
+
+    /* Privacy section */
+    .privacy-section {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding: 60px 0;
+    }
+    .privacy-text { flex: 1; }
+    .privacy-text h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .privacy-text p {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+    }
+    .privacy-screenshot {
+      flex: 0 0 220px;
+      display: flex;
+      justify-content: center;
+    }
+    .privacy-screenshot img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 16px;
+    }
+    .privacy-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .pill {
+      font-size: 13px;
+      font-weight: 600;
+      color: #BDC581;
+      background: rgba(189, 197, 129, 0.08);
+      border: 1px solid rgba(189, 197, 129, 0.15);
+      border-radius: 100px;
+      padding: 8px 18px;
+    }
+
+    /* Pricing */
+    .pricing {
+      padding: 60px 0;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .price-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px 24px;
+      position: relative;
+    }
+    .price-card.featured {
+      border-color: rgba(138, 158, 72, 0.4);
+      background: rgba(138, 158, 72, 0.06);
+      box-shadow: 0 0 40px rgba(138, 158, 72, 0.08);
+    }
+    .price-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: #6B7F30;
+      padding: 4px 16px;
+      border-radius: 100px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .price-badge.gradient {
+      background: linear-gradient(135deg, #6B7F30, #BDC581);
+    }
+    .price-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .price-card .price {
+      font-size: 36px;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 4px;
+      letter-spacing: -1px;
+    }
+    .price-card .price span { font-size: 15px; font-weight: 600; color: #8B9A6B; }
+    .price-card .annual {
+      font-size: 13px;
+      color: #8B9A6B;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .price-card ul {
+      list-style: none;
+      font-size: 14px;
+      color: #8B9A6B;
+    }
+    .price-card ul li {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .price-card ul li:last-child { border-bottom: none; }
+    .price-card ul li::before {
+      content: "\2713";
+      color: #BDC581;
+      margin-right: 8px;
+      font-weight: 700;
+    }
+    .price-card ul li.section-label::before {
+      content: "";
+      margin-right: 0;
+    }
+    .price-card ul li.section-label {
+      color: #8A9E48;
+      font-weight: 700;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(138, 158, 72, 0.15);
+    }
+    .pricing-note {
+      text-align: center;
+      font-size: 14px;
+      color: #3D4A2D;
+      margin-top: 24px;
+    }
+
+    /* How it works */
+    .how-it-works {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .step-card {
+      text-align: center;
+      padding: 24px 16px;
+    }
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      color: #8A9E48;
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .step-card p {
+      font-size: 14px;
+      color: #8B9A6B;
+      line-height: 1.5;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+    }
+    .testimonial-card .quote {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #EFF2E4;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .testimonial-card .author {
+      font-size: 13px;
+      font-weight: 700;
+      color: #8B9A6B;
+    }
+    .testimonial-card .author span {
+      color: #BDC581;
+    }
+
+    /* Perfect for */
+    .perfect-for {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .audience-pill {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #EFF2E4;
+      transition: border-color 0.2s;
+    }
+    .audience-pill:hover {
+      border-color: rgba(138, 158, 72, 0.3);
+    }
+    .audience-pill .emoji {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #EFF2E4;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: left;
+      padding: 20px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-family: inherit;
+    }
+    .faq-question::after {
+      content: "+";
+      font-size: 20px;
+      color: #8A9E48;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-question::after {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 0 0 20px;
+      display: none;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Comparison table toggle for mobile */
+    .compare-toggle {
+      display: none;
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      color: #EFF2E4;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 16px;
+      cursor: pointer;
+      text-align: center;
+      font-family: inherit;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .compare-toggle:hover {
+      border-color: rgba(138, 158, 72, 0.3);
+    }
+    .compare-toggle::after {
+      content: " +";
+      color: #8A9E48;
+    }
+    .compare-toggle.open::after {
+      content: " −";
+    }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: 60px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .bottom-cta h2 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .bottom-cta p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 28px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p {
+      font-size: 13px;
+      color: #3D4A2D;
+    }
+    footer a {
+      color: #8B9A6B;
+      text-decoration: none;
+    }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero { padding: 50px 0 40px; }
+      .hero-icon { width: 72px; height: 72px; border-radius: 18px; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+      .privacy-section { flex-direction: column; text-align: center; gap: 28px; }
+      .privacy-screenshot { flex: none; width: 180px; }
+      .video-wrap { max-width: 300px; }
+      .steps-grid { grid-template-columns: 1fr; gap: 16px; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .audience-grid { grid-template-columns: repeat(2, 1fr); }
+      .compare-toggle { display: block; }
+      .compare-table-wrap { display: none; }
+      .compare-table-wrap.open { display: block; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .video-wrap { max-width: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <img src="images/lawnbook-icon.png" alt="LawnBook" class="hero-icon" fetchpriority="high">
+      <div class="badge">Available on the App Store</div>
+      <h1>Your lawn care business,<br><span class="highlight">always in your pocket</span></h1>
+      <p>The all-in-one toolkit for lawn care professionals. Clients, jobs, invoices, routes, expenses, and AI-powered insights — all 100% offline and private.</p>
+      <p class="proof-line">Whether you mow 10 lawns or 1,000 — LawnBook scales with your business</p>
+
+      <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+    </section>
+
+    <p class="platforms">Available on iPhone, iPad, and Mac</p>
+
+    <!-- Features with Screenshots -->
+    <section>
+      <h2 class="section-title">Everything you need to run your lawn business</h2>
+      <p class="section-subtitle">From scheduling jobs to filing taxes, LawnBook handles it all.</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/dashboard.png" alt="Business Dashboard" loading="lazy">
+          </div>
+          <h3>Business Dashboard</h3>
+          <p>See revenue overview, upcoming jobs, weather forecast, daily briefing, and priority action items at a glance.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/clients.png" alt="Client Management" loading="lazy">
+          </div>
+          <h3>Client Management</h3>
+          <p>Track every client with properties, service history, health scores, lot size, lawn type, irrigation, and photos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/schedule.png" alt="Job Scheduling" loading="lazy">
+          </div>
+          <h3>Job Scheduling</h3>
+          <p>Monthly calendar with job dots, daily job lists, recurring service engine, and weather-aware scheduling.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/invoices.png" alt="Invoicing & Estimates" loading="lazy">
+          </div>
+          <h3>Invoicing & Estimates</h3>
+          <p>Professional PDF invoices, estimates with line items, signature capture, payment tracking, and automated reminders.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/routes.png" alt="Route Optimization" loading="lazy">
+          </div>
+          <h3>Route Optimization</h3>
+          <p>Optimize your daily route across all job sites. Open directions in Apple Maps, Google Maps, or Waze with one tap.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/expenses.png" alt="Expense Tracking" loading="lazy">
+          </div>
+          <h3>Expense Tracking</h3>
+          <p>Log expenses manually, scan receipts with AI, or speak them. Auto-categorize to Schedule C tax categories.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/supplies.png" alt="Supply Inventory" loading="lazy">
+          </div>
+          <h3>Supply Inventory</h3>
+          <p>Track fertilizer, seed, chemicals — quantities, cost per unit, reorder thresholds, and low-stock alerts.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/tax.png" alt="Tax Center" loading="lazy">
+          </div>
+          <h3>Tax Center</h3>
+          <p>Real-time tax liability, quarterly estimates, Schedule C reports, mileage deductions, and tax optimizer.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="screenshot-wrap">
+            <img src="images/tour/ai-tools.png" alt="AI Lawn Assistant" loading="lazy">
+          </div>
+          <h3>AI Lawn Assistant</h3>
+          <p>Voice job entry, smart estimates, daily briefings, seasonal plans, lawn photo analysis — all running on-device.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+      <h2 class="section-title">Get started in minutes</h2>
+      <p class="section-subtitle">No account needed. No setup wizard. Just open and go.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Add your clients</h3>
+          <p>Enter clients and properties with address, lot size, lawn type, and services. Import from your contacts in seconds.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Schedule & route</h3>
+          <p>Schedule recurring jobs, optimize your daily route, and get weather-aware delays so nothing slips through.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Invoice & get paid</h3>
+          <p>Convert completed jobs to invoices in one tap. Track payments, send reminders, and export tax reports.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- More Features -->
+    <section style="margin-bottom: 20px;">
+      <h2 class="section-title">And so much more</h2>
+      <p class="section-subtitle">Built for how lawn care professionals actually work.</p>
+
+      <div class="more-features">
+        <div class="more-feature-item">
+          <h3>AI Receipt Scanner</h3>
+          <p>Snap a photo of a gas station or supply store receipt. AI reads the vendor, amount, date, and category automatically.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Voice Job Entry</h3>
+          <p>Say "Mow and edge at 123 Oak Street on Thursday at 9am" and LawnBook creates the job with all details filled in.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Seasonal Planner</h3>
+          <p>AI-generated lawn care plans based on grass type, region, and season — fertilizer schedules, aeration timing, and more.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Before & After Photos</h3>
+          <p>Document your work with side-by-side photo comparisons. Build a portfolio and show clients the transformation.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Time Tracking</h3>
+          <p>Clock in and out of jobs. Track hours per client, convert time to invoices, and analyze your per-job profitability.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Mileage Tracking</h3>
+          <p>Log business miles for tax deductions. Smart tracking records your route between job sites automatically.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Weather Integration</h3>
+          <p>7-day forecast with rain delay detection. Automatically reschedule jobs when weather won't cooperate.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>Revenue Analytics</h3>
+          <p>Revenue trends, cash flow forecasts, per-client profitability, and availability predictions to grow your business.</p>
+        </div>
+        <div class="more-feature-item">
+          <h3>100+ AI Features</h3>
+          <p>Smart estimates, expense anomalies, payment predictions, lawn health analysis, proposal generator — all on-device.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy -->
+    <section class="privacy-section">
+      <div class="privacy-text">
+        <h2>Your data stays on your device</h2>
+        <p>LawnBook stores everything locally. No cloud servers, no data mining, no tracking. Your client and financial data is yours alone. All AI features run on-device — nothing is ever uploaded. Optional iCloud backup keeps your devices in sync through Apple's infrastructure, not ours.</p>
+        <div class="privacy-pills">
+          <span class="pill">Works Offline</span>
+          <span class="pill">No Tracking</span>
+          <span class="pill">No Ads</span>
+          <span class="pill">No Data Collection</span>
+          <span class="pill">On-Device AI</span>
+        </div>
+      </div>
+      <div class="privacy-screenshot">
+        <img src="images/tour/dashboard.png" alt="LawnBook Dashboard" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2 class="section-title">Trusted by lawn care professionals</h2>
+      <p class="section-subtitle">Real stories from real operations.</p>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="quote">"Replaced my notebook, spreadsheet, and three apps with one. My routes are optimized, invoices go out same day, and I actually know my profit margins now."</p>
+          <p class="author">— Solo lawn operator, <span>Texas</span></p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"The voice entry is a game-changer. I dictate jobs while driving between properties and everything's scheduled by the time I arrive. Saves me an hour every morning."</p>
+          <p class="author">— Landscaping crew leader, <span>Florida</span></p>
+        </div>
+        <div class="testimonial-card">
+          <p class="quote">"Tax season used to be a nightmare. Now I just export my Schedule C report and hand it to my accountant. Everything's categorized perfectly throughout the year."</p>
+          <p class="author">— Lawn care business owner, <span>Ohio</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perfect For -->
+    <section class="perfect-for">
+      <h2 class="section-title">Built for every lawn care operation</h2>
+      <p class="section-subtitle">From solo mowers to growing crews.</p>
+      <div class="audience-grid">
+        <div class="audience-pill"><span class="emoji">&#127793;</span>Solo Operators</div>
+        <div class="audience-pill"><span class="emoji">&#127795;</span>Lawn Care Crews</div>
+        <div class="audience-pill"><span class="emoji">&#9968;&#65039;</span>Landscapers</div>
+        <div class="audience-pill"><span class="emoji">&#128188;</span>Small Businesses</div>
+        <div class="audience-pill"><span class="emoji">&#127806;</span>Lawn Maintenance</div>
+        <div class="audience-pill"><span class="emoji">&#128736;&#65039;</span>Property Services</div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-subtitle">Start free. Upgrade when you're ready.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h3>Free</h3>
+          <div class="price">$0</div>
+          <div class="annual">Forever</div>
+          <ul>
+            <li>Up to 5 clients & properties</li>
+            <li>Basic invoicing</li>
+            <li>Expense tracking</li>
+            <li>Job scheduling</li>
+            <li>Time tracking</li>
+            <li>Tax tracking</li>
+            <li>iCloud backup & sync</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <span class="price-badge">Most Popular</span>
+          <h3>Pro</h3>
+          <div class="price">$9.99<span>/mo</span></div>
+          <div class="annual">or $79.99/year ($6.67/mo)</div>
+          <ul>
+            <li>Unlimited clients & properties</li>
+            <li>Advanced invoicing & estimates</li>
+            <li>Expense reports & analytics</li>
+            <li>Charts, trends & forecasts</li>
+            <li>Weather-aware scheduling</li>
+            <li>Supply inventory management</li>
+            <li>CSV & PDF exports</li>
+            <li>Tax reports & Schedule C</li>
+            <li>Mileage tracking</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <span class="price-badge gradient">AI-Powered</span>
+          <h3>Premium</h3>
+          <div class="price">$14.99<span>/mo</span></div>
+          <div class="annual">or $119.99/year ($10.00/mo)</div>
+          <ul>
+            <li class="section-label">Everything in Pro, plus:</li>
+            <li>AI lawn assistant</li>
+            <li>Route optimization</li>
+            <li>Weather integration</li>
+            <li>Voice job & expense entry</li>
+            <li>AI receipt scanner</li>
+            <li>Seasonal planner</li>
+            <li>Profitability analysis</li>
+            <li>Payment predictions</li>
+            <li>Team collaboration</li>
+          </ul>
+        </div>
+      </div>
+      <p class="pricing-note">All plans include a 14-day free trial. Cancel anytime.</p>
+
+      <!-- Detailed Comparison Table -->
+      <div style="margin-top: 48px;">
+        <h3 style="font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 24px; letter-spacing: -0.3px;">Compare Plans</h3>
+        <button class="compare-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">Compare all features</button>
+        <div class="compare-table-wrap" style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+            <thead>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.08);">
+                <th style="text-align: left; padding: 12px 8px; color: #8B9A6B; font-weight: 600;">Feature</th>
+                <th style="text-align: center; padding: 12px 8px; color: #8B9A6B; font-weight: 600; width: 80px;">Free</th>
+                <th style="text-align: center; padding: 12px 8px; color: #8A9E48; font-weight: 700; width: 80px;">Pro</th>
+                <th style="text-align: center; padding: 12px 8px; color: #BDC581; font-weight: 700; width: 80px;">Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Clients & properties</td>
+                <td style="text-align: center; padding: 10px 8px; color: #8B9A6B; font-size: 12px;">5</td>
+                <td style="text-align: center; padding: 10px 8px; color: #8B9A6B; font-size: 12px;">Unlimited</td>
+                <td style="text-align: center; padding: 10px 8px; color: #8B9A6B; font-size: 12px;">Unlimited</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Job scheduling</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Basic invoicing</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Expense tracking</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Time tracking</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">iCloud backup & sync</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Advanced invoicing & estimates</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Charts, trends & analytics</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Supply inventory</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">CSV & PDF exports</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Tax reports & Schedule C</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Mileage tracking</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">AI lawn assistant</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Route optimization</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Weather integration</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Voice job & expense entry</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">AI receipt scanner</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Seasonal planner</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                <td style="padding: 10px 8px; color: #EFF2E4;">Profitability analysis</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 8px; color: #EFF2E4;">Team collaboration</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #3D4A2D;">&mdash;</td>
+                <td style="text-align: center; padding: 10px 8px; color: #BDC581;">&#10003;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guide Promo -->
+    <section style="padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.06);">
+      <h2 class="section-title">Learn how to use every feature</h2>
+      <p class="section-subtitle">Step-by-step guides with screenshots for clients, scheduling, invoicing, routes, AI tools, and more.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
+
+        <a href="/guide/getting-started" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(138,158,72,0.3)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+          <div style="font-size: 15px; font-weight: 700; color: #EFF2E4; margin-bottom: 4px;">Getting Started</div>
+          <div style="font-size: 13px; color: #8B9A6B;">Dashboard, navigation, and first setup</div>
+        </a>
+
+        <a href="/guide/clients" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(138,158,72,0.3)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+          <div style="font-size: 15px; font-weight: 700; color: #EFF2E4; margin-bottom: 4px;">Client Management</div>
+          <div style="font-size: 13px; color: #8B9A6B;">Clients, properties, services, health scores</div>
+        </a>
+
+        <a href="/guide/ai-tools" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(138,158,72,0.3)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+          <div style="font-size: 15px; font-weight: 700; color: #EFF2E4; margin-bottom: 4px;">AI Tools & Assistant</div>
+          <div style="font-size: 13px; color: #8B9A6B;">Lawn assistant, voice entry, smart features</div>
+        </a>
+
+        <a href="/guide/invoicing" style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 16px; text-decoration: none; color: inherit; display: block; transition: border-color 0.2s, transform 0.2s;" onmouseover="this.style.borderColor='rgba(138,158,72,0.3)';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)';this.style.transform='none'">
+          <div style="font-size: 15px; font-weight: 700; color: #EFF2E4; margin-bottom: 4px;">Invoicing & Estimates</div>
+          <div style="font-size: 13px; color: #8B9A6B;">PDF invoices, payments, signatures</div>
+        </a>
+
+      </div>
+      <div style="text-align: center;">
+        <a href="/guide" style="display: inline-block; font-size: 15px; font-weight: 700; color: #8A9E48; text-decoration: none; padding: 10px 24px; border: 1px solid rgba(138,158,72,0.3); border-radius: 12px; transition: background 0.2s;" onmouseover="this.style.background='rgba(138,158,72,0.08)'" onmouseout="this.style.background='transparent'">View all guides &rarr;</a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+      <h2 class="section-title">Frequently asked questions</h2>
+      <p class="section-subtitle">Answers to common questions from lawn care pros.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does it work without internet?</button>
+          <div class="faq-answer">Yes. LawnBook is 100% offline-first. All your data is stored locally on your device, so you can use every feature — even out in the field with zero cell service. When you're back online, optional iCloud backup keeps your devices in sync.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can I send professional invoices?</button>
+          <div class="faq-answer">Absolutely. Create PDF invoices with your business name and logo, add line items for labor and materials, capture client signatures, and email invoices directly from the app. Convert estimates to invoices with one tap, and send automated payment reminders.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Does it handle Schedule C for taxes?</button>
+          <div class="faq-answer">Yes. LawnBook includes all IRS Schedule C expense categories for self-employed service businesses. Track expenses by category throughout the year, then export clean tax reports and P&L statements — CSV or PDF — to hand straight to your accountant.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Can my crew members use it too?</button>
+          <div class="faq-answer">With the Premium plan, you get team collaboration features. Crew members can access the app on their own devices with role-based permissions (Owner, Manager, Hand) to view schedules, update job status, and log time — all synced through iCloud.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">How is this different from Jobber or Service Autopilot?</button>
+          <div class="faq-answer">LawnBook is designed for modern mobile use: it works 100% offline, runs AI features on-device (no cloud required), includes route optimization and voice entry, and costs a fraction of legacy solutions. Most competitors charge $40-$500+/month — LawnBook starts free.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">Is my data private?</button>
+          <div class="faq-answer">Completely. We never see your data. There are no cloud servers, no analytics tracking, and no ads. All AI features run locally on your device. Your client and financial data stays on your device — period.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+      <h2>Ready to grow your lawn business?</h2>
+      <p>Download LawnBook today and take control of your operation.</p>
+      <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.44.41.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.17.47.36 1.27.41 2.44.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.41 2.44-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.47.17-1.27.36-2.44.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.44-.41a4.08 4.08 0 0 1-1.51-.98 4.08 4.08 0 0 1-.98-1.51c-.17-.47-.36-1.27-.41-2.44C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.97.41-2.44.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.47-.17 1.27-.36 2.44-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.78.3-1.44.71-2.1 1.37A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.78.71 1.44 1.37 2.1.66.66 1.32 1.07 2.1 1.37.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.78-.3 1.44-.71 2.1-1.37.66-.66 1.07-1.32 1.37-2.1.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.37-2.1A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680">
+      <img src="images/lawnbook-icon.png" alt="" style="width: 32px; height: 32px; border-radius: 8px;">
+      <span>Download LawnBook Free</span>
+    </a>
+  </div>
+
+  <script>
+    // Show sticky CTA after scrolling past hero
+    const hero = document.querySelector('.hero');
+    const stickyCta = document.getElementById('stickyCta');
+    const stickyObserver = new IntersectionObserver((entries) => {
+      stickyCta.style.display = entries[0].isIntersecting ? 'none' : 'block';
+    }, { threshold: 0 });
+    stickyObserver.observe(hero);
+  </script>
+</body>
+</html>

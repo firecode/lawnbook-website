@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - LawnBook | Lawn Care Business Tips & Guides</title>
+  <meta name="description" content="Practical tips and guides for lawn care business owners. Grow your client base, optimize routes, handle taxes, and get paid faster.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog">
+  <meta property="og:title" content="Blog - LawnBook | Lawn Care Business Tips">
+  <meta property="og:description" content="Practical tips and guides for lawn care business owners.">
+  <meta property="og:url" content="https://lawnbook.app/blog">
+  <meta property="og:type" content="website">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .page-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 48px;
+    }
+    .page-header .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .page-header h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .page-header p {
+      font-size: 17px;
+      color: #8B9A6B;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+
+    .blog-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .blog-card:hover {
+      border-color: rgba(138, 158, 72, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .blog-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+
+    .blog-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.3;
+      color: #EFF2E4;
+    }
+
+    .blog-card .excerpt {
+      font-size: 14px;
+      color: #8B9A6B;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .blog-card .meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .blog-card .meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .blog-card .read-more {
+      font-size: 13px;
+      font-weight: 700;
+      color: #8A9E48;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .blog-card .read-more::after {
+      content: "\2192";
+      font-size: 14px;
+      transition: transform 0.2s;
+    }
+    .blog-card:hover .read-more::after {
+      transform: translateX(4px);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; gap: 16px; }
+      .page-header { padding: 48px 0 36px; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link active">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <p class="label">LawnBook Blog</p>
+      <h1>Run a smarter<br>lawn care business</h1>
+      <p>Practical guides on growing your client base, handling taxes, optimizing routes, and getting paid — written for lawn care pros.</p>
+    </header>
+
+    <div class="blog-grid">
+      <a href="/blog/grow-lawn-care-business-2026.html" class="blog-card">
+        <span class="tag">Business Growth</span>
+        <h2>How to Grow Your Lawn Care Business in 2026</h2>
+        <p class="excerpt">Proven strategies for scaling a lawn care operation — from smarter routing and client retention to upselling services and leveraging technology to do more with less.</p>
+        <div class="meta">
+          <span>March 1, 2026</span>
+          <span class="dot"></span>
+          <span>8 min read</span>
+        </div>
+        <span class="read-more">Read article</span>
+      </a>
+
+      <a href="/blog/schedule-c-guide-lawn-care.html" class="blog-card">
+        <span class="tag">Tax Guide</span>
+        <h2>The Complete Schedule C Guide for Lawn Care Businesses</h2>
+        <p class="excerpt">Everything self-employed lawn care pros need to know about Schedule C — deductions, record keeping, quarterly estimates, and how to make tax season painless.</p>
+        <div class="meta">
+          <span>February 15, 2026</span>
+          <span class="dot"></span>
+          <span>9 min read</span>
+        </div>
+        <span class="read-more">Read article</span>
+      </a>
+
+      <a href="/blog/route-optimization-save-time.html" class="blog-card">
+        <span class="tag">Efficiency</span>
+        <h2>How Route Optimization Can Save You Hours Every Week</h2>
+        <p class="excerpt">Smart routing isn't just about saving fuel — it means fitting more jobs into your day, reducing wear on your truck, and getting home earlier. Here's how it works.</p>
+        <div class="meta">
+          <span>February 1, 2026</span>
+          <span class="dot"></span>
+          <span>6 min read</span>
+        </div>
+        <span class="read-more">Read article</span>
+      </a>
+
+      <a href="/blog/invoicing-tips-lawn-care.html" class="blog-card">
+        <span class="tag">Cash Flow</span>
+        <h2>5 Invoicing Tips to Get Paid Faster as a Lawn Care Pro</h2>
+        <p class="excerpt">Late payments hurt your cash flow and your stress levels. These five invoicing habits will help you collect faster, look more professional, and track every dollar.</p>
+        <div class="meta">
+          <span>January 20, 2026</span>
+          <span class="dot"></span>
+          <span>5 min read</span>
+        </div>
+        <span class="read-more">Read article</span>
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>Expense Tracking - LawnBook Guide</title>
+  <meta name="description" content="Track every business expense in LawnBook. Manual entry, AI receipt scanning, voice input, and auto-categorization to IRS Schedule C categories.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide/expenses">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .blob { position: fixed; border-radius: 50%; filter: blur(60px); z-index: 0; pointer-events: none; }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #EFF2E4; text-decoration: none; }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link { font-size: 14px; color: #8B9A6B; text-decoration: none; font-weight: 600; }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: #EFF2E4; margin: 5px 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #8B9A6B; text-decoration: none; margin: 24px 0 32px; transition: color 0.15s; }
+    .back-link:hover { color: #BDC581; }
+    .back-link::before { content: "\2190"; font-size: 15px; }
+    .article-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #8A9E48; background: rgba(138, 158, 72, 0.12); border: 1px solid rgba(138, 158, 72, 0.25); border-radius: 100px; padding: 5px 14px; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px; color: #EFF2E4; }
+    .article-meta { font-size: 13px; color: #3D4A2D; font-weight: 600; margin-bottom: 40px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .article-body h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; color: #EFF2E4; margin: 48px 0 16px; line-height: 1.3; }
+    .article-body p { font-size: 16px; color: #BDC581; line-height: 1.75; margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 0; padding-left: 0; list-style: none; }
+    .article-body ul li, .article-body ol li { font-size: 16px; color: #BDC581; line-height: 1.7; padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .article-body ul li:last-child, .article-body ol li:last-child { border-bottom: none; }
+    .article-body ul li::before { content: "\2713"; color: #8A9E48; font-weight: 700; position: absolute; left: 0; }
+    .article-body ol { counter-reset: list-counter; }
+    .article-body ol li { counter-increment: list-counter; }
+    .article-body ol li::before { content: counter(list-counter) "."; color: #8A9E48; font-weight: 700; position: absolute; left: 0; font-size: 14px; }
+    blockquote { border-left: 3px solid #8A9E48; background: rgba(138, 158, 72, 0.06); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; }
+    blockquote p { font-size: 15px; color: #BDC581; margin: 0; line-height: 1.65; }
+    blockquote strong { color: #EFF2E4; font-weight: 700; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 48px 0; }
+    .cta-section { background: rgba(138, 158, 72, 0.07); border: 1px solid rgba(138, 158, 72, 0.2); border-radius: 16px; padding: 36px 32px; text-align: center; margin: 56px 0 48px; }
+    .cta-section h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 10px; color: #EFF2E4; }
+    .cta-section p { font-size: 15px; color: #8B9A6B; margin-bottom: 24px; line-height: 1.6; }
+    .appstore-btn { display: inline-block; transition: transform 0.15s; }
+    .appstore-btn:hover { transform: scale(1.03); }
+    .appstore-btn img { height: 48px; width: auto; }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 0; text-align: center; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; font-weight: 600; color: #8B9A6B; text-decoration: none; }
+    .footer-links a:hover { color: #EFF2E4; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+    footer p { font-size: 13px; color: #3D4A2D; margin-top: 12px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #0F1208; border-bottom: 1px solid rgba(255,255,255,0.08); flex-direction: column; padding: 20px 24px; gap: 16px; z-index: 100; }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-section { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/guide" class="back-link">Back to Guide</a>
+
+    <div class="article-tag">Step 6 &mdash; Expense Tracking</div>
+    <h1>Track Every Dollar You Spend on Your Business</h1>
+    <div class="article-meta">
+      <span>LawnBook Guide</span>
+      <span>&middot;</span>
+      <span>7 min read</span>
+    </div>
+
+    <div class="article-body">
+      <p>Business expenses reduce your taxable income &mdash; but only if you track them. Most lawn care operators underreport expenses simply because logging them is a hassle. LawnBook makes capturing expenses as fast as snapping a photo or saying a sentence. This guide covers every method.</p>
+
+      <h2>Manual Expense Entry</h2>
+      <p>Tap the <strong>Expenses</strong> tab, then the <strong>+</strong> button to open a new expense entry. Fill in the vendor name, amount, date, and category. An optional notes field lets you add any context &mdash; such as which job site a supply purchase was for.</p>
+      <p>Every field except the amount has smart defaults: the date defaults to today, the vendor and category are remembered from recent entries, so repeat purchases from the same vendor take only a few seconds to log.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Log expenses the same day they happen. Trying to remember three weeks of gas receipts at month-end is how things get missed. It takes ten seconds in the moment and saves hours later.</p>
+      </blockquote>
+
+      <h2>AI Receipt Scanner</h2>
+      <p>Tap <strong>Scan Receipt</strong> from the new expense screen and point your camera at any paper receipt. The on-device AI reads:</p>
+      <ul>
+        <li>Vendor or store name</li>
+        <li>Total amount</li>
+        <li>Date of purchase</li>
+        <li>Individual line items (when legible)</li>
+        <li>Suggested expense category</li>
+      </ul>
+      <p>You review the extracted data before saving. If the AI misreads a field, tap it to correct. Receipt images are stored on your device so you have a digital record alongside the numbers. This works with gas station receipts, hardware store invoices, supply wholesaler printouts, and handwritten receipts.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Receipt scanning runs entirely on-device. Your financial receipts are never uploaded to any server. The AI model is built into the app and works with no internet connection.</p>
+      </blockquote>
+
+      <h2>Voice Expense Entry</h2>
+      <p>Driving back from a supply run? Log expenses without stopping. Tap the microphone icon on the Expenses screen and speak naturally:</p>
+      <ul>
+        <li>"$47 at Home Depot for fertilizer"</li>
+        <li>"Gas, $62.50, BP on Route 9"</li>
+        <li>"Equipment repair, $180, Toro dealer"</li>
+      </ul>
+      <p>LawnBook parses the amount, vendor, and category from natural speech and pre-fills the entry form. You confirm before saving. Voice entry is available in English and works offline.</p>
+
+      <h2>Auto-Categorization to Schedule C</h2>
+      <p>Every expense is mapped to a standard IRS Schedule C category. LawnBook uses all 20+ Schedule C line items, including:</p>
+      <ul>
+        <li>Advertising</li>
+        <li>Car and truck expenses</li>
+        <li>Commissions and fees</li>
+        <li>Insurance (other than health)</li>
+        <li>Legal and professional services</li>
+        <li>Office expense</li>
+        <li>Rent or lease (vehicles, machinery)</li>
+        <li>Repairs and maintenance</li>
+        <li>Supplies</li>
+        <li>Taxes and licenses</li>
+        <li>Travel and meals</li>
+        <li>Utilities</li>
+        <li>Other expenses</li>
+      </ul>
+      <p>When you add an expense, LawnBook suggests the most likely category based on the vendor name and description. You can override it at any time. At tax time, your expenses are already sorted by Schedule C line &mdash; no reorganizing required.</p>
+
+      <h2>Recurring Expenses</h2>
+      <p>Some expenses happen on a predictable schedule: software subscriptions, equipment loan payments, insurance premiums. Set these up as recurring expenses and LawnBook will auto-log them for you on the right date each month or year.</p>
+      <ol>
+        <li>Create the expense entry as normal</li>
+        <li>Tap <strong>Make Recurring</strong> before saving</li>
+        <li>Choose the frequency: weekly, monthly, quarterly, or annual</li>
+        <li>Set an end date if the expense has one (e.g., a lease that expires)</li>
+      </ol>
+      <p>Recurring expenses appear in your expense list automatically on their scheduled date. You'll receive a notification confirming each auto-log so nothing goes unreviewed.</p>
+
+      <h2>Anomaly Detection</h2>
+      <p>LawnBook's on-device AI monitors your expense patterns and flags unusual entries. If you typically spend $60&ndash;80 per week on fuel and suddenly log a $400 fuel expense, the app will surface a gentle alert asking you to confirm the amount is correct.</p>
+      <p>This catches common mistakes like accidentally logging $1,800 instead of $180, duplicate entries for the same receipt, or a recurring expense that's running significantly higher than usual. Anomaly alerts appear as a small flag icon on the expense &mdash; tap it to dismiss or correct.</p>
+
+      <h2>Filtering and Searching Expenses</h2>
+      <p>The Expenses list supports filtering by date range, category, and vendor. Use the search bar to find any expense by keyword. Combined filters let you quickly answer questions like "how much did I spend on fuel in Q3?" or "what did I pay at Toro dealer last year?"</p>
+
+      <h2>Expense Reports</h2>
+      <p>Generate an expense summary for any date range from the <strong>Reports</strong> section of the Tax Center. Reports can be exported as PDF or CSV for sharing with a bookkeeper or accountant.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="cta-section">
+      <h3>Stop leaving money on the table</h3>
+      <p>Every untracked expense is a missed tax deduction. Download LawnBook and start capturing them all.</p>
+      <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://tiktok.com/@srisanlabs" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg></a></li>
+        <li><a href="https://instagram.com/srisanlabs" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+        <li><a href="https://facebook.com/srisanlabs" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

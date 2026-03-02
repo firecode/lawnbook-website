@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>Getting Started with LawnBook — Guide</title>
+  <meta name="description" content="Learn how to download LawnBook, set up your business profile, navigate the dashboard, and add your first client and job.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide/getting-started">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    /* Layout: sidebar + article */
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      padding: 40px 0 80px;
+      align-items: start;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      position: sticky;
+      top: 32px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin-bottom: 28px;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "←"; }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #3D4A2D;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 13px;
+      color: #8B9A6B;
+      text-decoration: none;
+      padding: 5px 0;
+      border-left: 2px solid rgba(255,255,255,0.06);
+      padding-left: 12px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .toc a:hover {
+      color: #EFF2E4;
+      border-left-color: #8A9E48;
+    }
+
+    /* Article */
+    article {
+      min-width: 0;
+    }
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    article h1 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .article-meta {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 5px; }
+
+    /* Body content */
+    .article-body h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      color: #EFF2E4;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-body h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 24px;
+      margin-bottom: 10px;
+      color: #BDC581;
+    }
+    .article-body p {
+      font-size: 15px;
+      color: #BDC581;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .article-body ul, .article-body ol {
+      margin: 12px 0 20px 20px;
+    }
+    .article-body li {
+      font-size: 15px;
+      color: #BDC581;
+      line-height: 1.65;
+      margin-bottom: 8px;
+    }
+    .article-body li strong { color: #EFF2E4; }
+
+    /* Blockquote tip */
+    .article-body blockquote {
+      background: rgba(138, 158, 72, 0.08);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .article-body blockquote p {
+      color: #BDC581;
+      margin: 0;
+      font-size: 14px;
+    }
+    .article-body blockquote strong { color: #8A9E48; }
+
+    /* Step boxes */
+    .step-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.2);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #8A9E48;
+      flex-shrink: 0;
+    }
+    .step-content p {
+      margin: 0;
+      font-size: 14px;
+      color: #BDC581;
+      line-height: 1.6;
+    }
+    .step-content strong { color: #EFF2E4; }
+
+    /* Tab nav visual */
+    .tab-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0 20px;
+    }
+    .tab-chip {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #8B9A6B;
+    }
+    .tab-chip.active {
+      background: rgba(138, 158, 72, 0.15);
+      border-color: rgba(138, 158, 72, 0.4);
+      color: #BDC581;
+    }
+
+    /* CTA */
+    .article-cta {
+      margin-top: 56px;
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+    .article-cta h3 {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+    .article-cta p {
+      font-size: 14px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+    }
+    .appstore-btn img { height: 48px; width: auto; transition: transform 0.15s; }
+    .appstore-btn:hover img { transform: scale(1.03); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .guide-layout { grid-template-columns: 1fr; gap: 0; }
+      .sidebar { position: static; margin-bottom: 32px; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link active">Guide</a>
+      </div>
+    </nav>
+
+    <div class="guide-layout">
+      <aside class="sidebar">
+        <a href="/guide" class="back-link">All Guides</a>
+        <p class="toc-label">On this page</p>
+        <nav class="toc">
+          <a href="#download">Download &amp; Install</a>
+          <a href="#first-launch">First Launch</a>
+          <a href="#dashboard">Dashboard Overview</a>
+          <a href="#navigation">Tab Navigation</a>
+          <a href="#first-client">Adding Your First Client</a>
+          <a href="#first-job">Creating Your First Job</a>
+        </nav>
+      </aside>
+
+      <article>
+        <div class="article-tag">Step 1</div>
+        <h1>Getting Started with LawnBook</h1>
+        <div class="article-meta">
+          <span>&#9201; 5 min read</span>
+          <span>Updated March 2025</span>
+        </div>
+
+        <div class="article-body">
+          <p>Welcome to LawnBook. This guide walks you through everything from downloading the app to creating your first client and scheduling your first job. It should take you about five minutes to complete setup.</p>
+
+          <h2 id="download">Download &amp; Install</h2>
+          <p>LawnBook is a free download available on the App Store for iPhone, iPad, and Mac (Apple Silicon and Intel).</p>
+
+          <div class="step-box">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Open the <strong>App Store</strong> on your iPhone, iPad, or Mac.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Search for <strong>"LawnBook"</strong> or tap the direct download link at <a href="https://lawnbook.app" style="color:#8A9E48;">lawnbook.app</a>.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">3</div>
+            <div class="step-content"><p>Tap <strong>Get</strong> and authenticate with Face ID, Touch ID, or your Apple ID password.</p></div>
+          </div>
+
+          <blockquote>
+            <p><strong>Tip:</strong> LawnBook works on iPhone, iPad, and Mac. If you buy it once on your Apple ID, it's available on all your Apple devices at no extra cost.</p>
+          </blockquote>
+
+          <h2 id="first-launch">First Launch</h2>
+          <p>When you open LawnBook for the first time, you'll see a brief welcome screen followed by the profile setup flow. This takes about 60 seconds.</p>
+
+          <h3>Business Profile Setup</h3>
+          <ul>
+            <li><strong>Business name</strong> — this appears on your invoices and estimates.</li>
+            <li><strong>Your name</strong> — shown on documents and the daily briefing.</li>
+            <li><strong>Phone &amp; email</strong> — used as contact info on PDFs.</li>
+            <li><strong>Business address</strong> — optional, but useful for tax reports and invoices.</li>
+            <li><strong>Logo</strong> — upload a photo from your library or skip for now.</li>
+          </ul>
+
+          <p>Tap <strong>Save &amp; Continue</strong> when you're done. You can edit any of these details later in <strong>Settings &rarr; Business Profile</strong>.</p>
+
+          <blockquote>
+            <p><strong>Tip:</strong> Adding your logo only takes a moment and makes a big difference on client-facing PDFs. Use a square image for best results.</p>
+          </blockquote>
+
+          <h2 id="dashboard">Dashboard Overview</h2>
+          <p>The Dashboard is the first screen you see each time you open LawnBook. It gives you a real-time snapshot of your business.</p>
+
+          <h3>What you'll find on the Dashboard</h3>
+          <ul>
+            <li><strong>Daily Briefing</strong> — a plain-English summary of today's jobs, weather, and action items generated each morning.</li>
+            <li><strong>Today's Jobs</strong> — all jobs scheduled for today, listed in route order with their current status.</li>
+            <li><strong>Revenue Overview</strong> — month-to-date revenue and a comparison against last month.</li>
+            <li><strong>Weather Widget</strong> — current conditions and a 3-day forecast relevant to your first job location.</li>
+            <li><strong>Action Items</strong> — overdue invoices, jobs needing follow-up, and low-inventory alerts.</li>
+            <li><strong>Upcoming Jobs</strong> — the next 7 days at a glance.</li>
+          </ul>
+
+          <p>You can customize which widgets appear by tapping the <strong>Edit</strong> button in the top-right corner of the Dashboard.</p>
+
+          <h2 id="navigation">Tab Navigation</h2>
+          <p>LawnBook uses a bottom tab bar with five main sections. Here's what each one does:</p>
+
+          <div class="tab-row">
+            <div class="tab-chip active">Dashboard</div>
+            <div class="tab-chip">Clients</div>
+            <div class="tab-chip">Schedule</div>
+            <div class="tab-chip">Invoices</div>
+            <div class="tab-chip">More</div>
+          </div>
+
+          <ul>
+            <li><strong>Dashboard</strong> — business overview, daily briefing, weather.</li>
+            <li><strong>Clients</strong> — your full client list, property details, service history.</li>
+            <li><strong>Schedule</strong> — calendar view of all jobs, drag to reschedule.</li>
+            <li><strong>Invoices</strong> — estimates, invoices, payment tracking.</li>
+            <li><strong>More</strong> — expenses, routes, inventory, time tracking, AI tools, settings.</li>
+          </ul>
+
+          <blockquote>
+            <p><strong>Tip:</strong> On iPad and Mac, LawnBook uses a sidebar layout instead of the bottom tab bar. All the same sections are accessible — just look to the left.</p>
+          </blockquote>
+
+          <h2 id="first-client">Adding Your First Client</h2>
+          <p>Clients are the foundation of LawnBook. Every job, invoice, and property is tied to a client record.</p>
+
+          <div class="step-box">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Tap <strong>Clients</strong> in the tab bar, then tap the <strong>+ New Client</strong> button in the top right.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Enter the client's <strong>name, phone, and email</strong>. All fields are optional except the name.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">3</div>
+            <div class="step-content"><p>Tap <strong>Add Property</strong> to enter their service address. You can add multiple properties per client — useful for clients with rental properties.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">4</div>
+            <div class="step-content"><p>Fill in the property details: lot size, lawn type (Bermuda, Zoysia, Fescue, etc.), irrigation system, and shade level. These help the AI assistant give better advice.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">5</div>
+            <div class="step-content"><p>Tap <strong>Save Client</strong> and you're done.</p></div>
+          </div>
+
+          <p>You can also import clients from your iPhone Contacts. On the Clients screen, tap the menu icon and choose <strong>Import from Contacts</strong>.</p>
+
+          <h2 id="first-job">Creating Your First Job</h2>
+          <p>Once you have a client, creating a job takes about 30 seconds.</p>
+
+          <div class="step-box">
+            <div class="step-num">1</div>
+            <div class="step-content"><p>Tap <strong>Schedule</strong> in the tab bar, then tap any date on the calendar or tap <strong>+ New Job</strong>.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">2</div>
+            <div class="step-content"><p>Select a <strong>client and property</strong> from the list, or search by name.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">3</div>
+            <div class="step-content"><p>Choose the <strong>service type</strong> (mowing, edging, fertilizing, etc.) and set the date and time.</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">4</div>
+            <div class="step-content"><p>Optionally set a <strong>price</strong>, add notes, or make it a <strong>recurring job</strong> (weekly, bi-weekly, monthly).</p></div>
+          </div>
+          <div class="step-box">
+            <div class="step-num">5</div>
+            <div class="step-content"><p>Tap <strong>Save Job</strong>. It will appear on your calendar and in today's route if the date is today.</p></div>
+          </div>
+
+          <blockquote>
+            <p><strong>Next step:</strong> Head over to the <a href="/guide/clients" style="color:#8A9E48;">Client Management guide</a> to learn about property profiles, service assignments, and client health scores.</p>
+          </blockquote>
+        </div>
+
+        <div class="article-cta">
+          <h3>Ready to get started?</h3>
+          <p>Download LawnBook free — available on iPhone, iPad, and Mac.</p>
+          <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+            <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2025 LawnBook &mdash; <a href="https://srisan.me">Srisan Labs</a></p>
+    </div>
+  </footer>
+</body>
+</html>

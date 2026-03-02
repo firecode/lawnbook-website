@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Complete Schedule C Guide for Lawn Care Businesses - LawnBook Blog</title>
+  <meta name="description" content="A practical Schedule C tax guide for self-employed lawn care pros. Learn which deductions to claim, how to keep records, estimate quarterly taxes, and simplify tax season.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/schedule-c-guide-lawn-care.html">
+  <meta property="og:title" content="The Complete Schedule C Guide for Lawn Care Businesses">
+  <meta property="og:description" content="Common deductions, record keeping, quarterly estimates, and how LawnBook simplifies tax tracking for lawn care pros.">
+  <meta property="og:url" content="https://lawnbook.app/blog/schedule-c-guide-lawn-care.html">
+  <meta property="og:type" content="article">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .disclaimer {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 13px;
+      color: #3D4A2D;
+      line-height: 1.6;
+    }
+
+    .deduction-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .deduction-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .deduction-card .category {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .deduction-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-bottom: 6px;
+    }
+    .deduction-card p {
+      font-size: 13px !important;
+      color: #8B9A6B !important;
+      line-height: 1.6 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .deduction-grid { grid-template-columns: 1fr; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">Back to Blog</a>
+
+    <article class="article-wrap">
+      <span class="article-tag">Tax Guide</span>
+      <h1>The Complete Schedule C Guide for Lawn Care Businesses</h1>
+      <div class="article-meta">
+        <span>February 15, 2026</span>
+        <span class="dot"></span>
+        <span>9 min read</span>
+        <span class="dot"></span>
+        <span>LawnBook Team</span>
+      </div>
+
+      <div class="article-body">
+        <div class="disclaimer">This article is for informational purposes only and does not constitute tax advice. Consult a qualified tax professional for guidance specific to your situation.</div>
+
+        <p>If you run a lawn care business as a sole proprietor or single-member LLC, Schedule C is the IRS form where your business profits — and losses — get reported. Getting it right means paying exactly what you owe, no more. Getting it wrong means either overpaying Uncle Sam or facing an audit.</p>
+
+        <p>The good news: lawn care is one of the most deduction-rich businesses around. Fuel, equipment, supplies, insurance, phone, tools — nearly everything you spend to run your operation is potentially deductible. The challenge is knowing what qualifies, keeping records that prove it, and not waiting until April to figure it out.</p>
+
+        <h2>What Is Schedule C?</h2>
+
+        <p>Schedule C (Profit or Loss from Business) is filed alongside your personal Form 1040 if you're self-employed. It calculates your net business income by subtracting your business expenses from your gross business revenue. <strong>That net income is what gets taxed</strong> — both for income tax and for self-employment tax (15.3% for Social Security and Medicare).</p>
+
+        <p>The lower your net income (while staying legitimate), the less you pay. This is why knowing every deduction you're entitled to isn't just smart — it's essential.</p>
+
+        <h2>The Biggest Deductions for Lawn Care Operators</h2>
+
+        <p>Here are the expense categories that matter most for lawn care businesses, all of which map directly to Schedule C line items:</p>
+
+        <div class="deduction-grid">
+          <div class="deduction-card">
+            <p class="category">Line 9</p>
+            <h3>Car & Truck Expenses</h3>
+            <p>Every mile driven for business is deductible. Track your odometer or use the IRS standard mileage rate (67 cents per mile in 2024). Alternatively, deduct actual vehicle expenses — fuel, oil, insurance, repairs, registration, and depreciation.</p>
+          </div>
+          <div class="deduction-card">
+            <p class="category">Line 13</p>
+            <h3>Equipment & Depreciation</h3>
+            <p>Mowers, trimmers, blowers, trailers — all deductible. Large purchases can be deducted immediately under Section 179 or depreciated over several years. New equipment often qualifies for bonus depreciation.</p>
+          </div>
+          <div class="deduction-card">
+            <p class="category">Line 15</p>
+            <h3>Insurance</h3>
+            <p>General liability insurance, commercial auto insurance, and any other business insurance premiums are fully deductible. If you pay for your own health insurance, that's deducted on Form 1040, not Schedule C.</p>
+          </div>
+          <div class="deduction-card">
+            <p class="category">Line 22</p>
+            <h3>Supplies & Materials</h3>
+            <p>Fertilizer, herbicide, seed, mulch, blades, oil, trimmer line — any consumable supplies used in delivering your services are deductible. Keep your receipts organized by month.</p>
+          </div>
+          <div class="deduction-card">
+            <p class="category">Line 25</p>
+            <h3>Utilities & Phone</h3>
+            <p>The business portion of your cell phone bill is deductible. If you use your phone 80% for business, deduct 80% of the bill. A dedicated work line is 100% deductible.</p>
+          </div>
+          <div class="deduction-card">
+            <p class="category">Line 27</p>
+            <h3>Business Software</h3>
+            <p>Apps, software subscriptions, and tools used to run your business qualify. This includes job management software, accounting tools, and GPS navigation subscriptions.</p>
+          </div>
+        </div>
+
+        <blockquote>
+          <p><strong>Don't miss this one:</strong> If you use part of your home exclusively for business — a dedicated office, storage space for equipment, or a garage used solely for work vehicles — you may qualify for the home office deduction under Form 8829. It's often overlooked by field operators.</p>
+        </blockquote>
+
+        <h2>Record Keeping: What You Actually Need to Save</h2>
+
+        <p>The IRS doesn't require you to save every receipt for amounts under $75 — but it does require that you be able to substantiate any deduction you claim. In practice, keeping receipts for everything is far easier than figuring out what you can skip.</p>
+
+        <p>Here's what solid record keeping looks like for a lawn care business:</p>
+
+        <ul>
+          <li><strong>Fuel:</strong> Gas station receipts or credit card statements, odometer log or mileage tracking app</li>
+          <li><strong>Equipment:</strong> Purchase receipts, invoices, and any financing documents</li>
+          <li><strong>Supplies:</strong> Store receipts organized by month and category</li>
+          <li><strong>Insurance:</strong> Annual premium statement from your insurer</li>
+          <li><strong>Phone:</strong> Monthly statements showing business vs. personal use breakdown</li>
+          <li><strong>Subcontractors:</strong> Invoices from any workers you paid, plus W-9 forms if you paid over $600</li>
+        </ul>
+
+        <p>The IRS can audit returns up to three years back (six if they suspect substantial underreporting). Keep records for at least three years from the date you filed — longer if you're depreciating equipment over multiple years.</p>
+
+        <p>LawnBook lets you log expenses daily by Schedule C category, scan receipts with AI, and export a clean expense report any time. Your records are always organized and ready — not stuffed in a shoebox you'll regret in February.</p>
+
+        <h2>Quarterly Estimated Taxes: Don't Get Caught in April</h2>
+
+        <p>As a self-employed person, no employer is withholding taxes from your paychecks. That means <strong>you owe estimated taxes four times a year</strong> — not once. Missing quarterly payments can result in penalties on top of the taxes you owe.</p>
+
+        <p>The standard quarterly deadlines are:</p>
+
+        <ul>
+          <li>Q1 (Jan–Mar): Due April 15</li>
+          <li>Q2 (Apr–May): Due June 16</li>
+          <li>Q3 (Jun–Aug): Due September 15</li>
+          <li>Q4 (Sep–Dec): Due January 15 of the following year</li>
+        </ul>
+
+        <p>How much should you pay? A safe approach is the "safe harbor" rule: pay at least 100% of last year's total tax liability (110% if your income was over $150,000) spread across four equal payments. If your income is growing significantly, calculate based on your actual current-year estimate instead.</p>
+
+        <blockquote>
+          <p><strong>A rough self-employment tax estimate:</strong> If your net Schedule C income is $60,000, expect to owe roughly $8,478 in self-employment tax alone (15.3% of 92.35% of net income), plus your income tax on top. LawnBook's Tax Center shows your real-time estimated tax liability so this number never sneaks up on you.</p>
+        </blockquote>
+
+        <h2>The Self-Employment Tax Deduction Most Operators Miss</h2>
+
+        <p>Here's a deduction that surprises many first-time Schedule C filers: <strong>you can deduct half of your self-employment tax on Form 1040</strong> (not on Schedule C). This directly reduces your adjusted gross income and lowers the income tax you owe. It won't show up on your Schedule C, but your tax software or accountant should calculate it automatically.</p>
+
+        <h2>How LawnBook Simplifies Tax Season</h2>
+
+        <p>The biggest mistake lawn care operators make at tax time is trying to reconstruct a year's worth of expenses from bank statements in January. It takes hours, it's error-prone, and you'll inevitably miss deductions.</p>
+
+        <p>LawnBook is built around the IRS Schedule C expense categories from the ground up. As you log expenses throughout the year — fuel, supplies, equipment repairs, insurance payments — they're automatically tagged to the correct Schedule C line. At year-end, you export a tax-ready report directly to your accountant or plug the numbers into your tax software.</p>
+
+        <p>The AI expense scanner makes it even faster: photograph a receipt and LawnBook reads the amount, date, and vendor, and suggests the right category. What used to take 20 minutes of weekly bookkeeping takes about 90 seconds.</p>
+
+        <p>Tax season for a LawnBook user looks like this: export the Schedule C report in January, hand it to your accountant (or enter the totals yourself), and you're done. No reconstructing, no guessing, no stress.</p>
+
+        <h2>Working With a Tax Professional</h2>
+
+        <p>Even if you're comfortable handling your own finances, a one-time session with a CPA or Enrolled Agent familiar with self-employed contractors is worth the investment. They can identify deductions specific to your situation, advise on entity structure (sole prop vs. S-corp), and catch issues before they become problems.</p>
+
+        <p>Going in with organized records — which LawnBook makes easy — means you'll spend less billable time with your accountant and get a more accurate return. Your organized expense report is worth real money in reduced accounting fees alone.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>Track expenses the right way, year-round</h3>
+        <p>LawnBook organizes your spending into Schedule C categories automatically. Scan receipts, log fuel, and export a tax-ready report when you need it — all offline, all private.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

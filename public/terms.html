@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Use - LawnBook</title>
+  <meta name="description" content="LawnBook Terms of Use. Learn about your rights and responsibilities when using LawnBook, the offline-first lawn care business app by Srisan Labs.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/terms">
+
+  <meta property="og:title" content="Terms of Use - LawnBook">
+  <meta property="og:description" content="Terms of Use for LawnBook, the offline-first lawn care business management app.">
+  <meta property="og:url" content="https://lawnbook.app/terms">
+  <meta property="og:type" content="website">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .blob-3 { top: 50%; left: 30%; width: 300px; height: 300px; background: #BDC581; opacity: 0.06; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .page-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 48px;
+    }
+    .page-header .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-header .meta {
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+    }
+
+    .toc {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+      max-width: 480px;
+    }
+    .toc h3 {
+      font-size: 13px;
+      font-weight: 700;
+      color: #8B9A6B;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      padding-left: 20px;
+    }
+    .toc ol li {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    .toc ol li a {
+      color: #8B9A6B;
+      text-decoration: none;
+    }
+    .toc ol li a:hover { color: #BDC581; }
+
+    .prose {
+      max-width: 720px;
+    }
+    .prose section {
+      margin-bottom: 48px;
+    }
+    .prose h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+      color: #EFF2E4;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .prose p {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose ul {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+    .prose ul li {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 5px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .prose ul li::before {
+      content: "\2022";
+      color: #8A9E48;
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    .prose a {
+      color: #BDC581;
+      text-decoration: none;
+    }
+    .prose a:hover { color: #EFF2E4; }
+    .prose .callout {
+      background: rgba(138, 158, 72, 0.06);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+    .prose .callout p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px;
+      margin-top: 48px;
+      margin-bottom: 64px;
+    }
+    .contact-box h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.6;
+    }
+    .contact-box a {
+      color: #BDC581;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-box a:hover { color: #EFF2E4; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #8B9A6B;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 48px 0 32px; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link active">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <div class="label">Legal</div>
+      <h1>Terms of Use</h1>
+      <p class="meta">Last updated: March 2026</p>
+    </div>
+
+    <nav class="toc" aria-label="Table of contents">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#acceptance">Acceptance of Terms</a></li>
+        <li><a href="#license">License to Use</a></li>
+        <li><a href="#subscriptions">Subscriptions and Billing</a></li>
+        <li><a href="#your-data">Your Data</a></li>
+        <li><a href="#acceptable-use">Acceptable Use</a></li>
+        <li><a href="#ip">Intellectual Property</a></li>
+        <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+        <li><a href="#liability">Limitation of Liability</a></li>
+        <li><a href="#termination">Termination</a></li>
+        <li><a href="#governing-law">Governing Law</a></li>
+        <li><a href="#changes">Changes to Terms</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+
+    <div class="prose">
+      <section id="acceptance">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using LawnBook ("the App"), you agree to be bound by these Terms of Use ("Terms") and our <a href="/privacy">Privacy Policy</a>. These Terms constitute a legally binding agreement between you and Srisan Labs ("we," "us," or "our").</p>
+        <p>If you do not agree to these Terms, do not download or use LawnBook. Your continued use of the App after we post any modifications to these Terms will constitute your acknowledgment and acceptance of the modifications.</p>
+      </section>
+
+      <section id="license">
+        <h2>2. License to Use</h2>
+        <p>Subject to your compliance with these Terms, Srisan Labs grants you a limited, non-exclusive, non-transferable, revocable license to download and use LawnBook on Apple devices that you own or control, solely for your personal business management purposes.</p>
+        <p>This license does not include the right to:</p>
+        <ul>
+          <li>Reproduce, distribute, or sublicense the App</li>
+          <li>Modify, adapt, translate, or create derivative works</li>
+          <li>Reverse engineer, decompile, or disassemble the App</li>
+          <li>Remove any proprietary notices or labels on the App</li>
+          <li>Use the App for any commercial purpose other than managing your own business</li>
+        </ul>
+      </section>
+
+      <section id="subscriptions">
+        <h2>3. Subscriptions and Billing</h2>
+        <p>LawnBook offers a free tier and paid subscription plans (Pro and Premium). All subscriptions are offered through Apple's App Store and are subject to Apple's payment terms.</p>
+
+        <p><strong style="color: #EFF2E4;">Free Tier.</strong> The free tier is available indefinitely with no charge. It includes access to core features with limits on the number of clients (up to 5) and certain advanced features. We reserve the right to adjust free tier limits with reasonable notice.</p>
+
+        <p><strong style="color: #EFF2E4;">Paid Subscriptions.</strong> Pro and Premium subscriptions are billed monthly or annually through the App Store. Prices are as displayed in the App and may vary by region based on Apple's pricing tiers. All purchases include a 14-day free trial for new subscribers.</p>
+
+        <p><strong style="color: #EFF2E4;">Auto-Renewal.</strong> Subscriptions automatically renew unless auto-renewal is turned off at least 24 hours before the end of the current subscription period. Your Apple ID account will be charged for renewal within 24 hours prior to the end of the current period.</p>
+
+        <p><strong style="color: #EFF2E4;">Cancellation.</strong> You may cancel your subscription at any time through your Apple ID account settings. Cancellation takes effect at the end of the current billing period. We do not offer refunds for partial subscription periods except as required by applicable law.</p>
+
+        <p><strong style="color: #EFF2E4;">Price Changes.</strong> We may change subscription prices from time to time. We will notify you of price changes before they take effect. Continued use of the App after the price change constitutes acceptance.</p>
+
+        <div class="callout">
+          <p>For billing issues, refund requests, or subscription management, please contact Apple Support directly. Srisan Labs does not process payments or store payment information.</p>
+        </div>
+      </section>
+
+      <section id="your-data">
+        <h2>4. Your Data</h2>
+        <p>LawnBook is an offline-first application. All data you create in the App — including client records, job schedules, invoices, expenses, photos, and other business information — is stored locally on your device.</p>
+        <p>You retain full ownership of all data you create in LawnBook. Srisan Labs does not access, collect, or have rights to your business data. You are solely responsible for:</p>
+        <ul>
+          <li>Maintaining backups of your data</li>
+          <li>The accuracy and legality of your data</li>
+          <li>Any data exported or shared from the App</li>
+          <li>Compliance with applicable laws regarding the data you manage (e.g., client information)</li>
+        </ul>
+        <p>If you enable optional iCloud sync, data is processed through Apple's infrastructure. Srisan Labs does not have access to iCloud-stored data.</p>
+      </section>
+
+      <section id="acceptable-use">
+        <h2>5. Acceptable Use</h2>
+        <p>You agree to use LawnBook only for lawful purposes and in accordance with these Terms. You agree not to use the App:</p>
+        <ul>
+          <li>In any way that violates applicable federal, state, local, or international law or regulation</li>
+          <li>To transmit or facilitate the transmission of unsolicited communications</li>
+          <li>To impersonate or attempt to impersonate Srisan Labs, another user, or any other person</li>
+          <li>To engage in any conduct that restricts or inhibits any person's use of the App</li>
+          <li>To attempt to gain unauthorized access to any system or network</li>
+        </ul>
+      </section>
+
+      <section id="ip">
+        <h2>6. Intellectual Property</h2>
+        <p>LawnBook and its entire contents, features, and functionality — including but not limited to all design, text, graphics, logos, icons, and code — are the exclusive property of Srisan Labs and are protected by copyright, trademark, and other intellectual property laws.</p>
+        <p>"LawnBook" and the LawnBook logo are trademarks of Srisan Labs. Nothing in these Terms grants you the right to use any Srisan Labs trademark, logo, or trade name.</p>
+      </section>
+
+      <section id="disclaimer">
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, SRISAN LABS EXPRESSLY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+        <p>Srisan Labs does not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components. Any information obtained through the App is provided at your own risk.</p>
+        <p>Tax and financial information generated by LawnBook (including but not limited to expense categorization, profit and loss summaries, and tax estimates) is provided for informational purposes only and does not constitute professional tax or financial advice. You should consult a qualified tax professional for advice specific to your situation.</p>
+      </section>
+
+      <section id="liability">
+        <h2>8. Limitation of Liability</h2>
+        <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SRISAN LABS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM:</p>
+        <ul>
+          <li>Your access to or use of or inability to access or use the App</li>
+          <li>Any conduct or content of any third party in connection with the App</li>
+          <li>Unauthorized access, use, or alteration of your transmissions or content</li>
+          <li>Any data loss resulting from App malfunction, device failure, or iCloud issues</li>
+        </ul>
+        <p>IN NO EVENT SHALL SRISAN LABS' TOTAL LIABILITY TO YOU FOR ALL CLAIMS RELATING TO THE APP EXCEED THE AMOUNT YOU PAID TO SRISAN LABS IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE CLAIM.</p>
+        <p>Some jurisdictions do not allow exclusion of implied warranties or limitation of liability for consequential damages, so some of the above may not apply to you.</p>
+      </section>
+
+      <section id="termination">
+        <h2>9. Termination</h2>
+        <p>These Terms are effective until terminated by either you or Srisan Labs. You may terminate these Terms at any time by deleting the App from your devices and cancelling any active subscription through the App Store.</p>
+        <p>We may suspend or terminate your access to the App at any time if we believe you have violated these Terms. Upon termination, the license granted herein terminates and you must cease all use of the App. Because your data is stored locally, deletion of the App from your device removes all local data.</p>
+      </section>
+
+      <section id="governing-law">
+        <h2>10. Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the State of California, United States, without regard to its conflict of law provisions. Any legal action or proceeding arising under these Terms shall be brought exclusively in courts located in California, and you hereby consent to personal jurisdiction and venue therein.</p>
+      </section>
+
+      <section id="changes">
+        <h2>11. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. We will notify you of material changes by updating the "Last updated" date at the top of this page and, where appropriate, through an in-app notice. Your continued use of LawnBook after any modifications constitutes your acceptance of the revised Terms.</p>
+        <p>We encourage you to review these Terms periodically. If you disagree with any changes, your sole remedy is to stop using the App and cancel your subscription.</p>
+      </section>
+
+      <section id="contact">
+        <h2>12. Contact</h2>
+        <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@lawnbook.app">support@lawnbook.app</a>.</p>
+        <p>Srisan Labs<br>
+        <a href="https://lawnbook.app">https://lawnbook.app</a></p>
+      </section>
+    </div>
+
+    <div class="contact-box">
+      <h2>Questions about these terms?</h2>
+      <p>We wrote these terms to be as readable as possible, but if something is unclear, reach out. We're a small team and we're happy to explain anything. Email us at <a href="mailto:support@lawnbook.app">support@lawnbook.app</a>.</p>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>Time & Mileage Tracking - LawnBook Guide</title>
+  <meta name="description" content="Clock in and out of jobs, log business mileage for tax deductions, and convert hours directly to invoices with LawnBook's time and mileage tracking.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide/time-mileage">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif; background: #0F1208; color: #EFF2E4; line-height: 1.6; overflow-x: hidden; }
+    .blob { position: fixed; border-radius: 50%; filter: blur(60px); z-index: 0; pointer-events: none; }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .container { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    nav { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #EFF2E4; text-decoration: none; }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link { font-size: 14px; color: #8B9A6B; text-decoration: none; font-weight: 600; }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: #EFF2E4; margin: 5px 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #8B9A6B; text-decoration: none; margin: 24px 0 32px; transition: color 0.15s; }
+    .back-link:hover { color: #BDC581; }
+    .back-link::before { content: "\2190"; font-size: 15px; }
+    .article-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #8A9E48; background: rgba(138, 158, 72, 0.12); border: 1px solid rgba(138, 158, 72, 0.25); border-radius: 100px; padding: 5px 14px; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 20px; }
+    h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 800; letter-spacing: -1px; line-height: 1.2; margin-bottom: 16px; color: #EFF2E4; }
+    .article-meta { font-size: 13px; color: #3D4A2D; font-weight: 600; margin-bottom: 40px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .article-body h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; color: #EFF2E4; margin: 48px 0 16px; line-height: 1.3; }
+    .article-body p { font-size: 16px; color: #BDC581; line-height: 1.75; margin-bottom: 20px; }
+    .article-body ul, .article-body ol { margin: 0 0 20px 0; padding-left: 0; list-style: none; }
+    .article-body ul li, .article-body ol li { font-size: 16px; color: #BDC581; line-height: 1.7; padding: 6px 0 6px 24px; position: relative; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .article-body ul li:last-child, .article-body ol li:last-child { border-bottom: none; }
+    .article-body ul li::before { content: "\2713"; color: #8A9E48; font-weight: 700; position: absolute; left: 0; }
+    .article-body ol { counter-reset: list-counter; }
+    .article-body ol li { counter-increment: list-counter; }
+    .article-body ol li::before { content: counter(list-counter) "."; color: #8A9E48; font-weight: 700; position: absolute; left: 0; font-size: 14px; }
+    blockquote { border-left: 3px solid #8A9E48; background: rgba(138, 158, 72, 0.06); border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 28px 0; }
+    blockquote p { font-size: 15px; color: #BDC581; margin: 0; line-height: 1.65; }
+    blockquote strong { color: #EFF2E4; font-weight: 700; }
+    .divider { border: none; border-top: 1px solid rgba(255,255,255,0.06); margin: 48px 0; }
+    .cta-section { background: rgba(138, 158, 72, 0.07); border: 1px solid rgba(138, 158, 72, 0.2); border-radius: 16px; padding: 36px 32px; text-align: center; margin: 56px 0 48px; }
+    .cta-section h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 10px; color: #EFF2E4; }
+    .cta-section p { font-size: 15px; color: #8B9A6B; margin-bottom: 24px; line-height: 1.6; }
+    .appstore-btn { display: inline-block; transition: transform 0.15s; }
+    .appstore-btn:hover { transform: scale(1.03); }
+    .appstore-btn img { height: 48px; width: auto; }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 0; text-align: center; }
+    .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; font-weight: 600; color: #8B9A6B; text-decoration: none; }
+    .footer-links a:hover { color: #EFF2E4; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+    footer p { font-size: 13px; color: #3D4A2D; margin-top: 12px; }
+    @media (max-width: 768px) {
+      .nav-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 60px; left: 0; right: 0; background: #0F1208; border-bottom: 1px solid rgba(255,255,255,0.08); flex-direction: column; padding: 20px 24px; gap: 16px; z-index: 100; }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-section { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/guide" class="back-link">Back to Guide</a>
+
+    <div class="article-tag">Step 10 &mdash; Time &amp; Mileage Tracking</div>
+    <h1>Know Exactly How Long Jobs Take and What You're Worth Per Hour</h1>
+    <div class="article-meta">
+      <span>LawnBook Guide</span>
+      <span>&middot;</span>
+      <span>6 min read</span>
+    </div>
+
+    <div class="article-body">
+      <p>Time tracking turns your intuition into data. When you know exactly how long each type of job actually takes, you estimate better, invoice more accurately, and can calculate your true hourly rate. Mileage tracking turns driving into a tax deduction. Both features are simple to use and valuable year-round.</p>
+
+      <h2>Clocking In and Out of Jobs</h2>
+      <p>Open any job in the Schedule or Jobs tab. Tap <strong>Clock In</strong> when you arrive at the property. The timer starts automatically. When you finish, tap <strong>Clock Out</strong>. The elapsed time is saved to the job record.</p>
+      <p>You can also use the clock-in and clock-out buttons from the Routes screen when working through your daily stop list. This keeps the action one tap away without navigating to the job detail.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Clock in before you unload equipment, not after. Your time on site starts the moment you arrive. This gives you accurate data on total job duration including setup and cleanup, which is the number that matters for pricing.</p>
+      </blockquote>
+
+      <h2>Running Timer</h2>
+      <p>A persistent timer banner appears at the top of the app whenever a clock-in is active. You can navigate anywhere in the app &mdash; check the client's notes, look at the invoice, browse your supply inventory &mdash; without interrupting the timer. The banner shows elapsed time in real time so you always know how long you've been on site.</p>
+      <p>If you accidentally forget to clock in when you arrive, you can manually set the start time by long-pressing the Clock In button on a job and entering the actual arrival time.</p>
+
+      <h2>Time Entry Logs</h2>
+      <p>All clocked time is stored in a searchable log accessible from <strong>Time &rarr; Log</strong>. Each entry shows:</p>
+      <ul>
+        <li>Client name and job type</li>
+        <li>Date and start/end times</li>
+        <li>Duration in hours and minutes</li>
+        <li>Any notes added at clock-out</li>
+      </ul>
+      <p>Filter the log by client, date range, or job type. This is useful for reviewing how much time you spent at a particular property over the past month, or calculating total labor hours for a week.</p>
+
+      <h2>Converting Hours to Invoices</h2>
+      <p>If you bill clients by the hour, converting logged time to an invoice is a two-tap process. From the time log entry, tap <strong>Add to Invoice</strong>. LawnBook creates an invoice line item for the logged hours at the hourly rate set for that client or service type.</p>
+      <p>Your hourly rates can be configured per client and per service type in <strong>Settings &rarr; Pricing</strong>. Different rates for mowing, fertilizing, landscaping, and other services can all be stored separately.</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> Review your time log at the end of each week. Compare actual time against estimated time for each job. When you consistently go 20 minutes over estimate on large properties, that's a signal to adjust your pricing for those jobs.</p>
+      </blockquote>
+
+      <h2>Mileage Logging for Tax Deductions</h2>
+      <p>The IRS allows self-employed individuals to deduct business mileage at the standard mileage rate (67 cents per mile for 2024). LawnBook logs mileage in two ways:</p>
+      <ul>
+        <li><strong>Route-based</strong> &mdash; Drive distance between job stops is automatically estimated when you use the Routes feature and confirm stops</li>
+        <li><strong>Manual log</strong> &mdash; Open <strong>Time &rarr; Mileage</strong> and tap <strong>+ Add Trip</strong> to record any business drive with starting odometer, ending odometer, and trip purpose</li>
+      </ul>
+      <p>The IRS requires that mileage records include the date, starting and ending points, business purpose, and total miles. LawnBook stores all of this automatically for route-based trips and prompts for the purpose on manual entries.</p>
+
+      <h2>Manual Mileage Trip Entry</h2>
+      <p>For trips not covered by the route optimizer &mdash; supply runs, trips to the bank, equipment pickup, meeting a new client &mdash; add them manually:</p>
+      <ol>
+        <li>Tap <strong>+ Add Trip</strong> in the Mileage log</li>
+        <li>Enter the start location and end location (or just enter the total miles directly)</li>
+        <li>Add the business purpose (e.g., "Supply run - Home Depot fertilizer")</li>
+        <li>Enter the date</li>
+        <li>Save</li>
+      </ol>
+      <p>The trip is added to your mileage log and the running tax deduction total in the Tax Center updates immediately.</p>
+
+      <h2>Mileage Summary and Tax Deduction</h2>
+      <p>The Mileage section shows your year-to-date totals:</p>
+      <ul>
+        <li>Total business miles driven</li>
+        <li>Dollar value of the mileage deduction at the current IRS rate</li>
+        <li>Monthly breakdown of miles driven</li>
+        <li>Trip history with search and filter</li>
+      </ul>
+      <p>These figures flow automatically into your Tax Center and Schedule C report. At year-end, export a complete mileage log as CSV or PDF for your accountant.</p>
+
+      <blockquote>
+        <p><strong>Important:</strong> Keep personal and business mileage separate. The IRS specifically excludes commuting miles (driving from home to your first job site) from the business mileage deduction. LawnBook includes a field to mark trips as commuting when applicable so your deductible mileage count is accurate.</p>
+      </blockquote>
+
+      <h2>Per-Job Profitability Analysis</h2>
+      <p>When you combine time tracking with supply usage logging and invoice revenue, LawnBook can calculate profitability per job. The job detail view shows:</p>
+      <ul>
+        <li>Revenue from the invoice</li>
+        <li>Supply cost consumed</li>
+        <li>Labor time and implied labor cost</li>
+        <li>Estimated net profit and profit margin</li>
+      </ul>
+      <p>Over time, this data shows which clients and which service types are most profitable per hour of work. That information should directly inform where you focus your growth efforts and how you price similar work in the future.</p>
+    </div>
+
+    <hr class="divider">
+
+    <div class="cta-section">
+      <h3>Track your time, claim every mile</h3>
+      <p>Download LawnBook free and start capturing the data that makes your business more profitable.</p>
+      <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759789680" class="appstore-btn">
+        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+      </a>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://tiktok.com/@srisanlabs" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.78a4.85 4.85 0 01-1.02-.09z"/></svg></a></li>
+        <li><a href="https://instagram.com/srisanlabs" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a></li>
+        <li><a href="https://facebook.com/srisanlabs" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

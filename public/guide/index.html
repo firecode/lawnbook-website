@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-itunes-app" content="app-id=6759789680">
+  <title>LawnBook Guide — Help & Documentation</title>
+  <meta name="description" content="Complete guides and documentation for LawnBook — the lawn care business management app. Learn how to manage clients, schedule jobs, send invoices, optimize routes, and more.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/guide">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Nav */
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* Page header */
+    .page-header {
+      padding: 56px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 48px;
+    }
+    .page-header-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 5px 14px;
+      margin-bottom: 20px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-header p {
+      font-size: 16px;
+      color: #8B9A6B;
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    /* Search bar */
+    .search-wrap {
+      margin-top: 28px;
+      max-width: 420px;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 12px 16px 12px 42px;
+      font-size: 14px;
+      color: #EFF2E4;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B9A6B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 14px center;
+    }
+    .search-input:focus { border-color: rgba(138, 158, 72, 0.4); }
+    .search-input::placeholder { color: #3D4A2D; }
+
+    /* Guide grid */
+    .guide-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #3D4A2D;
+      margin-bottom: 20px;
+    }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .guide-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .guide-card:hover {
+      border-color: rgba(138, 158, 72, 0.35);
+      background: rgba(138, 158, 72, 0.06);
+      transform: translateY(-2px);
+    }
+    .guide-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .guide-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #EFF2E4;
+    }
+    .guide-card p {
+      font-size: 13px;
+      color: #8B9A6B;
+      line-height: 1.55;
+    }
+    .guide-card-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .guide-card-topic {
+      font-size: 11px;
+      font-weight: 600;
+      color: #8B9A6B;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 6px;
+      padding: 3px 8px;
+    }
+    .guide-card-arrow {
+      margin-top: auto;
+      font-size: 12px;
+      color: #8A9E48;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .guide-card-arrow::after {
+      content: "→";
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .guide-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .page-header { padding: 36px 0 32px; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .guide-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link active">Guide</a>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="page-header-tag">Documentation</div>
+      <h1>LawnBook Guide</h1>
+      <p>Everything you need to get the most out of LawnBook. Step-by-step guides for every feature.</p>
+      <div class="search-wrap">
+        <input type="search" class="search-input" placeholder="Search guides..." aria-label="Search guides">
+      </div>
+    </header>
+
+    <p class="guide-section-label">All Guides</p>
+
+    <div class="guide-grid">
+
+      <a href="/guide/getting-started" class="guide-card">
+        <div class="guide-card-icon">&#128640;</div>
+        <h3>Getting Started</h3>
+        <p>Download the app, set up your profile, and learn your way around the dashboard on day one.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Dashboard</span>
+          <span class="guide-card-topic">Navigation</span>
+          <span class="guide-card-topic">First Setup</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/clients" class="guide-card">
+        <div class="guide-card-icon">&#128101;</div>
+        <h3>Client Management</h3>
+        <p>Add clients, build property profiles, assign services, and track client health scores.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Clients</span>
+          <span class="guide-card-topic">Properties</span>
+          <span class="guide-card-topic">Services</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/scheduling" class="guide-card">
+        <div class="guide-card-icon">&#128197;</div>
+        <h3>Job Scheduling</h3>
+        <p>Use the calendar to create one-time and recurring jobs, track statuses, and schedule around weather.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Calendar</span>
+          <span class="guide-card-topic">Recurring Jobs</span>
+          <span class="guide-card-topic">Weather</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/invoicing" class="guide-card">
+        <div class="guide-card-icon">&#128190;</div>
+        <h3>Invoicing &amp; Estimates</h3>
+        <p>Create estimates, convert them to invoices, capture signatures, and accept payments through multiple gateways.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">PDF Invoices</span>
+          <span class="guide-card-topic">Payments</span>
+          <span class="guide-card-topic">Signatures</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/route-optimization" class="guide-card">
+        <div class="guide-card-icon">&#128507;</div>
+        <h3>Route Optimization</h3>
+        <p>Build efficient daily routes, see all jobs on a map, and save fuel with optimized drive order.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Daily Routes</span>
+          <span class="guide-card-topic">Maps</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/expenses" class="guide-card">
+        <div class="guide-card-icon">&#128176;</div>
+        <h3>Expense Tracking</h3>
+        <p>Log expenses manually, scan receipts with your camera, or use voice entry. Categorized for taxes.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Manual Entry</span>
+          <span class="guide-card-topic">Receipts</span>
+          <span class="guide-card-topic">Voice</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/tax-center" class="guide-card">
+        <div class="guide-card-icon">&#128203;</div>
+        <h3>Tax Center</h3>
+        <p>Track Schedule C categories, estimate quarterly taxes, and export P&amp;L reports for your accountant.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Schedule C</span>
+          <span class="guide-card-topic">Quarterly</span>
+          <span class="guide-card-topic">Reports</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/inventory" class="guide-card">
+        <div class="guide-card-icon">&#128230;</div>
+        <h3>Supply Inventory</h3>
+        <p>Track supplies, set reorder thresholds, and get low-stock alerts before you run out in the field.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Tracking</span>
+          <span class="guide-card-topic">Reorder</span>
+          <span class="guide-card-topic">Alerts</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/ai-tools" class="guide-card">
+        <div class="guide-card-icon">&#129302;</div>
+        <h3>AI Tools &amp; Assistant</h3>
+        <p>Ask the lawn assistant questions, log expenses by voice, and get a personalized daily briefing each morning.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Lawn Assistant</span>
+          <span class="guide-card-topic">Voice Entry</span>
+          <span class="guide-card-topic">Briefing</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/time-mileage" class="guide-card">
+        <div class="guide-card-icon">&#9201;</div>
+        <h3>Time &amp; Mileage Tracking</h3>
+        <p>Clock in and out of jobs, log mileage automatically or manually, and track labor hours by client.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Clock In/Out</span>
+          <span class="guide-card-topic">Mileage</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/seasonal-planner" class="guide-card">
+        <div class="guide-card-icon">&#127807;</div>
+        <h3>Seasonal Planner</h3>
+        <p>Build seasonal lawn care plans, schedule fertilizer applications, and send clients proactive recommendations.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">Lawn Plans</span>
+          <span class="guide-card-topic">Fertilizer</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+      <a href="/guide/data-privacy" class="guide-card">
+        <div class="guide-card-icon">&#128274;</div>
+        <h3>Data &amp; Privacy</h3>
+        <p>Understand how iCloud backup works, export your data, and why LawnBook has no cloud servers or tracking.</p>
+        <div class="guide-card-topics">
+          <span class="guide-card-topic">iCloud Backup</span>
+          <span class="guide-card-topic">Export</span>
+          <span class="guide-card-topic">Privacy</span>
+        </div>
+        <div class="guide-card-arrow">Read guide</div>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2025 LawnBook &mdash; <a href="https://srisan.me">Srisan Labs</a></p>
+    </div>
+  </footer>
+</body>
+</html>

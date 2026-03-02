@@ -1,0 +1,21 @@
+{
+  "name": "lawnbook-website",
+  "main": "src/index.js",
+  "compatibility_date": "2026-02-14",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SIGNUPS",
+      "id": "PLACEHOLDER_KV_ID"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "ASSETS_R2",
+      "bucket_name": "lawnbook-assets"
+    }
+  ]
+}

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - LawnBook</title>
+  <meta name="description" content="LawnBook Privacy Policy. Your lawn care business data stays on your device. No tracking, no ads, no data collection. Offline-first, private by design.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/privacy">
+
+  <meta property="og:title" content="Privacy Policy - LawnBook">
+  <meta property="og:description" content="LawnBook is offline-first. No data collection, no tracking, no ads. Your data stays on your device.">
+  <meta property="og:url" content="https://lawnbook.app/privacy">
+  <meta property="og:type" content="website">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+    .blob-3 { top: 50%; left: 30%; width: 300px; height: 300px; background: #BDC581; opacity: 0.06; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    nav a.nav-link.active { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .page-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 48px;
+    }
+    .page-header .label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 100px;
+      padding: 6px 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .page-header h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .page-header .meta {
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+    }
+
+    .privacy-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .summary-card {
+      background: rgba(138, 158, 72, 0.06);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .summary-card .icon {
+      font-size: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .summary-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #BDC581;
+      margin-bottom: 4px;
+    }
+    .summary-card p {
+      font-size: 13px;
+      color: #8B9A6B;
+      line-height: 1.5;
+    }
+
+    .prose {
+      max-width: 720px;
+    }
+    .prose section {
+      margin-bottom: 48px;
+    }
+    .prose h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+      color: #EFF2E4;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .prose p {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose ul {
+      list-style: none;
+      margin-bottom: 14px;
+    }
+    .prose ul li {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 5px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .prose ul li::before {
+      content: "\2713";
+      color: #8A9E48;
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+    .prose a {
+      color: #BDC581;
+      text-decoration: none;
+    }
+    .prose a:hover { color: #EFF2E4; }
+
+    .contact-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 32px;
+      margin-top: 48px;
+      margin-bottom: 64px;
+    }
+    .contact-box h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .contact-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      line-height: 1.6;
+    }
+    .contact-box a {
+      color: #BDC581;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-box a:hover { color: #EFF2E4; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #8B9A6B;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .page-header { padding: 48px 0 32px; }
+      .privacy-summary { grid-template-columns: repeat(2, 1fr); }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+    }
+    @media (max-width: 480px) {
+      .privacy-summary { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link active">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <div class="page-header">
+      <div class="label">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: March 2026</p>
+    </div>
+
+    <div class="privacy-summary">
+      <div class="summary-card">
+        <span class="icon">&#128274;</span>
+        <h3>No Data Collection</h3>
+        <p>We do not collect, store, or transmit your personal or business data.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">&#128683;</span>
+        <h3>No Tracking</h3>
+        <p>No analytics, no behavioral tracking, no third-party advertising SDKs.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">&#128241;</span>
+        <h3>Local Storage</h3>
+        <p>All data lives on your device. You own it. We cannot access it.</p>
+      </div>
+      <div class="summary-card">
+        <span class="icon">&#129504;</span>
+        <h3>On-Device AI</h3>
+        <p>AI features run entirely on your device. Nothing is sent to a server.</p>
+      </div>
+    </div>
+
+    <div class="prose">
+      <section>
+        <h2>Overview</h2>
+        <p>LawnBook is built on a simple principle: your business data is yours. Srisan Labs designed LawnBook to be offline-first and private by default. We do not operate cloud servers for your business data. We do not analyze your usage patterns to sell ads. We do not share anything about you with third parties.</p>
+        <p>This Privacy Policy explains how LawnBook handles information in the rare cases where any data is involved.</p>
+      </section>
+
+      <section>
+        <h2>Data We Do Not Collect</h2>
+        <p>LawnBook does not collect or have access to:</p>
+        <ul>
+          <li>Your client names, addresses, or contact information</li>
+          <li>Your invoices, estimates, or financial records</li>
+          <li>Your job schedules, routes, or service history</li>
+          <li>Your expense records, receipts, or tax data</li>
+          <li>Your location or GPS data</li>
+          <li>Photos you take within the app</li>
+          <li>Voice recordings or transcriptions from voice entry</li>
+          <li>Any AI-generated content or prompts</li>
+        </ul>
+        <p>All of the above data is created and stored exclusively on your device. It never leaves your device unless you explicitly export or share it yourself.</p>
+      </section>
+
+      <section>
+        <h2>Offline-First Architecture</h2>
+        <p>LawnBook is designed to work completely without an internet connection. Every feature — scheduling, invoicing, expense tracking, route optimization, AI tools — operates locally on your device. No internet connection is required to use any part of the app.</p>
+        <p>When you are offline, your data remains fully accessible and functional. There is no data synchronization happening in the background with our servers because we do not have servers for your data.</p>
+      </section>
+
+      <section>
+        <h2>iCloud Sync (Optional)</h2>
+        <p>LawnBook offers optional iCloud backup and sync via Apple's CloudKit framework. This is entirely optional and is disabled by default on new installs.</p>
+        <p>If you enable iCloud sync:</p>
+        <ul>
+          <li>Your data is synced through Apple's infrastructure, governed by Apple's Privacy Policy</li>
+          <li>Srisan Labs cannot access your iCloud data — Apple's end-to-end encryption applies</li>
+          <li>Sync only occurs between your own Apple devices signed into the same Apple ID</li>
+          <li>You can disable or delete iCloud data at any time from your device's iCloud settings</li>
+        </ul>
+        <p>We recommend reviewing <a href="https://www.apple.com/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> for details on how iCloud data is handled.</p>
+      </section>
+
+      <section>
+        <h2>AI Features</h2>
+        <p>LawnBook includes AI-powered features including voice job entry, receipt scanning, lawn analysis, seasonal planning, and the AI lawn assistant. All of these features run on-device using Apple's on-device machine learning frameworks (Core ML, Vision, Speech).</p>
+        <p>No data from AI features is transmitted to Srisan Labs or any third-party AI provider. Your prompts, photos, and voice recordings are processed entirely on your device and discarded when no longer needed.</p>
+      </section>
+
+      <section>
+        <h2>Crash Reporting (Firebase Crashlytics)</h2>
+        <p>LawnBook uses Firebase Crashlytics, a service by Google, to receive anonymous crash reports when the app unexpectedly crashes. This helps us identify and fix bugs.</p>
+        <p>Crashlytics collects:</p>
+        <ul>
+          <li>Crash stack traces and error messages</li>
+          <li>Device model and iOS version</li>
+          <li>App version and build number</li>
+          <li>A randomly generated installation identifier (not tied to your Apple ID)</li>
+        </ul>
+        <p>Crashlytics does not collect your name, email, Apple ID, or any business data from the app. Crash reports are anonymized and cannot be linked back to you personally. You can opt out of crash reporting in LawnBook's Settings under Privacy.</p>
+        <p>For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Google's Firebase Privacy documentation</a>.</p>
+      </section>
+
+      <section>
+        <h2>No Advertising</h2>
+        <p>LawnBook does not display advertisements and does not use advertising SDKs or networks. We do not share any data with advertising platforms. LawnBook is supported entirely by direct subscription revenue from users.</p>
+      </section>
+
+      <section>
+        <h2>No Third-Party Analytics</h2>
+        <p>LawnBook does not use any analytics platforms such as Mixpanel, Amplitude, Segment, Google Analytics, or similar services. We do not track which features you use, how often you open the app, or how you navigate through the UI.</p>
+      </section>
+
+      <section>
+        <h2>Subscriptions and Payments</h2>
+        <p>All subscriptions and in-app purchases are processed entirely by Apple through the App Store. Srisan Labs never sees or stores your payment card information. Subscription management, billing, and receipts are handled by Apple and governed by Apple's Terms of Service.</p>
+      </section>
+
+      <section>
+        <h2>Data Retention and Deletion</h2>
+        <p>Because your data lives on your device, you are in full control of retention and deletion. Deleting LawnBook from your device removes all locally stored data. If you have enabled iCloud sync, you can delete that data separately from your device's iCloud settings.</p>
+        <p>Anonymized crash reports retained by Firebase Crashlytics are subject to Google's data retention policies. We do not control the retention period for crash data.</p>
+      </section>
+
+      <section>
+        <h2>Children's Privacy</h2>
+        <p>LawnBook is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child under 13 has provided information through the app, please contact us and we will take appropriate steps.</p>
+      </section>
+
+      <section>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we make significant changes, we will update the "Last updated" date at the top of this page and may notify you within the app. Continued use of LawnBook after changes constitutes acceptance of the revised policy.</p>
+      </section>
+    </div>
+
+    <div class="contact-box">
+      <h2>Questions about privacy?</h2>
+      <p>We're a small team and we take privacy seriously. If you have any questions or concerns about this Privacy Policy or how LawnBook handles data, reach out to us at <a href="mailto:support@lawnbook.app">support@lawnbook.app</a> — we respond to every message.</p>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <p>&copy; 2026 Srisan Labs. All rights reserved.</p>
+      <ul class="social-links">
+        <li>
+          <a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
