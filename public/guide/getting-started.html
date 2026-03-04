@@ -310,6 +310,9 @@
     }
     .footer-links a { font-size: 14px; font-weight: 600; }
 
+    .guide-screenshot { max-width: 280px; margin: 24px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138, 158, 72, 0.15); border: 1px solid rgba(138, 158, 72, 0.2); }
+    .guide-screenshot img { width: 100%; display: block; }
+
     /* Responsive */
     @media (max-width: 768px) {
       .guide-layout { grid-template-columns: 1fr; gap: 0; }
@@ -374,6 +377,10 @@
 
         <div class="article-body">
           <p>Welcome to LawnBook. This guide walks you through everything from downloading the app to creating your first client and scheduling your first job. It should take you about five minutes to complete setup.</p>
+
+          <div class="guide-screenshot">
+            <img src="/images/tour/dashboard.png" alt="Dashboard overview" loading="lazy">
+          </div>
 
           <h2 id="download">Download &amp; Install</h2>
           <p>LawnBook is a free download available on the App Store for iPhone, iPad, and Mac (Apple Silicon and Intel).</p>

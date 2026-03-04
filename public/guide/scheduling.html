@@ -317,6 +317,9 @@
     }
     .footer-links a { font-size: 14px; font-weight: 600; }
 
+    .guide-screenshot { max-width: 280px; margin: 24px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138, 158, 72, 0.15); border: 1px solid rgba(138, 158, 72, 0.2); }
+    .guide-screenshot img { width: 100%; display: block; }
+
     @media (max-width: 768px) {
       .guide-layout { grid-template-columns: 1fr; gap: 0; }
       .sidebar { position: static; margin-bottom: 32px; }
@@ -381,6 +384,10 @@
 
         <div class="article-body">
           <p>The Schedule tab is where your workday takes shape. It combines a visual calendar, job creation, status tracking, and weather data into one view so you always know what's happening and when.</p>
+
+          <div class="guide-screenshot">
+            <img src="/images/tour/schedule.png" alt="Job scheduling calendar" loading="lazy">
+          </div>
 
           <h2 id="calendar-view">Calendar View</h2>
           <p>Tap <strong>Schedule</strong> in the tab bar to open the calendar. By default, you'll see a weekly view with jobs displayed as color-coded blocks.</p>

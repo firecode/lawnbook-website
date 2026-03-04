@@ -361,6 +361,9 @@
     }
     .footer-links a { font-size: 14px; font-weight: 600; }
 
+    .guide-screenshot { max-width: 280px; margin: 24px auto; border-radius: 20px; overflow: hidden; box-shadow: 0 0 40px rgba(138, 158, 72, 0.15); border: 1px solid rgba(138, 158, 72, 0.2); }
+    .guide-screenshot img { width: 100%; display: block; }
+
     @media (max-width: 768px) {
       .guide-layout { grid-template-columns: 1fr; gap: 0; }
       .sidebar { position: static; margin-bottom: 32px; }
@@ -427,6 +430,10 @@
 
         <div class="article-body">
           <p>Getting paid is why you're in business. LawnBook makes invoicing fast enough to do it from the truck — professional PDFs, digital signatures, and multiple payment options, all without leaving the app.</p>
+
+          <div class="guide-screenshot">
+            <img src="/images/tour/invoices.png" alt="Invoicing and estimates screen" loading="lazy">
+          </div>
 
           <h2 id="creating-estimates">Creating Estimates</h2>
           <p>Send an estimate before any work begins. Estimates help close new clients by showing a professional quote with your branding.</p>
