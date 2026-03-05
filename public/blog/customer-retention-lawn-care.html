@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Retention Strategies for Lawn Care Businesses - LawnBook Blog</title>
+  <meta name="description" content="Practical strategies for keeping lawn care clients year after year — reducing churn, building loyalty, and turning one-time customers into long-term recurring revenue.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/customer-retention-lawn-care.html">
+  <meta property="og:title" content="Customer Retention Strategies for Lawn Care Businesses">
+  <meta property="og:description" content="Practical strategies for keeping lawn care clients year after year — reducing churn, building loyalty, and turning one-time customers into long-term recurring revenue.">
+  <meta property="og:url" content="https://lawnbook.app/blog/customer-retention-lawn-care.html">
+  <meta property="og:type" content="article">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">Back to Blog</a>
+
+    <article class="article-wrap">
+      <span class="article-tag">Client Relations</span>
+      <h1>Customer Retention Strategies for Lawn Care Businesses</h1>
+      <div class="article-meta">
+        <span>March 12, 2025</span>
+        <span class="dot"></span>
+        <span>7 min read</span>
+        <span class="dot"></span>
+        <span>LawnBook Team</span>
+      </div>
+
+      <div class="article-body">
+        <p>Acquiring a new lawn care client costs five times more than keeping an existing one. That ratio makes retention not just a service quality issue but a core financial strategy. A lawn care business that retains 90% of its clients each year grows compoundingly with every new client added. A business that retains 70% is running on a treadmill — constantly replacing lost revenue rather than building on it.</p>
+
+        <p>The good news: most client churn in lawn care is preventable. Clients don't usually leave because they found someone cheaper. They leave because they felt ignored, surprised by an invoice, or frustrated by a problem that was never addressed. Fix those breakdowns in communication and consistency and retention takes care of itself.</p>
+
+        <h2><span class="tip-number">1</span> Show Up Consistently — Every Time</h2>
+
+        <p>Consistency is the most underrated retention driver in service businesses. A lawn that looks great most weeks but occasionally gets missed or done poorly creates doubt. Doubt erodes trust. Eroded trust leads to clients quietly shopping for alternatives. You may not hear about the complaint — they'll just cancel at the end of the season.</p>
+
+        <p>Operational consistency means:</p>
+
+        <ul>
+          <li>Arriving on or near the same day each service cycle — clients plan their week around knowing when you'll be there</li>
+          <li>Doing the same quality of work on every property, every visit, regardless of how busy your day is</li>
+          <li>Communicating proactively when your schedule changes — a text the day before is infinitely better than a no-show or surprise early arrival</li>
+          <li>Following through on commitments — if you said you'd check in about aeration timing, follow up</li>
+        </ul>
+
+        <blockquote>
+          <p><strong>The reliability premium:</strong> Clients will pay more — and stay longer — with a provider who is dependably on schedule and communicates clearly. Reliability is a competitive advantage that many operators undervalue because it feels intangible. It isn't. It's the reason your best long-term clients have never asked you to price-match.</p>
+        </blockquote>
+
+        <h2><span class="tip-number">2</span> Communicate Before Problems Escalate</h2>
+
+        <p>Most client relationships don't end in a dramatic confrontation — they dissolve in silence. A client gets frustrated about something small, doesn't say anything, and quietly moves on at renewal time. The way to break this pattern is to make communication effortless and proactive from your side.</p>
+
+        <h3>After-service messages</h3>
+        <p>A brief text or automated message after a service visit — "Lawn done, looking great. Let us know if you need anything" — signals attentiveness and opens the door for feedback. Clients who have a minor concern are far more likely to mention it in response to an outreach message than to initiate contact themselves. That feedback loop is how you catch small problems before they become reasons to leave.</p>
+
+        <h3>Proactive issue flagging</h3>
+        <p>When you notice something on a property — a sprinkler head that's clearly broken, a patch of lawn disease developing, a drainage issue — document it and mention it to the client. Even if it's outside your scope of work, flagging it positions you as a trusted advisor rather than just a vendor. Clients who think of you as someone who looks out for their property stay with you for years.</p>
+
+        <div class="tip-card">
+          <p class="tip-label">Simple message cadence</p>
+          <p>Service completion message same day. End-of-season summary in November. Spring kickoff message in February. A brief check-in mid-summer if you haven't heard from them. Four touches a year, all brief, all useful — this is the baseline for client communication that sets professional operators apart.</p>
+        </div>
+
+        <h2><span class="tip-number">3</span> Make Renewal Easy and Automatic</h2>
+
+        <p>Friction at renewal is a churn accelerator. If a client has to take action to stay with you — respond to a quote, confirm a price, call to set up their schedule — some of them won't. Not because they're dissatisfied, but because they're busy and the path of least resistance is to delay until the season is already underway, at which point they've already called someone else.</p>
+
+        <p>Build your renewal process to default to continuation:</p>
+
+        <ul>
+          <li>Send annual service renewal notices in late winter with a clear "reply to confirm" mechanism — simple enough that a two-word response locks in the season</li>
+          <li>For clients on autopay, simply notify them of the upcoming season start date and any pricing adjustments — no action required from them to continue</li>
+          <li>Offer early-bird incentives for clients who confirm by a certain date: a free lawn assessment, a discount on the first spring service, or priority scheduling</li>
+          <li>Follow up non-responders once by phone before assuming they've moved on — a five-minute call recovers more clients than any marketing campaign</li>
+        </ul>
+
+        <h2><span class="tip-number">4</span> Reward Loyalty Tangibly</h2>
+
+        <p>Long-term clients are your most valuable business asset. They refer neighbors, tolerate price adjustments, and rarely shop around. Yet most lawn care operators treat a five-year client identically to a new client they just quoted. That's a missed opportunity to reinforce the relationship and deepen loyalty.</p>
+
+        <p>Loyalty doesn't require a formal program. Small gestures go a long way:</p>
+
+        <ul>
+          <li><strong>Anniversary acknowledgment:</strong> A note or message on the anniversary of a client's first service is memorable and costs nothing</li>
+          <li><strong>Priority scheduling:</strong> Long-term clients get first pick of time slots when the season schedule opens — communicate this explicitly so they know it's a benefit of tenure</li>
+          <li><strong>Surprise extras:</strong> Occasionally doing a small extra — clearing a few leaves from a walkway that wasn't in scope, or blowing off a driveway you noticed was covered in debris — builds the kind of goodwill that survives the occasional price increase</li>
+          <li><strong>Referral recognition:</strong> When a long-term client sends you a new customer, acknowledge it. A handwritten thank-you note or a discount on their next service costs little but signals that you notice and value the gesture</li>
+        </ul>
+
+        <blockquote>
+          <p><strong>The math on loyalty:</strong> A client who stays for five years at $70/visit, weekly for 30 weeks, generates $10,500 in total revenue before any upsells. A client who stays two years generates $4,200. The retention difference between a two-year and a five-year average client tenure — across even a modest client base — can represent tens of thousands of dollars in annual revenue differential.</p>
+        </blockquote>
+
+        <h2><span class="tip-number">5</span> Handle Complaints Immediately and Generously</h2>
+
+        <p>How you respond to a complaint determines whether you lose a client or lock in their loyalty. A client who complains and gets a genuine, swift response is statistically more likely to stay long-term than a client who never had a problem — because you've demonstrated that you'll stand behind your work when things go wrong.</p>
+
+        <p>The right response to a service complaint:</p>
+
+        <ol>
+          <li>Acknowledge it immediately, without excuses or defensiveness — "I'm sorry that happened. That's not the standard we hold ourselves to."</li>
+          <li>Offer to make it right on their terms — return visit, partial credit, or whatever addresses the specific issue</li>
+          <li>Follow up after the resolution to confirm they're satisfied</li>
+          <li>Internally document what went wrong and how to prevent it</li>
+        </ol>
+
+        <p>What not to do: argue, explain why it wasn't your fault, or offer a remedy so begrudgingly that the interaction feels transactional. The value of a retained client vastly outweighs the cost of a redo visit or a credit on an invoice.</p>
+
+        <h2><span class="tip-number">6</span> Use Seasonal Service Bundles to Lock In the Year</h2>
+
+        <p>One of the most effective structural retention tools is converting per-visit clients into seasonal service agreements. A client paying per-visit is a client who makes an active decision each week to stay. A client on a seasonal program has already committed to the season — the default is continuation, not evaluation.</p>
+
+        <p>A seasonal bundle that combines mowing, spring cleanup, and fall leaf removal into a single annual agreement — billed monthly or quarterly — serves both sides. The client gets a predictable cost and no-hassle service. You get committed revenue, route stability, and a natural renewal conversation rather than a re-sell conversation every spring.</p>
+
+        <p>Present bundles as a value play, not a lock-in:</p>
+
+        <ul>
+          <li>Frame it around convenience: "This way you don't have to think about it — we handle everything and you know exactly what you're paying"</li>
+          <li>Price the bundle at a modest discount (5–8%) versus the per-service total — enough to be meaningful, not enough to meaningfully cut your margin</li>
+          <li>Include flexible terms — if a client wants out mid-season for a legitimate reason, handle it gracefully rather than enforce a contract</li>
+        </ul>
+
+        <div class="tip-card">
+          <p class="tip-label">How LawnBook helps</p>
+          <p>LawnBook lets you create recurring service jobs for each client so their schedule is pre-set at the start of the season. No re-scheduling every week, no forgetting who's due — recurring jobs appear automatically on your calendar so you can focus on the work, not the admin.</p>
+        </div>
+
+        <h2><span class="tip-number">7</span> Ask for Referrals at the Right Moment</h2>
+
+        <p>Your best client acquisition channel is your existing client base. A satisfied client who refers a neighbor is generating a high-trust, high-conversion lead at zero cost. But most operators never ask — either out of discomfort or because they assume satisfied clients will refer naturally without prompting.</p>
+
+        <p>The right time to ask for a referral is immediately after a positive interaction: after resolving a complaint well, after completing a notable job (first spring cleanup of the season, post-storm cleanup), or after a compliment. "We really appreciate hearing that — if you have any neighbors who need lawn care this season, we'd love an introduction."</p>
+
+        <p>Make referring easy: a business card in their mailbox, a simple text they can forward, or a mention that you have capacity in their neighborhood. Remove every friction point between the intention to refer and the actual referral.</p>
+
+        <h2>Retention is a Business Model, Not a Service Feature</h2>
+
+        <p>The highest-performing lawn care operators don't think of retention as something separate from running their business — it is the business. Every operational decision, from how you handle a complaint to how you structure your renewal process, either builds or erodes client tenure. The cumulative effect of those decisions determines whether your client base grows, stagnates, or quietly shrinks each year despite a full schedule of new acquisitions.</p>
+
+        <p>Start with communication consistency and complaint handling — these have the highest individual impact. Build from there into loyalty recognition and seasonal agreements. The work compounds: a business that retains well has more referrals, better scheduling stability, and more pricing power than a business running at the same revenue but with constant churn.</p>
+      </div>
+
+      <div class="cta-box">
+        <h3>Keep clients organized and jobs on schedule</h3>
+        <p>LawnBook helps you manage recurring clients, send professional invoices, and stay on top of every job — so nothing falls through the cracks and clients stay happy.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">
+          <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+        </a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
