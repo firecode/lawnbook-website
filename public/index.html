@@ -222,6 +222,20 @@
       height: 54px;
       width: auto;
     }
+    .qr-code-container {
+      margin-top: 16px;
+      text-align: center;
+    }
+    .qr-code-container img {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+    }
+    .qr-code-container p {
+      font-size: 12px;
+      color: #888;
+      margin-top: 8px;
+    }
 
     /* Star rating */
     .star-rating {
@@ -819,6 +833,10 @@
       <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="appstore-btn">
         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
       </a>
+      <div class="qr-code-container">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" alt="QR Code to download LawnBook">
+        <p>Scan to download</p>
+      </div>
     </section>
 
     <p class="platforms">Available on iPhone, iPad, and Mac</p>
