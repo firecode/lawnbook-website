@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building a Rain Day Strategy That Keeps Your Lawn Care Business Profitable - LawnBook Blog</title>
+  <meta name="description" content="Learn how to manage weather delays in your lawn care business with scheduling buffers, client communication plans, and backup revenue strategies.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" href="/images/lawnbook-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/rain-day-strategy-lawn-care-business">
+
+  <meta property="og:title" content="Building a Rain Day Strategy That Keeps Your Lawn Care Business Profitable">
+  <meta property="og:description" content="Learn how to manage weather delays in your lawn care business with scheduling buffers, client communication plans, and backup revenue strategies.">
+  <meta property="og:url" content="https://lawnbook.app/blog/rain-day-strategy-lawn-care-business">
+  <meta property="og:type" content="article">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+      <div class="article-header">
+        <span class="article-tag">Seasonal Tips</span>
+        <h1>Building a Rain Day Strategy That Keeps Your Lawn Care Business Profitable</h1>
+        <div class="article-meta">Mar 7, 2026 &middot; 8 min read</div>
+      </div>
+
+      <div class="article-body">
+        <p>Last May, I watched three straight days of rain wipe out 42 scheduled mowings. No work meant no income, but the bills kept coming. That week cost me roughly $3,800 in lost revenue. If you run a lawn care business long enough, weather will humble you. The operators who thrive aren't the ones who get lucky with sunshine &mdash; they're the ones who build systems that absorb the impact of bad weather and recover fast.</p>
+
+<p>The average lawn care operator in the eastern United States loses between 15 and 25 working days per season to rain, extreme heat, or storms. That translates to anywhere from $8,000 to $40,000 in delayed or lost revenue depending on your crew size. You can't control the weather, but you can absolutely control how your business responds to it.</p>
+
+<h2>Understanding the Real Cost of Weather Delays</h2>
+<p>Most operators think about rain days in terms of the revenue they didn't earn. But the true cost runs deeper than that. When you lose a day to weather, you're still paying for truck insurance, equipment loans, software subscriptions, and often a portion of crew wages if you want to retain reliable workers. A rain day doesn't just cost you what you would have earned &mdash; it costs you what you're still spending.</p>
+
+<p>Start by calculating your daily fixed overhead. Add up every monthly expense that doesn't change whether you're mowing or not: vehicle payments, insurance, phone bills, software, storage rental, loan payments. Divide that total by 22 working days. For a solo operator running one truck, that number is typically between $85 and $150 per day. For a two-crew operation, it can exceed $300. That's the minimum you lose on every rain day before you even account for missed revenue.</p>
+
+<blockquote>A rain day doesn't cost you zero. It costs you your full daily overhead plus every dollar of revenue you didn't collect. Know that number by heart.</blockquote>
+
+<p>Once you know your daily overhead, multiply it by 20 &mdash; a conservative estimate for lost weather days in most regions. That's your annual weather exposure. For many small operations, this figure lands between $3,000 and $6,000. Knowing this number lets you plan for it instead of being surprised by it every season.</p>
+
+<h2>Building Schedule Buffers That Actually Work</h2>
+<p>The most effective defense against weather disruption is a schedule with built-in recovery time. The mistake most operators make is packing every available hour with jobs, leaving zero margin for catch-up. When rain hits a fully packed schedule, the cascading delays can take a week or more to resolve.</p>
+
+<ul>
+<li><strong>The Friday buffer</strong> &mdash; Keep Friday afternoons open as your primary catch-up window. If the week goes smoothly, use that time for estimates, equipment maintenance, or administrative work. If rain hits earlier in the week, Friday becomes your recovery day. This single habit can absorb one lost day per week without disrupting the following week's schedule.</li>
+<li><strong>The 85% rule</strong> &mdash; Only schedule 85% of your available weekly capacity. If you can realistically handle 40 properties per week, book 34. Those six open slots give you room to absorb delays without pushing jobs into the next cycle. Clients won't notice the buffer, but they will notice if you're consistently running behind.</li>
+<li><strong>Seasonal compression</strong> &mdash; During peak growing months (typically April through June), grass grows fast enough that a two-day delay can turn a standard mow into a double-cut situation. Build tighter buffers during these months and wider ones during the slower growth periods of mid-summer and early fall.</li>
+</ul>
+
+<p>If you're running routes through scheduling software, block off your buffer time the same way you'd block off a job. Treat it as a non-negotiable appointment with your business. The moment you start filling buffer slots with new clients, you've eliminated your safety net.</p>
+
+<h2>The Client Communication Plan</h2>
+<p>Nothing damages client relationships faster than silence during a weather delay. When rain cancels a mowing day, your clients are already wondering when you'll show up. If they have to call or text you to find out, you've already lost ground. The best operators communicate proactively, before clients have a chance to worry.</p>
+
+<p>Set up a simple notification system with three messages:</p>
+
+<ol>
+<li><strong>The delay notice</strong> &mdash; Send this on the morning of the rain day or the evening before if the forecast is clear. Keep it simple: "Due to rain today, your service is being rescheduled. We'll confirm your new date shortly." This takes 30 seconds to send as a batch text and immediately tells clients you're on top of it.</li>
+<li><strong>The reschedule confirmation</strong> &mdash; Within 24 hours of the delay, send the specific makeup date and approximate time window. Clients can handle a delay. What they can't handle is uncertainty. Giving them a firm reschedule date keeps trust intact.</li>
+<li><strong>The completion notice</strong> &mdash; After you complete the rescheduled service, send a brief confirmation. This closes the loop and reassures clients that everything is back on track.</li>
+</ol>
+
+<blockquote>The lawn care operators who lose clients to weather delays aren't losing them because of the delay itself. They're losing them because of the silence that follows.</blockquote>
+
+<p>Most field service apps and CRM tools let you send batch messages to affected clients. If you're still managing communication manually, create three text message templates on your phone and save them as keyboard shortcuts. The entire process of notifying 15 clients should take you under five minutes.</p>
+
+<h2>Wet Weather Work: Revenue You Can Still Earn</h2>
+<p>Not all lawn care work requires dry conditions. Smart operators build a list of rain-day tasks that keep revenue flowing even when the mowers stay on the trailer. Having a wet-weather task list means the difference between a zero-dollar day and a $400 day.</p>
+
+<ul>
+<li><strong>Bed edging and cleanup</strong> &mdash; Soft, wet soil makes manual edging easier. Reshaping bed lines, pulling weeds from saturated ground, and cleaning up bed areas can all be done in light rain without damaging turf.</li>
+<li><strong>Gutter cleaning</strong> &mdash; If you offer this as an add-on, rainy days are actually ideal for checking and clearing gutters. You're already dealing with water, and clients see immediate value when gutters overflow during a storm.</li>
+<li><strong>Hardscape maintenance</strong> &mdash; Pressure washing walkways, patios, and driveways doesn't require dry grass. If you own a pressure washer, rainy days are perfect for knocking out these jobs without competing for time against your core mowing schedule.</li>
+<li><strong>Estimates and consultations</strong> &mdash; Use rain days to visit prospective clients for quotes. Walking a property during or after rain actually shows you drainage issues, low spots, and problem areas that you'd miss on a dry day. This gives you more to talk about and positions you as thorough.</li>
+<li><strong>Equipment maintenance</strong> &mdash; Blade sharpening, oil changes, filter replacements, and trailer repairs all need to happen anyway. Doing them on rain days means they don't eat into your productive mowing time. Track every hour you spend on maintenance &mdash; it saves you from paying a shop $75 per hour later.</li>
+</ul>
+
+<p>Build this list before the season starts and share it with your crew if you have one. When rain hits, everyone should already know the plan. Scrambling to figure out what to do on a wet morning wastes the first two hours of the day, which often kills the motivation to do anything at all.</p>
+
+<h2>Adjusting Your Pricing to Account for Weather</h2>
+<p>Your pricing should reflect the reality that you won't work every scheduled week of the season. If you're in a region that averages 20 rain days during the mowing season, and your season runs 30 weeks, you're realistically working about 26 weeks. Your per-cut price needs to account for that gap, or you need to shift to a pricing model that smooths out the impact.</p>
+
+<p>Monthly flat-rate billing is the most effective tool for weather-proofing your revenue. Instead of charging per cut, calculate your annual service value and divide it into equal monthly payments. A property worth $50 per cut across 28 expected visits equals $1,400 for the season. Billed monthly over seven months, that's $200 per month regardless of how many visits actually happen in any given month.</p>
+
+<p>This model benefits both sides. Clients get predictable bills, and you get predictable income. When rain cancels a week, you're not scrambling to make up revenue. When you do an extra visit during a fast-growth stretch, you're not awkwardly billing for the additional stop. The math balances out over the season, and cash flow stays steady.</p>
+
+<blockquote>Per-cut billing lets weather control your cash flow. Monthly billing lets you control it instead. The math works out the same over a season, but your stress level won't.</blockquote>
+
+<p>If you're not ready to move all clients to monthly billing, start with your most reliable long-term accounts. These clients already trust you and are more likely to accept the change. Present it as a convenience for them, not a financial strategy for you. Once you've converted 60% or more of your client base, weather delays become a scheduling problem instead of a financial crisis.</p>
+
+<h2>Building a Weather Reserve Fund</h2>
+<p>Even with buffers, communication plans, and flat-rate billing, weather will occasionally hit harder than you planned. A week-long stretch of storms in peak season can blow past every contingency. This is where a dedicated weather reserve fund becomes essential.</p>
+
+<p>The math is straightforward. Take your annual weather exposure number &mdash; the daily overhead times 20 days you calculated earlier &mdash; and add 25% as a cushion. If your exposure is $4,000, your target reserve is $5,000. Fund it by setting aside a fixed percentage of every deposit during the first eight weeks of the season, when revenue is typically strong and weather disruptions are less frequent.</p>
+
+<p>Keep this money in a separate savings account, not in your operating account. If it sits in your main checking, it will get absorbed into daily spending. A separate account creates a psychological barrier that keeps the money available when you actually need it. Most online banks let you open a no-fee savings account in minutes and name it something specific like "Weather Reserve."</p>
+
+<p>At the end of the season, if you didn't use the full reserve, roll the remainder into your off-season operating fund or your equipment replacement savings. Either way, the money was working for your business all season long, even if it just sat there providing peace of mind.</p>
+
+<h2>Using Forecasts to Stay One Step Ahead</h2>
+<p>Checking the weather the night before isn't a strategy &mdash; it's reacting. Build a habit of reviewing the 10-day forecast every Sunday evening as part of your weekly planning. Look for multi-day rain events, not just single-day chances. A 40% chance of rain on Wednesday might not affect your schedule, but a three-day system moving through Thursday to Saturday demands immediate rescheduling.</p>
+
+<ul>
+<li><strong>Shift work forward</strong> &mdash; When you see rain coming on Thursday, try to move Thursday's route to Wednesday afternoon or Tuesday evening. Getting ahead of weather is always better than catching up after it. Even completing half a route early is better than losing the entire day.</li>
+<li><strong>Prioritize by growth rate</strong> &mdash; When you can't get to everyone before rain hits, prioritize the properties growing fastest. Bermuda and zoysia in full sun during June will be unmanageable after a rain delay plus three days of growth. Shaded fescue lawns are more forgiving and can wait an extra day or two without turning into a nightmare cut.</li>
+<li><strong>Track your rain days</strong> &mdash; Keep a simple log of every day lost to weather, including the date, number of jobs affected, and estimated revenue impact. After two or three seasons, this data shows you exactly which months are most vulnerable and lets you plan your buffers, pricing, and reserves with real numbers instead of guesses.</li>
+</ul>
+
+<p>Several weather apps now offer hyper-local radar and hourly precipitation forecasts accurate to your specific service area. Spending $10 per year on a premium weather app is one of the cheapest investments you can make in your business. The free apps work fine for personal use, but when your income depends on accurate forecasts, the paid versions earn their cost back in a single avoided rain day.</p>
+
+<p>Weather will always be the one variable you can't eliminate from the lawn care business. But operators who treat it as an expected business condition rather than an unpredictable disaster consistently outperform those who just hope for sunshine. Build the buffers, set up the communication, adjust the pricing, fund the reserve, and stay ahead of the forecast. Do those five things, and the next time it rains for three days straight, you'll be the operator who stays calm while everyone else panics.</p>
+      </div>
+
+      <div class="article-cta">
+        <h3>Run your lawn care business with LawnBook</h3>
+        <p>Track clients, schedule jobs, log expenses, and send invoices — all from one app that works offline.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="cta-btn">Download on the App Store</a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
