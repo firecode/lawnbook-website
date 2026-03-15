@@ -149,6 +149,10 @@
     nav a.nav-link:hover { color: #EFF2E4; }
     .nav-toggle {
       display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
       background: none;
       border: none;
       cursor: pointer;
@@ -159,7 +163,6 @@
       width: 22px;
       height: 2px;
       background: #EFF2E4;
-      margin: 5px 0;
       transition: transform 0.3s, opacity 0.3s;
     }
     .nav-cta {
@@ -804,7 +807,7 @@
       .compare-toggle { display: block; }
       .compare-table-wrap { display: none; }
       .compare-table-wrap.open { display: block; }
-      .nav-toggle { display: flex; flex-direction: column; align-items: center; }
+      .nav-toggle { display: flex !important; }
       .nav-links {
         display: none;
         position: absolute;
