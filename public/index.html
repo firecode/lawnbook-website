@@ -162,6 +162,29 @@
       margin: 5px 0;
       transition: transform 0.3s, opacity 0.3s;
     }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #22C55E;
+      color: #0F1419;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.18s ease;
+    }
+    .btn-primary:hover { background: #4ADE80; transform: translateY(-1px); }
+    .btn-primary:active { transform: scale(0.98); }
 
     /* Hero */
     .hero {
@@ -781,7 +804,7 @@
       .compare-toggle { display: block; }
       .compare-table-wrap { display: none; }
       .compare-table-wrap.open { display: block; }
-      .nav-toggle { display: block; }
+      .nav-toggle { display: flex; }
       .nav-links {
         display: none;
         position: absolute;
@@ -797,6 +820,7 @@
       }
       .nav-links.open { display: flex; }
       nav { position: relative; }
+      .btn-primary { font-size: 13px; padding: 8px 14px; }
     }
     @media (max-width: 480px) {
       .feature-grid { grid-template-columns: 1fr; }
@@ -812,13 +836,16 @@
   <div class="container">
     <nav>
       <a href="/" class="logo">Lawn<span>Book</span></a>
-      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
       <div class="nav-links">
         <a href="/privacy" class="nav-link">Privacy</a>
         <a href="/terms" class="nav-link">Terms</a>
         <a href="/support" class="nav-link">Support</a>
         <a href="/blog" class="nav-link">Blog</a>
         <a href="/guide" class="nav-link">Guide</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="btn-primary" target="_blank" rel="noopener">&#11015; Download</a>
+        <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
       </div>
     </nav>
 
