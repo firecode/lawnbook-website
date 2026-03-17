@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing Cash Flow Through the Feast-and-Famine Cycle of Lawn Care - LawnBook Blog</title>
+  <meta name="description" content="Learn practical cash flow strategies for lawn care businesses to survive slow winter months and thrive during peak season without running out of money.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" href="/images/lawnbook-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/managing-cash-flow-seasonal-lawn-care">
+
+  <meta property="og:title" content="Managing Cash Flow Through the Feast-and-Famine Cycle of Lawn Care">
+  <meta property="og:description" content="Learn practical cash flow strategies for lawn care businesses to survive slow winter months and thrive during peak season without running out of money.">
+  <meta property="og:url" content="https://lawnbook.app/blog/managing-cash-flow-seasonal-lawn-care">
+  <meta property="og:type" content="article">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+      <div class="article-header">
+        <span class="article-tag">Business Growth</span>
+        <h1>Managing Cash Flow Through the Feast-and-Famine Cycle of Lawn Care</h1>
+        <div class="article-meta">Mar 17, 2026 &middot; 9 min read</div>
+      </div>
+
+      <div class="article-body">
+        <p>Here's a number that keeps lawn care business owners up at night: in most markets, 70-80% of your annual revenue lands in just six months. The mowing checks pile up from April through September, and then the phone goes quiet. You know the feeling &mdash; flush in July, sweating rent in January.</p>
+
+<p>The thing is, most lawn care businesses that fail aren't unprofitable. They're profitable on paper but broke in practice. They spend summer revenue at summer speed and hit December with an empty bank account, maxed credit cards, and three months of bills staring them down. This is the feast-and-famine cycle, and it kills more lawn care businesses than bad reviews or cheap competitors ever will.</p>
+
+<p>I've watched operators gross $150K+ and still scramble to make payroll in February. The fix isn't making more money &mdash; it's managing the money you already make. Let's get into the specifics.</p>
+
+<h2>Understanding Your Actual Revenue Curve</h2>
+<p>Before you can manage seasonal cash flow, you need to see it clearly. Pull your bank statements from the last 12 months and chart your deposits by month. Most lawn care operators in temperate climates see something like this:</p>
+
+<ul>
+<li><strong>January-February</strong> &mdash; 2-4% of annual revenue. Maybe a few cleanups or snow jobs if you offer them.</li>
+<li><strong>March-April</strong> &mdash; 10-15% of annual revenue. Spring cleanups, first mows, mulch installs ramp up fast.</li>
+<li><strong>May-August</strong> &mdash; 50-60% of annual revenue. This is the engine. Weekly mowing, fertilization, hardscape projects.</li>
+<li><strong>September-October</strong> &mdash; 12-18% of annual revenue. Fall cleanups, aeration, overseeding carry you.</li>
+<li><strong>November-December</strong> &mdash; 3-6% of annual revenue. Leaf removal trails off, and then it's quiet.</li>
+</ul>
+
+<p>Your curve will vary by region. Operators in the Southeast or Southwest have a longer season but still face dips. The point isn't to memorize percentages &mdash; it's to stop being surprised by the slow months. When you can see the valley coming four months out, you can prepare for it instead of reacting to it.</p>
+
+<blockquote>Cash flow isn't about how much you earn. It's about when you earn it versus when you need to spend it. A $200K business with bad timing goes under faster than a $90K business that plans ahead.</blockquote>
+
+<h2>The Reserve Account: Your Single Most Important Financial Move</h2>
+<p>If you take one thing from this article, make it this: open a separate savings account and treat it like it doesn't exist until winter. This is your seasonal reserve, and it's the difference between a stressful off-season and a strategic one.</p>
+
+<p>Here's how to size it. Add up every fixed expense you'll have from November through March &mdash; truck payments, insurance premiums, phone bills, software subscriptions, storage rent, loan payments, and whatever you pay yourself to keep the lights on at home. That total is your reserve target.</p>
+
+<p>For a solo operator, this number is often $12,000-$20,000. For a crew-based operation with year-round employees, it can be $40,000-$80,000 or more. Whatever your number is, divide it by six. That's how much you transfer into the reserve account every month from April through September.</p>
+
+<p>Yes, this means your summer months feel tighter. That's the point. You're paying your future self first. An operator making $4,500/week in June who sets aside $800/week for reserves still has $3,700/week to cover current expenses and live on. But come January, they have a funded reserve instead of a credit card balance.</p>
+
+<h2>Restructuring How Clients Pay You</h2>
+<p>The way most lawn care businesses bill &mdash; per visit, invoiced after the work &mdash; is actually one of the worst possible setups for cash flow. You do the work in week one, invoice in week two, and get paid in week three or four. During peak season this barely matters because new payments are always flowing in. During the off-season, that lag becomes a cash flow cliff.</p>
+
+<p>There are a few structural changes worth considering:</p>
+
+<ul>
+<li><strong>Annual contracts with monthly billing</strong> &mdash; Take your total annual service value for a client (say $3,600 for weekly mowing, two cleanups, and a fertilization program) and divide by 12. The client pays $300/month year-round. You mow weekly in summer and do cleanups in spring and fall, but the payments never stop. This is the single most effective cash flow tool in the industry.</li>
+<li><strong>Prepay discounts</strong> &mdash; Offer a 5-8% discount for clients who pay the full season upfront. A client who owes $2,400 for mowing season pays $2,208 in March. You give up some margin but gain certainty and early cash you can deploy or reserve.</li>
+<li><strong>Automatic payments</strong> &mdash; Get every possible client on autopay via credit card or ACH. This doesn't change the total amount, but it eliminates the 10-21 day lag between invoicing and collection. Operators who switch to autopay typically see their average days-to-payment drop from 18 days to 2-3 days.</li>
+</ul>
+
+<blockquote>When I moved 60% of my book to 12-month billing, my January deposits went from $1,800 to $7,400 overnight. Nothing else changed &mdash; same clients, same services, same prices. Just a different payment structure.</blockquote>
+
+<p>The transition takes time. You won't convert every client in one season. Start with your most loyal, longest-tenured customers and present it as a convenience: "Same total cost, just spread evenly so you're not hit with a big bill in spring." Most people prefer predictable monthly charges over irregular invoices.</p>
+
+<h2>Cutting the Right Costs at the Right Time</h2>
+<p>There's a common mistake operators make in the off-season: they slash expenses across the board in a panic. They cancel software, drop insurance coverage, stop marketing, and defer maintenance. Then spring hits and they're scrambling to rebuild everything they tore down.</p>
+
+<p>Smart cost management is about timing, not just cutting. Here's a framework:</p>
+
+<ul>
+<li><strong>Variable costs that scale naturally</strong> &mdash; Fuel, trimmer line, blade sharpening, and dump fees all drop when you're not working. Don't stress about these; they take care of themselves.</li>
+<li><strong>Discretionary costs to pause strategically</strong> &mdash; That upgraded CRM tier you don't need at 30% volume. The extra storage unit for summer-only equipment. The crew member who wants to collect unemployment and come back in spring (if they're okay with it). These are legitimate places to reduce spend from November to February.</li>
+<li><strong>Fixed costs you must protect</strong> &mdash; Insurance, your primary vehicle payment, base software subscriptions, and your own draw. Cutting these creates problems that cost more to fix than you saved. Letting your general liability lapse for two months to save $400 is a catastrophically bad trade.</li>
+<li><strong>Investments that should increase in winter</strong> &mdash; This sounds counterintuitive, but the off-season is when you should be spending on marketing for spring, equipment maintenance before it's urgent, and training. An engine rebuild in January costs the same as in June, but in January it doesn't take a mower out of production.</li>
+</ul>
+
+<h2>Adding Off-Season Revenue Streams</h2>
+<p>Smoothing cash flow isn't only about saving and restructuring &mdash; you can also close the gap by generating winter revenue. The key is choosing services that use equipment and skills you already have, serve clients who already trust you, and don't require massive upfront investment.</p>
+
+<p>The most natural fits for lawn care operators:</p>
+
+<ul>
+<li><strong>Snow removal</strong> &mdash; The obvious one if you're in a climate that gets it. A plow attachment for your truck runs $3,000-$6,000, and a residential driveway contract brings in $40-$75 per push. Ten driveways at four pushes in a month is $1,600-$3,000 in revenue that hits exactly when you need it most.</li>
+<li><strong>Holiday lighting installation</strong> &mdash; This has exploded in the last five years. You're already comfortable on ladders and roofs. Startup costs for a basic lighting kit and supplies run $2,000-$4,000, and a typical residential install bills $400-$1,200. The season runs October through January &mdash; perfectly filling the gap.</li>
+<li><strong>Hardscape and fence repairs</strong> &mdash; Small repair jobs that homeowners put off during summer but think about when they're staring at their yard from inside. Resetting pavers, fixing fence sections, sealing driveways.</li>
+<li><strong>Gutter cleaning</strong> &mdash; Low overhead, high demand in fall and early winter, and your existing client list is your sales pipeline. A gutter cleaning adds $150-$300 per property with minimal equipment investment.</li>
+</ul>
+
+<p>Don't try to launch four new services at once. Pick one, build a process around it, and offer it to your existing clients first. Your current book of business is the lowest-cost marketing channel you have.</p>
+
+<h2>The Weekly Cash Flow Forecast</h2>
+<p>Big businesses use 13-week cash flow forecasts. You don't need anything that complex, but you do need to look forward. Every Sunday, spend 15 minutes on a simple exercise:</p>
+
+<ol>
+<li>Check your bank balance right now.</li>
+<li>List every bill due in the next four weeks and the exact amounts.</li>
+<li>List every payment you expect to receive in the next four weeks.</li>
+<li>Subtract total outflows from current balance plus total inflows.</li>
+</ol>
+
+<p>That final number is your projected cash position four weeks out. If it's negative or uncomfortably low, you have four weeks to do something about it &mdash; collect on overdue invoices, delay a discretionary purchase, pick up an extra job, or adjust your reserve transfer.</p>
+
+<p>The operators who get blindsided by cash crunches aren't checking. They're depositing checks and paying bills reactively, and by the time they realize they're short, it's too late to maneuver. Fifteen minutes a week buys you the single most valuable thing in business: time to react.</p>
+
+<blockquote>You don't need accounting software to forecast cash flow. A notebook, a calculator, and the discipline to sit down every Sunday will keep you ahead of 90% of your competitors.</blockquote>
+
+<h2>Financing and Credit: Tools, Not Crutches</h2>
+<p>There's a stigma in the trades about using credit. "If you can't pay cash, you can't afford it." That sounds disciplined, but it's too simple. Smart use of credit is a legitimate cash flow tool &mdash; the problem is when credit substitutes for planning.</p>
+
+<p>A business credit card with a $10,000 limit can smooth a temporary gap between a big supply purchase and incoming client payments. A small business line of credit at 8-12% interest can bridge the January-to-March ramp-up period while you wait for spring revenue. These are reasonable uses.</p>
+
+<p>What's not reasonable: financing your personal draw because you spent all summer's profit on a new zero-turn you didn't need yet. Or carrying $15,000 in credit card debt at 22% APR because you never built a reserve. Credit should handle timing mismatches, not structural deficits.</p>
+
+<p>If you do use credit, have a specific repayment plan before you borrow. "I'll draw $5,000 on the line of credit in February and repay it from April and May revenue at $2,500/month" is a plan. "I'll pay it back when things pick up" is not.</p>
+
+<h2>Putting It All Together</h2>
+<p>Cash flow management isn't glamorous. Nobody starts a lawn care business because they love spreadsheets and reserve accounts. But the operators who make it past year three and build something sustainable all have one thing in common: they respect the cycle instead of pretending it doesn't exist.</p>
+
+<p>Start with the reserve account &mdash; today, not next season. Move even $200 per week into it during peak months. Then start transitioning your best clients to annual billing. Layer in a weekly cash check every Sunday. Add one off-season service that fits your skills and equipment. These aren't radical moves. They're small, boring, compounding decisions that add up to a business that doesn't white-knuckle through every winter.</p>
+
+<p>The lawn care businesses that last aren't always the ones with the best equipment, the most clients, or the lowest prices. They're the ones that learned to manage the gap between when the money comes in and when it needs to go out. That's the real skill, and it's one you can build starting this week.</p>
+      </div>
+
+      <div class="article-cta">
+        <h3>Run your lawn care business with LawnBook</h3>
+        <p>Track clients, schedule jobs, log expenses, and send invoices — all from one app that works offline.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="cta-btn">Download on the App Store</a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
