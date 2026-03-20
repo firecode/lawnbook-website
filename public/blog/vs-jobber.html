@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawnBook vs Jobber: Free Alternative for Solo Operators - LawnBook Blog</title>
+  <meta name="description" content="Compare LawnBook and Jobber for lawn care management. See how a free, offline app stacks up against Jobber's $39-259/month plans for solo operators.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" href="/images/lawnbook-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/vs-jobber">
+
+  <meta property="og:title" content="LawnBook vs Jobber: Free Alternative for Solo Operators">
+  <meta property="og:description" content="Compare LawnBook and Jobber for lawn care management. See how a free, offline app stacks up against Jobber's $39-259/month plans for solo operators.">
+  <meta property="og:url" content="https://lawnbook.app/blog/vs-jobber">
+  <meta property="og:type" content="article">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+      <div class="article-header">
+        <span class="article-tag">Business Growth</span>
+        <h1>LawnBook vs Jobber: Free Alternative for Solo Operators</h1>
+        <div class="article-meta">Mar 20, 2026 &middot; 8 min read</div>
+      </div>
+
+      <div class="article-body">
+        <p>If you're running a lawn care business and searching for software to manage your clients, schedule jobs, and send invoices, Jobber probably lands on your radar quickly. It's one of the most well-known field service management platforms on the market, and for good reason &mdash; it's feature-rich and built for growing service businesses. But "feature-rich" doesn't always mean "right fit," especially if you're a solo operator or running a small crew and watching every dollar.</p>
+
+<p>That's where LawnBook comes in. It's a free, offline-first app designed specifically for lawn care professionals who need simplicity over enterprise-level complexity. In this comparison, we'll give you an honest look at both tools so you can decide which one actually fits your business &mdash; not which one has the flashiest marketing page.</p>
+
+<h2>Quick Comparison</h2>
+
+<ul>
+<li><strong>Price:</strong> LawnBook is completely free. Jobber starts at $39/month (Core plan) and goes up to $259/month for the Grow plan.</li>
+<li><strong>Internet required:</strong> LawnBook works 100% offline. Jobber requires an internet connection for nearly all features.</li>
+<li><strong>Account required:</strong> LawnBook requires no account or sign-up. Jobber requires account creation and a subscription.</li>
+<li><strong>Target user:</strong> LawnBook is built for solo operators and small crews. Jobber targets small-to-mid-sized field service companies across multiple industries.</li>
+<li><strong>Platform:</strong> LawnBook is available on iOS via the App Store. Jobber offers web, iOS, and Android apps.</li>
+<li><strong>Scheduling:</strong> Both offer job scheduling. Jobber includes team dispatch and GPS tracking for crews.</li>
+<li><strong>Invoicing:</strong> Both handle invoicing. Jobber includes online payment processing; LawnBook keeps invoicing simple and free.</li>
+<li><strong>Client management:</strong> Both let you track clients and service history. Jobber adds a client hub and automated communications.</li>
+<li><strong>Privacy:</strong> LawnBook stores all data locally on your device. Jobber stores data on their cloud servers.</li>
+</ul>
+
+<h2>Pricing</h2>
+
+<p>Let's address the biggest difference upfront: cost. Jobber's pricing tiers break down like this:</p>
+
+<ul>
+<li><strong>Core plan &mdash; $39/month:</strong> Supports one user. Includes basic scheduling, invoicing, and client management. This is the entry point, and it's already nearly $470 per year.</li>
+<li><strong>Connect plan &mdash; $119/month:</strong> Adds automated reminders, quote follow-ups, and online booking. Designed for businesses that want more automation.</li>
+<li><strong>Grow plan &mdash; $259/month:</strong> The full package with job costing, GPS tracking, and reporting tools. Built for larger teams managing multiple crews.</li>
+</ul>
+
+<p>For a solo operator mowing 30 to 50 lawns a week, that $39/month minimum adds up to real money &mdash; money that could go toward fuel, equipment maintenance, or marketing. Over three years, even the cheapest Jobber plan costs you over $1,400. If you're interested in budgeting for your business expenses wisely, our <a href="/blog/equipment-maintenance-budget-guide">equipment maintenance budget guide</a> breaks down how to allocate funds effectively.</p>
+
+<p>LawnBook costs nothing. There's no free trial that expires, no credit card required, and no feature gates. You download it from the App Store and start using it immediately. For a solo operator or a two-person crew, that price difference alone is significant.</p>
+
+<p>To be fair, Jobber does offer a free trial so you can test it before committing. And if your business generates enough revenue that $39 to $259 per month is a rounding error, the cost may not be a deciding factor. But for many lawn care professionals &mdash; especially those in their first few seasons &mdash; every monthly subscription matters. If you're working on understanding your overall business finances, <a href="https://stintly.app">Stintly</a> is a helpful tool for freelancers and self-employed professionals who want to track time, income, and expenses without the complexity of full accounting software.</p>
+
+<h2>Features</h2>
+
+<p>This is where the comparison gets nuanced, and where we want to be genuinely honest.</p>
+
+<p><strong>Where Jobber excels:</strong></p>
+
+<ul>
+<li><strong>Team management:</strong> If you have employees or subcontractors, Jobber's crew scheduling, dispatching, and GPS tracking are genuinely useful. You can assign jobs to team members, track who's where, and manage workloads across multiple crews.</li>
+<li><strong>Online payments:</strong> Jobber integrates with payment processors so clients can pay invoices online. This reduces the friction of getting paid and can speed up your cash flow.</li>
+<li><strong>Automated communications:</strong> Jobber can send automatic appointment reminders, follow-up emails after quotes, and review requests. If you're managing dozens of client interactions per week, this automation saves real time.</li>
+<li><strong>Quoting and approvals:</strong> Jobber lets you create professional quotes that clients can approve online. For businesses that do a lot of one-off project work like landscaping installations, this workflow is valuable.</li>
+<li><strong>Reporting:</strong> The higher-tier plans include job costing reports, revenue tracking, and team performance metrics. If you're managing a growing operation, these insights help you make data-driven decisions.</li>
+</ul>
+
+<p><strong>Where LawnBook holds its own:</strong></p>
+
+<ul>
+<li><strong>Client management:</strong> LawnBook lets you store client information, service addresses, and notes for every property you maintain. For a solo operator, this covers the essentials without the bloat.</li>
+<li><strong>Job scheduling:</strong> You can schedule and track your mowing jobs, set recurring services, and keep your week organized. It won't dispatch a crew of ten, but it keeps one person or a small team on track.</li>
+<li><strong>Invoicing:</strong> Create and manage invoices directly in the app. It's straightforward, it's fast, and it doesn't charge you a percentage of your revenue to process payments.</li>
+<li><strong>Service history:</strong> Every job you complete is logged, giving you a clear record of what you did, when, and for whom. This is incredibly useful for <a href="/blog/customer-retention-lawn-care">customer retention</a> and for resolving any disputes about past work.</li>
+<li><strong>Simplicity:</strong> LawnBook doesn't try to be everything. There's no learning curve that takes a week to climb. You open the app and start managing your business. For many solo operators, that simplicity is the feature.</li>
+</ul>
+
+<p>The honest truth is that Jobber has more features. But more features aren't always better. If you're a one-person operation, many of Jobber's most powerful tools &mdash; team dispatch, automated marketing, client portals &mdash; sit unused while you're still paying for them. It's like buying a commercial zero-turn when you're mowing quarter-acre residential lots. Impressive, but overkill.</p>
+
+<p><strong>Want to try LawnBook for free?</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; no account needed, works 100% offline.</p>
+
+<h2>Offline &amp; Privacy</h2>
+
+<p>This is where LawnBook genuinely stands apart &mdash; not just from Jobber, but from almost every field service app on the market.</p>
+
+<p>LawnBook works 100% offline. Your data lives on your device, not on someone else's server. You don't need cell service to check your schedule, look up a client's address, or log a completed job. If you've ever been in a rural area with spotty reception trying to pull up your next appointment in a cloud-based app, you understand why this matters.</p>
+
+<p>Jobber, like most SaaS platforms, requires an internet connection to function. The mobile app does have some limited offline capability, but core features like creating invoices, accessing client details, and updating job statuses depend on being connected. For lawn care professionals who spend their entire day in the field &mdash; often in suburban neighborhoods or rural properties where service can be unreliable &mdash; this isn't a minor inconvenience. It's a workflow interruption.</p>
+
+<p>Then there's privacy. LawnBook doesn't collect your data, doesn't require an account, and doesn't share your client information with anyone. Your business data is yours, period. Jobber stores your data on their cloud infrastructure. They have a privacy policy, and they're a reputable company, but the fundamental model is different. With LawnBook, there's nothing to breach because there's no server holding your information.</p>
+
+<p>For operators who value data ownership and want to keep their client lists, pricing, and business details completely private, this is a meaningful advantage. Your client list is one of your most valuable business assets &mdash; knowing it lives only on your device provides real peace of mind.</p>
+
+<h2>Who Should Use Jobber</h2>
+
+<p>We genuinely believe Jobber is a strong product for the right business. Here's who should seriously consider it:</p>
+
+<ul>
+<li><strong>Growing companies with employees:</strong> If you're managing a team of three or more and need to dispatch crews, track hours, and coordinate schedules across multiple people, Jobber's team management tools are well-built and worth the investment.</li>
+<li><strong>Businesses that need online payments:</strong> If chasing down checks and cash is costing you time and money, Jobber's integrated payment processing can genuinely improve your cash flow. Being able to send an invoice and have it paid with one click is powerful.</li>
+<li><strong>Multi-service companies:</strong> If you offer lawn care, landscaping, irrigation, snow removal, and other services, Jobber's flexibility across field service categories is an advantage. It's not lawn-care-specific, which makes it versatile for diversified operations.</li>
+<li><strong>Operators who want automation:</strong> If you're at the stage where you're sending dozens of quotes per week and want automated follow-ups, reminders, and review requests, Jobber's automation can save you hours. Our <a href="/blog/grow-lawn-care-business-2026">guide to growing your lawn care business</a> discusses when it makes sense to invest in tools that help you scale.</li>
+<li><strong>Businesses needing detailed reporting:</strong> If you want job costing, profit margins per service, and performance dashboards, Jobber's reporting on the higher-tier plans delivers real business intelligence.</li>
+</ul>
+
+<p>Jobber has been around since 2011, serves over 200,000 service professionals, and has invested heavily in building a comprehensive platform. If your business has outgrown basic tools and you need enterprise-level features, it's a legitimate option.</p>
+
+<h2>Who Should Use LawnBook</h2>
+
+<p>LawnBook was built with a specific person in mind: the solo lawn care operator or small crew owner who needs to run their business efficiently without the overhead of expensive software.</p>
+
+<ul>
+<li><strong>Solo operators:</strong> If it's just you, your mower, and your truck, LawnBook gives you everything you need to manage clients, schedule jobs, and create invoices without paying a monthly subscription. That's the core use case, and it handles it well.</li>
+<li><strong>New businesses watching their budget:</strong> When you're in your first or second season, every dollar matters. Spending $40 or more per month on software before you've built a stable client base is a tough ask. LawnBook lets you invest that money in <a href="/blog/seasonal-marketing-tips-lawn-care">marketing</a> or equipment instead.</li>
+<li><strong>Operators in areas with poor cell coverage:</strong> If your routes take you through rural properties, new developments, or any area where cell service is unreliable, LawnBook's offline functionality means your business tool actually works when you need it.</li>
+<li><strong>Privacy-conscious professionals:</strong> If you don't want your client data sitting on a third-party server, LawnBook's local-only data storage is exactly what you're looking for.</li>
+<li><strong>People who hate software complexity:</strong> If you've tried Jobber or similar platforms and felt overwhelmed by features you'll never use, LawnBook's simplicity is a breath of fresh air. No tutorials needed, no onboarding webinars, no unused tabs cluttering your screen.</li>
+<li><strong>Side hustle operators:</strong> If lawn care is your weekend business or a seasonal supplement to other income, paying for monthly software makes even less sense. LawnBook gives you professional tools at zero cost. If you're also doing cleaning work on the side, <a href="https://shinebook.app">ShineBook</a> offers a similar free, offline approach for managing cleaning business operations.</li>
+</ul>
+
+<p>There's also something to be said for the mental overhead of subscriptions. When you're paying $39 or more per month for software, there's a nagging pressure to "get your money's worth" that can push you into spending time on features you don't need. With LawnBook, you use what you need and there's no guilt about unused features because it cost you nothing.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>Jobber and LawnBook serve different businesses at different stages, and being honest about that serves you better than pretending one tool is universally superior.</p>
+
+<p><strong>Choose Jobber if:</strong> you're running a growing operation with employees, need online payment processing, want automated client communications, and the monthly cost fits comfortably within your revenue. Jobber is a mature, well-supported platform that can scale with a multi-crew business.</p>
+
+<p><strong>Choose LawnBook if:</strong> you're a solo operator or small crew, you want a free tool that works offline, you value privacy and simplicity, and you'd rather put your money into growing your business than paying for software features you won't use.</p>
+
+<p>For many lawn care professionals, the path looks something like this: start with LawnBook to keep things simple and free while you're building your client base and dialing in your <a href="/blog/pricing-lawn-care-services">pricing strategy</a>. If and when your business grows to the point where you need team management, automated communications, and integrated payments, evaluate whether a paid platform like Jobber justifies the cost at that stage.</p>
+
+<p>The worst thing you can do is sign up for expensive software before you need it, burn through subscription fees during your slow season, and add complexity to a business that thrives on simplicity. Start lean, grow intentionally, and let your tools match your current stage &mdash; not where you hope to be in three years.</p>
+
+<blockquote><p>The best business software is the one you'll actually use every day. For thousands of solo lawn care operators, that's a free app that opens instantly, works without WiFi, and stays out of your way. That's what LawnBook is built to be.</p></blockquote>
+      </div>
+
+      <div class="article-cta">
+        <h3>Run your lawn care business with LawnBook</h3>
+        <p>Track clients, schedule jobs, log expenses, and send invoices — all from one app that works offline.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="cta-btn">Download on the App Store</a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.me">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
