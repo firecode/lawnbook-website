@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawnBook vs Yardbook: Free Alternative for Solo Operators - LawnBook Blog</title>
+  <meta name="description" content="Compare LawnBook and Yardbook for lawn care businesses. See pricing, features, offline access, and which free software fits solo operators best.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" href="/images/lawnbook-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/vs-yardbook">
+
+  <meta property="og:title" content="LawnBook vs Yardbook: Free Alternative for Solo Operators">
+  <meta property="og:description" content="Compare LawnBook and Yardbook for lawn care businesses. See pricing, features, offline access, and which free software fits solo operators best.">
+  <meta property="og:url" content="https://lawnbook.app/blog/vs-yardbook">
+  <meta property="og:type" content="article">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+  <style>
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      font-size: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(138, 158, 72, 0.2);
+    }
+    .article-body table thead {
+      background: rgba(138, 158, 72, 0.15);
+    }
+    .article-body table th {
+      text-align: left;
+      padding: 14px 16px;
+      color: #EFF2E4;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(138, 158, 72, 0.25);
+    }
+    .article-body table td {
+      padding: 12px 16px;
+      color: #A8B090;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .article-body table tr:last-child td { border-bottom: none; }
+    .article-body table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .mid-cta {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      text-align: center;
+    }
+    .mid-cta p {
+      font-size: 16px !important;
+      color: #EFF2E4 !important;
+      margin-bottom: 12px !important;
+      font-weight: 600;
+    }
+    .mid-cta a {
+      display: inline-block;
+      background: #8A9E48;
+      color: #0F1208;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .mid-cta a:hover { transform: scale(1.03); }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+      <div class="article-header">
+        <span class="article-tag">Business Growth</span>
+        <h1>LawnBook vs Yardbook: Free Alternative for Solo Operators</h1>
+        <div class="article-meta">Mar 24, 2026 &middot; 8 min read</div>
+      </div>
+
+      <div class="article-body">
+        <p>If you're running a lawn care business and searching for affordable software, Yardbook and LawnBook probably keep showing up. Both promise free tools for managing your operation, but they take very different approaches to what "free" actually means. Yardbook is a web-based platform with a free tier supported by ads and paid upgrades. LawnBook is a native iOS app that's completely free, works offline, and never requires an account. Which one is right for your business? That depends on what you actually need day to day.</p>
+
+<p>This comparison breaks down the real differences &mdash; pricing, features, offline capability, and privacy &mdash; so you can make an informed decision without the marketing spin.</p>
+
+<h2>Quick Comparison</h2>
+
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>LawnBook</th>
+<th>Yardbook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Price</td>
+<td>100% free</td>
+<td>Free tier + paid plans ($19.99&ndash;$49.99/mo)</td>
+</tr>
+<tr>
+<td>Works Offline</td>
+<td>Yes &mdash; fully functional without internet</td>
+<td>No &mdash; requires internet connection</td>
+</tr>
+<tr>
+<td>Account Required</td>
+<td>No</td>
+<td>Yes &mdash; email registration required</td>
+</tr>
+<tr>
+<td>Best For</td>
+<td>Solo operators &amp; small crews</td>
+<td>Small to mid-size businesses wanting web tools</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>iOS (App Store)</td>
+<td>Web browser (desktop &amp; mobile)</td>
+</tr>
+<tr>
+<td>Key Features</td>
+<td>Client management, invoicing, scheduling, route planning</td>
+<td>CRM, invoicing, scheduling, crew management, website builder</td>
+</tr>
+<tr>
+<td>Data Privacy</td>
+<td>Data stays on your device</td>
+<td>Data stored on Yardbook servers</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Pricing</h2>
+
+<p>Yardbook deserves credit for offering a genuinely usable free tier. Unlike some competitors that lock core features behind paywalls after a trial period, Yardbook lets you manage clients, create invoices, and schedule jobs without paying anything. The catch is that the free plan displays ads and limits certain features like automated reminders, online payments, and advanced reporting. To unlock everything, you'll need one of their paid plans.</p>
+
+<p>LawnBook takes a different approach entirely: everything is free. There are no tiers, no ads, no premium upgrades, and no subscriptions. You download the app, start using it, and that's it. There's nothing to unlock later because nothing is locked in the first place.</p>
+
+<p>Here's how the costs stack up over time:</p>
+
+<table>
+<thead>
+<tr>
+<th>Cost</th>
+<th>LawnBook</th>
+<th>Yardbook (Free)</th>
+<th>Yardbook (Business)</th>
+<th>Yardbook (Premium)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monthly</td>
+<td>$0</td>
+<td>$0 (ad-supported)</td>
+<td>$19.99/mo</td>
+<td>$49.99/mo</td>
+</tr>
+<tr>
+<td>1 Year</td>
+<td>$0</td>
+<td>$0 (ad-supported)</td>
+<td>$239.88</td>
+<td>$599.88</td>
+</tr>
+<tr>
+<td>3 Years</td>
+<td>$0</td>
+<td>$0 (ad-supported)</td>
+<td>$719.64</td>
+<td>$1,799.64</td>
+</tr>
+</tbody>
+</table>
+
+<p>If you're on Yardbook's free tier and find yourself wanting features like automated payment reminders or advanced reporting, you'll eventually face that upgrade decision. With LawnBook, that conversation never happens because there's no upsell. The app you download on day one is the complete product.</p>
+
+<p><strong>Save money. Try LawnBook free today.</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; no account needed, works 100% offline.</p>
+
+<h2>Features</h2>
+
+<p>Both apps cover the core tools a lawn care business needs, but they approach feature depth differently.</p>
+
+<p><strong>Where Yardbook is strong:</strong> Yardbook has been around for years and has built a comprehensive web platform. Its CRM is solid, with detailed client records, property notes, and service history. The scheduling system supports crew assignments, which is useful if you have multiple teams. Yardbook also includes a basic website builder and the ability to accept online payments on higher-tier plans. For businesses that are growing past the solo stage and need to coordinate multiple employees, Yardbook offers tools that reflect that complexity.</p>
+
+<p><strong>Where LawnBook is strong:</strong> LawnBook focuses on what solo operators and small crews actually use every day. Client management is clean and fast &mdash; you can pull up a client's details, see their service history, and create an invoice in seconds. The scheduling view is designed for one person managing their own week, not a dispatcher coordinating crews. Route planning helps you group jobs geographically so you're not zigzagging across town. Everything is built for speed on a phone, which is where you're actually working &mdash; in the truck, at a job site, or between stops.</p>
+
+<p>One practical difference: Yardbook's invoicing on the free tier works well but includes Yardbook branding. LawnBook invoices are clean and professional with no third-party branding, because there's no incentive to push you toward a paid tier.</p>
+
+<p>If you're also managing finances across other service work, tools like <a href="https://stintly.app">Stintly</a> can help you track time and manage income across all your self-employment activities, including your lawn care business. It pairs well with LawnBook if you need a broader view of your freelance finances.</p>
+
+<p><strong>Want to try LawnBook for free?</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; no subscription required.</p>
+
+<h2>Offline &amp; Privacy</h2>
+
+<p>This is where LawnBook and Yardbook fundamentally diverge, and for many solo operators, it's the deciding factor.</p>
+
+<p>Yardbook is entirely web-based. Every action &mdash; checking your schedule, looking up a client's address, creating an invoice &mdash; requires an active internet connection. If you're in a rural area with spotty cell service, working in a neighborhood with poor reception, or simply in a dead zone at a client's property, Yardbook isn't accessible. You can pull it up on your phone's browser, but the mobile experience isn't a native app and can feel clunky compared to a purpose-built mobile tool.</p>
+
+<p>LawnBook works 100% offline. Your client list, schedule, invoices, and route plans are all stored locally on your device. You can be in the middle of nowhere with zero signal and still pull up everything you need. When you're back online, nothing needs to sync because your phone <em>is</em> the database. This isn't just a convenience feature &mdash; it's a reliability feature. Your business tools should work when you need them, not when your cell carrier decides to cooperate.</p>
+
+<p>The privacy implications are significant too. With Yardbook, your client data, service history, invoicing records, and business information live on their servers. You're trusting a third party with your entire client list. LawnBook keeps everything on your device. No server, no account, no data collection. Your client information never leaves your phone unless you choose to share it.</p>
+
+<p>For lawn care operators who are also thinking about client data in other service businesses, this same privacy-first approach is what <a href="https://shinebook.app">ShineBook</a> brings to the cleaning industry. If you know anyone running a cleaning business and looking for simple, private client management, it's worth a look.</p>
+
+<h2>Who Should Use Yardbook</h2>
+
+<p>Being honest, Yardbook is a better fit in certain situations:</p>
+
+<ul>
+<li><strong>Growing businesses with multiple crews.</strong> If you have several employees or subcontractors and need to assign jobs to different teams, Yardbook's crew management tools are built for that. LawnBook is designed for one person or a small crew, not a dispatcher managing multiple routes.</li>
+<li><strong>Businesses that want a client-facing website.</strong> Yardbook's website builder lets you create a basic online presence connected to your scheduling. If you don't have a website and want an all-in-one solution, that's a genuine advantage.</li>
+<li><strong>Operators who prefer desktop over mobile.</strong> If you do your planning and invoicing at a desk in the evening rather than on your phone between jobs, Yardbook's web interface on a full-size screen is a comfortable experience.</li>
+<li><strong>Businesses that need online payment processing.</strong> Yardbook's paid plans include integrated online payments so clients can pay invoices digitally. If getting paid online is a priority, Yardbook handles that on its higher tiers.</li>
+</ul>
+
+<p>Yardbook has built a solid platform over the years, and their free tier is genuinely generous by industry standards. For businesses that need team coordination and don't mind the web-based approach, it's a legitimate option.</p>
+
+<h2>Who Should Use LawnBook</h2>
+
+<p>LawnBook was built for a specific operator, and if this sounds like you, it's probably the better choice:</p>
+
+<ul>
+<li><strong>Solo operators and one-truck businesses.</strong> You're mowing, trimming, edging, and invoicing all by yourself or with one helper. You don't need crew dispatch software. You need something fast that works from your phone.</li>
+<li><strong>Anyone who works in areas with poor cell service.</strong> Rural properties, subdivisions with weak signal, areas near hills or heavy tree cover &mdash; if you've ever stood at a job site unable to load a webpage, LawnBook solves that problem permanently.</li>
+<li><strong>Operators who want zero recurring costs.</strong> Even Yardbook's free tier comes with ads and feature limitations that nudge you toward paying. LawnBook is free with no strings, no ads, and no upgrade pressure. You keep every dollar you earn.</li>
+<li><strong>Privacy-conscious business owners.</strong> Your client list is your business. If you're uncomfortable with a third party storing your customer data, job history, and revenue information on their servers, LawnBook keeps everything local.</li>
+<li><strong>People who hate creating accounts.</strong> Download LawnBook, open it, start working. No email verification, no password to remember, no terms of service to scroll through. It respects your time from the first tap.</li>
+</ul>
+
+<blockquote><p>If your day looks like loading the truck, driving a route, knocking out eight to twelve lawns, sending invoices, and going home &mdash; LawnBook was designed around exactly that workflow.</p></blockquote>
+
+<h2>The Bottom Line</h2>
+
+<p>Yardbook and LawnBook are both free, but they're free in different ways and built for different operators. Yardbook gives you a web-based platform with a generous free tier that works well if you're growing a team and prefer working from a desktop. It's a solid product with real strengths in crew management, online payments, and its all-in-one web approach.</p>
+
+<p>LawnBook is built for the solo operator who lives on their phone, works in the field all day, and wants software that's as reliable as their mower. It's completely free with no catches, works without internet, protects your privacy, and gets out of your way so you can focus on cutting grass and getting paid.</p>
+
+<p>The decision comes down to this: if you need to manage multiple crews and want a desktop web platform, Yardbook makes sense. If you're a solo operator or small crew who wants something free, fast, and reliable from your phone, LawnBook is the better fit.</p>
+
+<p>Neither choice is wrong. But if you're reading this comparison because you're looking for a simpler, truly free alternative to what you're currently using, LawnBook is worth a try. It takes thirty seconds to set up and costs nothing to find out if it works for you.</p>
+
+<p><strong>Ready to switch?</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; it takes 30 seconds and costs nothing.</p>
+      </div>
+
+      <div class="article-cta">
+        <h3>Run your lawn care business with LawnBook</h3>
+        <p>Track clients, schedule jobs, log expenses, and send invoices — all from one app that works offline.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="cta-btn">Download on the App Store</a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.ai">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
