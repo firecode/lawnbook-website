@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LawnBook vs Housecall Pro: Free Alternative for Solo Operators - LawnBook Blog</title>
+  <meta name="description" content="Compare LawnBook vs Housecall Pro. Free offline lawn care app vs $59-199/mo home service platform. Honest breakdown for solo operators and small crews.">
+  <meta name="theme-color" content="#0F1208">
+  <link rel="icon" href="/images/lawnbook-icon.png">
+  <link rel="canonical" href="https://lawnbook.app/blog/vs-housecall-pro">
+
+  <meta property="og:title" content="LawnBook vs Housecall Pro: Free Alternative for Solo Operators">
+  <meta property="og:description" content="Compare LawnBook vs Housecall Pro. Free offline lawn care app vs $59-199/mo home service platform. Honest breakdown for solo operators and small crews.">
+  <meta property="og:url" content="https://lawnbook.app/blog/vs-housecall-pro">
+  <meta property="og:type" content="article">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+      background: #0F1208;
+      color: #EFF2E4;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .blob-1 { top: -100px; left: -80px; width: 400px; height: 400px; background: #6B7F30; opacity: 0.2; }
+    .blob-2 { bottom: 200px; right: -100px; width: 350px; height: 350px; background: #8A9E48; opacity: 0.1; }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    nav {
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      text-decoration: none;
+    }
+    .logo span { color: #8A9E48; }
+    .nav-links { display: flex; gap: 20px; }
+    nav a.nav-link {
+      font-size: 14px;
+      color: #8B9A6B;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    nav a.nav-link:hover { color: #EFF2E4; }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #EFF2E4;
+      margin: 5px 0;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #8B9A6B;
+      text-decoration: none;
+      margin: 32px 0 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #EFF2E4; }
+    .back-link::before { content: "\2190"; font-size: 16px; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      background: rgba(138, 158, 72, 0.12);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 100px;
+      padding: 4px 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .article-wrap h1 {
+      font-size: clamp(28px, 4.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      color: #EFF2E4;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #3D4A2D;
+      font-weight: 600;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .article-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #3D4A2D;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      line-height: 1.75;
+      color: #BDC581;
+      margin-bottom: 24px;
+    }
+    .article-body p strong { color: #EFF2E4; font-weight: 700; }
+
+    .article-body h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #EFF2E4;
+      margin-top: 48px;
+      margin-bottom: 16px;
+      line-height: 1.25;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tip-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(138, 158, 72, 0.15);
+      border: 1px solid rgba(138, 158, 72, 0.3);
+      color: #8A9E48;
+      font-size: 15px;
+      font-weight: 800;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .article-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EFF2E4;
+      margin-top: 32px;
+      margin-bottom: 12px;
+    }
+
+    .article-body ul, .article-body ol {
+      padding-left: 0;
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .article-body ul li, .article-body ol li {
+      font-size: 16px;
+      color: #8B9A6B;
+      line-height: 1.7;
+      padding: 8px 0 8px 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+    }
+    .article-body ul li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 700;
+    }
+    .article-body ol { counter-reset: item; }
+    .article-body ol li { counter-increment: item; }
+    .article-body ol li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      color: #8A9E48;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    blockquote {
+      background: rgba(138, 158, 72, 0.06);
+      border-left: 3px solid #8A9E48;
+      border-radius: 0 8px 8px 0;
+      padding: 20px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-size: 16px !important;
+      color: #BDC581 !important;
+      font-style: italic;
+      margin-bottom: 0 !important;
+    }
+    blockquote strong { color: #EFF2E4 !important; font-style: normal; }
+
+    .tip-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-left: 3px solid rgba(138, 158, 72, 0.4);
+    }
+    .tip-card .tip-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8A9E48;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p {
+      font-size: 15px !important;
+      color: #8B9A6B !important;
+      line-height: 1.65 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .cta-box {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      text-align: center;
+      margin: 56px 0 64px;
+    }
+    .cta-box h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: #EFF2E4;
+    }
+    .cta-box p {
+      font-size: 15px;
+      color: #8B9A6B;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .cta-box a { display: inline-block; transition: transform 0.15s; }
+    .cta-box a:hover { transform: scale(1.03); }
+    .cta-box img { height: 50px; width: auto; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 32px 0;
+      text-align: center;
+    }
+    footer p { font-size: 13px; color: #3D4A2D; }
+    footer a { color: #8B9A6B; text-decoration: none; }
+    footer a:hover { color: #EFF2E4; }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { font-size: 14px; font-weight: 600; }
+    .social-links { display: flex; gap: 16px; list-style: none; margin-top: 16px; justify-content: center; }
+    .social-links a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); color: #8B9A6B; transition: border-color 0.2s, color 0.2s; }
+    .social-links a:hover { border-color: #8A9E48; color: #EFF2E4; }
+    .social-links svg { width: 18px; height: 18px; fill: currentColor; }
+
+    @media (max-width: 768px) {
+      .article-wrap { max-width: 100%; }
+      .nav-toggle { display: block; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: #0F1208;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 100;
+      }
+      .nav-links.open { display: flex; }
+      nav { position: relative; }
+      .cta-box { padding: 28px 20px; }
+      .article-body h2 { font-size: 20px; }
+    }
+  </style>
+  <style>
+    .article-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0 32px;
+      font-size: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(138, 158, 72, 0.2);
+    }
+    .article-body table thead {
+      background: rgba(138, 158, 72, 0.15);
+    }
+    .article-body table th {
+      text-align: left;
+      padding: 14px 16px;
+      color: #EFF2E4;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(138, 158, 72, 0.25);
+    }
+    .article-body table td {
+      padding: 12px 16px;
+      color: #A8B090;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .article-body table tr:last-child td { border-bottom: none; }
+    .article-body table td:first-child {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .mid-cta {
+      background: rgba(138, 158, 72, 0.08);
+      border: 1px solid rgba(138, 158, 72, 0.2);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+      text-align: center;
+    }
+    .mid-cta p {
+      font-size: 16px !important;
+      color: #EFF2E4 !important;
+      margin-bottom: 12px !important;
+      font-weight: 600;
+    }
+    .mid-cta a {
+      display: inline-block;
+      background: #8A9E48;
+      color: #0F1208;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.15s;
+    }
+    .mid-cta a:hover { transform: scale(1.03); }
+  </style>
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="container">
+    <nav>
+      <a href="/" class="logo">Lawn<span>Book</span>™</a>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="/privacy" class="nav-link">Privacy</a>
+        <a href="/terms" class="nav-link">Terms</a>
+        <a href="/support" class="nav-link">Support</a>
+        <a href="/blog" class="nav-link">Blog</a>
+        <a href="/guide" class="nav-link">Guide</a>
+      </div>
+    </nav>
+
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+
+    <article>
+      <div class="article-header">
+        <span class="article-tag">Business Growth</span>
+        <h1>LawnBook vs Housecall Pro: Free Alternative for Solo Operators</h1>
+        <div class="article-meta">Mar 31, 2026 &middot; 8 min read</div>
+      </div>
+
+      <div class="article-body">
+        <p>If you run a lawn care business and you're shopping for software, you've probably run into Housecall Pro. It's one of the biggest names in home services, and for good reason &mdash; it's a capable, mature platform used by thousands of contractors. But it's also expensive, complex, and built with multi-technician operations in mind. If you're a solo operator or a two-person crew, you might be wondering if you really need all of that &mdash; or if there's a simpler, cheaper option that just works.</p>
+
+<p>LawnBook is that simpler option. It's free, runs entirely on your phone, works without internet, and doesn't require an account. This post compares both apps honestly so you can decide which one fits your business.</p>
+
+<h2>Quick Comparison</h2>
+
+<table>
+<thead>
+<tr><th>Feature</th><th>LawnBook</th><th>Housecall Pro</th></tr>
+</thead>
+<tbody>
+<tr><td>Price</td><td>Free forever</td><td>$59-199/month</td></tr>
+<tr><td>Works Offline</td><td>Yes, 100% offline</td><td>No, requires internet</td></tr>
+<tr><td>Account Required</td><td>No</td><td>Yes</td></tr>
+<tr><td>Best For</td><td>Solo operators, small crews</td><td>Multi-tech teams, larger operations</td></tr>
+<tr><td>Platform</td><td>iOS (iPhone &amp; iPad)</td><td>iOS, Android, Web</td></tr>
+<tr><td>Key Features</td><td>Clients, jobs, invoicing, scheduling</td><td>Dispatch, CRM, marketing, payments, reporting</td></tr>
+<tr><td>Data Privacy</td><td>Stored locally on your device</td><td>Stored in the cloud</td></tr>
+</tbody>
+</table>
+
+<h2>Pricing</h2>
+
+<p>This is where the two apps diverge sharply. Housecall Pro uses tiered subscription pricing: the Basic plan starts at $59/month for one user, the Essentials plan runs around $129/month, and the MAX plan climbs to $199/month or more depending on add-ons. Payment processing, marketing tools, and advanced reporting often come as additional costs. For a growing 5-person crew, it's not unusual to spend $2,000-$3,000 per year on Housecall Pro once you factor in upgrades.</p>
+
+<p>LawnBook is free. There's no trial, no freemium upsell, no "pro" tier hidden behind a paywall. Download it, open it, and start adding clients. You pay nothing, ever.</p>
+
+<table>
+<thead>
+<tr><th>Timeframe</th><th>LawnBook</th><th>Housecall Pro (Basic)</th><th>Housecall Pro (Essentials)</th></tr>
+</thead>
+<tbody>
+<tr><td>1 Month</td><td>$0</td><td>$59</td><td>$129</td></tr>
+<tr><td>1 Year</td><td>$0</td><td>$708</td><td>$1,548</td></tr>
+<tr><td>3 Years</td><td>$0</td><td>$2,124</td><td>$4,644</td></tr>
+</tbody>
+</table>
+
+<p><strong>Save money. Try LawnBook free today.</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; no account needed, works 100% offline.</p>
+
+<h2>Features</h2>
+
+<p>Housecall Pro is a feature-rich platform. It includes dispatching with drag-and-drop scheduling, a full CRM, automated marketing campaigns (email and postcard), online booking widgets, customer review requests, QuickBooks integration, GPS tracking for technicians, estimates with good/better/best pricing, and integrated payment processing through Stripe. It's a mature product with years of refinement, and for a multi-technician operation that needs to coordinate dispatchers and field crews, it delivers real value.</p>
+
+<p>LawnBook takes a different approach. It focuses on the core operations a solo lawn care pro actually uses every day: adding clients and properties, scheduling recurring mows, tracking completed jobs, generating invoices, and managing a simple route for the day. It doesn't try to be a marketing automation platform or a dispatch system because solo operators don't need those things. You're the dispatcher, you're the crew, and you already know your route.</p>
+
+<p>If you run a cleaning business instead of lawn care, we also make <a href="https://shinebook.app">ShineBook</a> for residential and commercial cleaning operations. And if you're a freelancer or solo contractor tracking time and finances across multiple clients, <a href="https://stintly.app">Stintly</a> handles time tracking, invoicing, and self-employment bookkeeping. All three apps share the same philosophy: free, offline, no account.</p>
+
+<p><strong>Want to try LawnBook for free?</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; no subscription required.</p>
+
+<h2>Offline &amp; Privacy</h2>
+
+<p>Here's where LawnBook has a genuine structural advantage. Lawn care happens outdoors, often in rural properties, new subdivisions, or areas with spotty cell coverage. Housecall Pro is a cloud app &mdash; it needs a live internet connection to function fully. If you're at a property with no signal, you can't pull up the client's notes, log a completed job, or take payment in the moment. You end up writing things on paper and syncing later, which defeats the purpose of having the software in the first place.</p>
+
+<p>LawnBook stores everything locally on your device. Every client record, every job history, every invoice lives in your phone. You can open the app on a mountainside, in a basement, on a plane &mdash; it doesn't matter. Everything works.</p>
+
+<p>The privacy implications matter too. With Housecall Pro, your entire customer list, your pricing, your schedule, and your financial records sit on their servers. That's not inherently bad, but it is a tradeoff. With LawnBook, your data never leaves your device unless you choose to export it. You own it completely.</p>
+
+<h2>Who Should Use Housecall Pro</h2>
+
+<p>Housecall Pro is genuinely the right choice for certain businesses. If you run a multi-technician operation with 3+ field crews, you need dispatching, and Housecall Pro's scheduling board is excellent. If you want automated marketing &mdash; postcards, email campaigns, review requests &mdash; that's a real capability it delivers. If you need integrated payment processing with financing options for big-ticket jobs like installations or landscape overhauls, that's built in. And if you have an office admin who lives in a desktop dashboard coordinating the field team, the web app is well-designed for that workflow.</p>
+
+<p>Lawn care companies doing $500K+ in annual revenue with multiple trucks and employees typically benefit from this kind of platform. The $129-199/month becomes justified when you're saving 10+ hours a week of coordination time and converting more leads through automated follow-up.</p>
+
+<h2>Who Should Use LawnBook</h2>
+
+<p>LawnBook is built for the solo operator or two-person crew. If you personally do most of the mowing, if you schedule your own week, if your "office" is your truck, LawnBook is designed for how you actually work. You don't need dispatching because you dispatch yourself. You don't need marketing automation because most of your new clients come from referrals and yard signs. You don't need a web dashboard because you're never at a desk.</p>
+
+<p>You need to know which lawns to hit today, what you charged last time, whose gate code changed, and how to send a clean invoice when you're done. That's what LawnBook does, and it does it without charging you anything and without needing cell service.</p>
+
+<p>If you're just starting out, LawnBook is especially compelling. New lawn care businesses often can't justify $60-130/month in software costs on top of insurance, fuel, equipment payments, and marketing. Starting with a free tool that handles 90% of what you need lets you grow without that fixed cost drag.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>Housecall Pro is a good product. It's not a scam, it's not overpriced for what it delivers to the right customer &mdash; it's simply built for a different kind of business than most solo lawn care operators run. If you have a team, an office, and complex workflows, look at Housecall Pro seriously.</p>
+
+<p>If you're a solo pro, a husband-and-wife operation, or a small crew that just needs to keep track of clients, jobs, and invoices without paying $1,500+ a year for features you'll never use, LawnBook is the honest answer. Free, offline, private, simple. That's the whole pitch, and for most lawn care businesses under about $250K in revenue, it's the better fit.</p>
+
+<p><strong>Ready to switch?</strong> <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051">Download on the App Store</a> &mdash; it takes 30 seconds and costs nothing.</p>
+      </div>
+
+      <div class="article-cta">
+        <h3>Run your lawn care business with LawnBook</h3>
+        <p>Track clients, schedule jobs, log expenses, and send invoices — all from one app that works offline.</p>
+        <a href="https://apps.apple.com/us/app/lawnbook-lawn-care-business/id6759881051" class="cta-btn">Download on the App Store</a>
+      </div>
+    </article>
+
+    <footer>
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="/blog">Blog</a>
+        <a href="/guide">Guide</a>
+      </div>
+      <ul class="social-links">
+        <li><a href="https://www.tiktok.com/@srisanlabs" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52V6.84a4.83 4.83 0 0 1-1-.15z"/></svg></a></li>
+        <li><a href="https://www.instagram.com/srisanlabs" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></li>
+        <li><a href="https://www.facebook.com/srisanlabs" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 6.02 4.39 11.02 10.13 11.93v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.26h3.33l-.53 3.49h-2.8v8.44C19.61 23.09 24 18.09 24 12.07z"/></svg></a></li>
+      </ul>
+      <p>&copy; 2026 <a href="https://srisan.ai">Srisan Labs</a>. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
